@@ -1,14 +1,68 @@
 import React from "react";
-import "../components/Producto"
+import "../components/Producto";
 import Producto from "../components/Producto";
-const Productos = () => {
-    const productos = [
-    ]
 
-    return (
-        <Producto marca={"yoquece"} imagen={"../assets/prueba1.webp"} precio={"1000"} referencia={"001"} />
-    )
-}
-    
+const Productos = () => {
+  const agregarCarrito = (producto) => {
+    let productosEnCarrito = [];
+    productosEnCarrito.push(localStorage.getItem("productosEnCarrito"));
+    if (productosEnCarrito == null) {
+      productosEnCarrito.push(producto);
+      localStorage.setItem(productosEnCarrito);
+    } else {
+      productosEnCarrito = [];
+      productosEnCarrito.push(producto);
+      localStorage.setItem("productosEnCarrito", productosEnCarrito);
+    }
+    console.log("shi");
+  };
+  const productos = [
+    //lista de diccionarios [{}]
+    //esto se hace para poder guardar mas cositas, es un diccionario de datos es como un json xD
+    {
+      marca: "Comida para perros",
+      pathImg: "https://static.vecteezy.com/system/resources/previews/004/830/317/non_2x/food-for-dog-in-bag-isolated-icon-free-vector.jpg",
+      precio: "1000",
+      referencia: "001",
+      agregarCarrito: "true",
+    },
+    {
+      marca: "Cepillo para perros",
+      pathImg: "https://img.freepik.com/vector-premium/peine-perros-gatos-estilo-plano-dibujos-animados-equipo-aseo-cuidado-capa-mascotas-ilustracion-vectorial_384065-520.jpg",
+      precio: "2000",
+      referencia: "002",
+    },
+    {
+      marca: "yosise",
+      imagen: "../assets/comida.png",
+      precio: "2000",
+      referencia: "002",
+    },
+  ];
+  return (
+    <>
+      {/* <Producto
+        marca={item.marca}
+        imagen={item.pathImg}
+        precio={item.precio}
+        referencia={item.referencia}
+      /> */}
+      {productos &&
+        productos.map((producto) => {
+          //el mapeo permite modificar objetos
+          //Se revisa que productos no sea undefined para que no explote, si no es undefined hace lo de la derecha, el mapeo
+          return (
+            <Producto
+              marca={producto.marca}
+              imagen={producto.pathImg}
+              precio={producto.precio}
+              referencia={producto.referencia}
+              onAgregarAlCarrito={agregarCarrito}
+            />
+          );
+        })}
+    </>
+  );
+};
 
 export default Productos;

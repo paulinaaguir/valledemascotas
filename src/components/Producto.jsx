@@ -1,18 +1,52 @@
-import React from 'react';
-import "../styles/Producto.css"
-const Producto = ({ imagen, precio, referencia, marca }) => {
-    return (
-        <div className="producto">
-            <div className="imagen-producto">
-                <img src={imagen} alt={marca} />
-            </div>
-            <div className="informacion-producto">
-                <p className="marca">{marca}</p>
-                <p className="referencia">{referencia}</p>
-                <p className="precio">${precio}</p>
-            </div>
+import React from "react";
+import "../styles/Producto.css";
+import { Button } from "./Button";
+import { useState } from "react";
+const Producto = ({imagen, precio, referencia, marca,onAgregarAlCarrito}) => {
+    let producto = {imagen : imagen, precio : precio, referencia :  referencia , marca : marca}
+    let stock = 100;
+  const [mostrarBoton, setMostrarBoton] = useState(true);
+  const [cantidad, setCantidad] = useState(0);
+
+  const handleClickAgregarAlCarrito = (stock) => {
+    onAgregarAlCarrito(producto);
+    setMostrarBoton(false); // Oculta el botón después de hacer clic
+  };
+  const handleRestarCantidad = () => {
+    if (cantidad > 0) {
+      setCantidad(cantidad - 1);
+    }
+  };
+
+  const handleSumarCantidad = () => {
+    if (cantidad < stock) {
+      setCantidad(cantidad + 1);
+    }
+  };
+  return (
+    <div className="producto">
+      <div className="imagen-producto">
+        <img src={imagen} alt={marca} />
+      </div>
+      <div className="informacion-producto">
+        <p className="marca">{marca}</p>
+        <p className="referencia">{referencia}</p>
+        <p className="precio">${precio}</p>
+      </div>
+       {mostrarBoton && (
+        <div>
+          <div className="cantidad-botones">
+            <Button label="-" fn={handleRestarCantidad} />
+            <p className="cantidad">{cantidad}</p>
+            <Button label="+" fn={handleSumarCantidad} />
+          </div>
+          <br />
+          <Button label="Agregar" fn={handleClickAgregarAlCarrito} />
         </div>
-    );
+      )}
+      
+    </div>
+  );
 };
 
 export default Producto;
