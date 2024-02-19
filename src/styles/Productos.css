@@ -1,0 +1,19 @@
+.div-principal {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-around
+}
+.div-hijo {
+  text-align: center;
+
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: transparent;
+}
+@media (max-width: 768px) {
+  .div-principal {
+    flex-direction: column;
+  }
+}

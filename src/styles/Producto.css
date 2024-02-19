@@ -6,10 +6,19 @@
   padding: 10px;
   width: 250px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: block;
+  flex-direction: column;
+  align-items: center;
+  display: inline-block;
 
   @media (max-width: 768px) {
     width: 100%;
   }
+}
+.productos-fila {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .imagen-producto {
@@ -34,17 +43,14 @@
 .precio {
   color: black;
 }
-.producto {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
 .cantidad-botones {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .cantidad {
   margin: 0 10px;
+  color: black;
 }
