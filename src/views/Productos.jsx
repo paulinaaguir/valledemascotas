@@ -5,6 +5,7 @@ import "../styles/Productos.css"
 
 const Productos = () => {
   const agregarCarrito = (producto) => {
+    console.log(producto)
     let productosEnCarrito = [];
     productosEnCarrito.push(localStorage.getItem("productosEnCarrito"));
     if (productosEnCarrito == null) {
