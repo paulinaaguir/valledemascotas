@@ -15,5 +15,10 @@
 @media (max-width: 768px) {
   .div-principal {
     flex-direction: column;
+    width: 300px;
+    margin-left: 8%;
   }
-}
+  
+  }
+ 
+    

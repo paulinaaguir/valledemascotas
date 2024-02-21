@@ -81,4 +81,93 @@ body {
   
    
   }
-  
+  body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+}
+
+header {
+    background-color: #222;
+    color: #fff;
+    padding: 10px;
+}
+
+header a {
+    text-decoration: none;
+    color: #fff;
+}
+
+header .logo {
+    width: 200px;
+}
+
+header .buscador {
+    float: right;
+    margin-right: 10px;
+}
+
+header .buscador input {
+    width: 200px;
+    padding: 5px;
+    border: 1px solid #ccc;
+}
+
+header .buscador button {
+    background-color: #000;
+    color: #fff;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+}
+
+header .usuario {
+    float: right;
+    margin-right: 10px;
+}
+
+header .usuario a {
+    margin-right: 10px;
+}
+
+.banner {
+    background-color: #ccc;
+    padding: 20px;
+    text-align: center;
+}
+
+.banner h1 {
+    margin-top: 0;
+}
+
+.banner img {
+    width: 100%;
+}
+
+.productos {
+    padding: 20px;
+}
+
+.productos h2 {
+    margin-top: 0;
+}
+
+.productos ul {
+    list-style: none;
+    padding: 0;
+}
+
+.productos ul li {
+    display: inline-block;
+    margin: 10px;
+    width: 200px;
+}
+
+.productos ul li a {
+    text-decoration: none;
+    color: #000;
+}
+
+.productos ul li img {
+    width: 100%;
+}

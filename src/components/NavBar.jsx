@@ -7,19 +7,20 @@ const NavBar = () => {
         setEstadoCarrito(true);
     }
     const closeClick = () => {
-        console.log("hola")
         setEstadoCarrito(false);
     }
     
     return (
         <>
             <div id="navbar">
+            <h3>valle de mascotas</h3>
                 <nav>
                     <a href="/home">Home</a>
                     <a href="/productos">Productos</a>
-                    <a onClick={handleClick} >Carrito de Compras</a>
-                    <a href="#">Contacto</a>
-                    <a href="#">Catálogo de Productos</a>
+                    
+                    <a href="/borrar">Contacto</a>
+                    {/* <a href="#">Catálogo de Productos</a> */}
+                    <a onClick={handleClick} ><img id="imgNav" src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" /></a>
                 </nav>
             </div>
             {estadoCarrito!==false && <ModalForm CerrarModal={closeClick} titulo={"Carrito de compras"}/>}

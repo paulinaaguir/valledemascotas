@@ -11,7 +11,7 @@ export const ModalForm = ({datos, titulo, CerrarModal}) => {
         MySwal.fire({
           title: titulo,
           html : <Carrito/>,
-          width:'70%',
+          width:'auto',
           showConfirmButton:false,
 		  allowOutsideClick:true,
           timer:0

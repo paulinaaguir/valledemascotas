@@ -2,12 +2,23 @@ import React from "react";
 import "../styles/Producto.css";
 import { Button } from "./Button";
 import { useState } from "react";
-const Producto = ({ imagen, precio, referencia, marca, onAgregarAlCarrito }) => {
-  let producto = { imagen: imagen, precio: precio, referencia: referencia, marca: marca }
+const Producto = ({imagen, precio, referencia, marca, onAgregarAlCarrito,
+}) => {
+  let productosEnCarrito = localStorage.getItem("productosEnCarrito");
+  const [cantidad, setCantidad] = useState(0);
+  let producto = {
+    imagen: imagen,
+    precio: precio,
+    referencia: referencia,
+    marca: marca,
+    cantidad: cantidad,
+  };
   let stock = 100;
   const [mostrarBoton, setMostrarBoton] = useState(true);
-  const [cantidad, setCantidad] = useState(0);
-
+  if (productosEnCarrito && productosEnCarrito.trim() !== "") {
+      productosEnCarrito = JSON.parse(productosEnCarrito);
+       
+  }
   const handleClickAgregarAlCarrito = (stock) => {
     onAgregarAlCarrito(producto);
     setMostrarBoton(false); // Oculta el botón después de hacer clic
@@ -18,11 +29,11 @@ const Producto = ({ imagen, precio, referencia, marca, onAgregarAlCarrito }) => 
     }
   };
 
-  const handleSumarCantidad = () => {
-    if (cantidad < stock) {
-      setCantidad(cantidad + 1);
-    }
-  };
+  // const handleSumarCantidad = () => {
+  //   if (cantidad < stock) {
+  //     setCantidad(cantidad + 1);
+  //   }
+  // };
   return (
     <section class="productos-fila">
       <div className="producto">
@@ -30,7 +41,7 @@ const Producto = ({ imagen, precio, referencia, marca, onAgregarAlCarrito }) => 
           <img src={imagen} alt={marca} />
         </div>
         <div className="informacion-producto">
-          <p className="marca">{marca}</p>
+          <p className="marca">{marca}</p>  
           <p className="referencia">{referencia}</p>
           <p className="precio">${precio}</p>
         </div>
@@ -39,16 +50,21 @@ const Producto = ({ imagen, precio, referencia, marca, onAgregarAlCarrito }) => 
             <div className="cantidad-botones">
               <Button label="-" fn={handleRestarCantidad} />
               <p className="cantidad">{cantidad}</p>
-              <Button label="+" fn={handleSumarCantidad} />
+              <Button
+                label="+"
+                fn={() => {
+                  if (cantidad < stock) {
+                    setCantidad(cantidad + 1);
+                  }
+                }}
+              />
             </div>
             <br />
             <Button label="Agregar" fn={handleClickAgregarAlCarrito} />
           </div>
         )}
-
       </div>
-
-    </section >
+    </section>
   );
 };
 

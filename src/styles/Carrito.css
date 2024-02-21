@@ -1,0 +1,27 @@
+/* Agrega estilos CSS a tu archivo Carrito.css */
+img{
+  width: 50%;
+}
+.contenedor {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Opcional: ajusta según tus necesidades */
+    background-color: yellow; /* Color de fondo del contenedor */
+    border-radius: 5px;
+  }
+  
+  
+  
+  /* Agrega estos estilos si quieres que se ajuste en pantallas más pequeñas */
+  @media (max-width: 768px) {
+    .producto-carro {
+      width: 45%; /* Ajusta el ancho según tus necesidades */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .producto-carro {
+      width: 100%; /* Ajusta el ancho según tus necesidades */
+    }
+  }
+  
