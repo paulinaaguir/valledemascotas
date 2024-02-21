@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/Carrito.css";
 import ProductoCarro from "../components/ProductoCarro";
-import {Button} from "../components/Button"
+import { Button } from "../components/Button"
+
 const Carrito = () => {
+  const [actualizarCarro, setActualizarCarro] = useState(false)
+  useEffect(() => {
+    if (actualizarCarro == true) {
+      setActualizarCarro(false);  
+    }
+  }, [actualizarCarro]);
   // localStorage.removeItem() para elimiar el item del local jaja que belleza
-
   let carrito = localStorage.getItem("productosEnCarrito");
-
   if (carrito && carrito.trim() !== "") {
-    let carrito = localStorage.getItem("productosEnCarrito");
+
 
     if (carrito && carrito.trim() !== "") {
       carrito = JSON.parse(carrito);
@@ -23,21 +28,19 @@ const Carrito = () => {
               <div className="contenedor-flex ">
                 {carrito &&
                   carrito.map((producto) => {
-                    //el mapeo permite modificar objetos
-                    //Se revisa que productos no sea undefined para que no explote, si no es undefined hace lo de la derecha, el mapeo
-                    //variable de desicion jaja
                     return (
                       <ProductoCarro
                         marca={producto.marca}
-                        imagen={"https://img.freepik.com/vector-premium/peine-perros-gatos-estilo-plano-dibujos-animados-equipo-aseo-cuidado-capa-mascotas-ilustracion-vectorial_384065-520.jpg"}
+                        imagen={producto.imagen}
                         precio={producto.precio}
                         referencia={producto.referencia}
+                        fn={(actualizarCarro) => { setActualizarCarro(!actualizarCarro) }}
                       />
                     );
                   })}
-                  <Button label={"Ayuda"} fn={""}></Button>
+                <Button label="Pagar"  ></Button>
               </div>
-              
+
             </div>
           </>
         );

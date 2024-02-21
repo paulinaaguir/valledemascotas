@@ -2,28 +2,46 @@ import React, { useEffect } from "react";
 import "../components/Producto";
 import Producto from "../components/Producto";
 import "../styles/Productos.css";
+import imgContainer from "../assets/comidaPerro.jpg"
+import imgContainer1 from "../assets/peinePerro.jpg"
+import imgContainer2 from "../assets/juguetePerro.jpg"
+import imgContainer3 from "../assets/comidaGato.png"
+import imgContainer4 from "../assets/peineGato.jpg"
+import imgContainer5 from "../assets/jugueteGato.jpg"
 
+let state = false
+//import imgContainer3 from "../assets/cepilloGato.png"
 const Productos = () => {
-
   const agregarCarrito = (producto) => {
-    try {
-      // Obtener productos del localStorage
-      let productosEnCarrito = obtenerProductosEnCarrito();
+    if (!state) {
+      let bool = false
+      try {
+        // Obtener productos del localStorage
+        let productosEnCarrito = obtenerProductosEnCarrito();
+        productosEnCarrito.map((item) => {
+          if (item.referencia == producto.referencia) {
+            bool = true;
+          }
+        })
+        if (!bool) {
+          // Agregar el nuevo producto al array
+          productosEnCarrito.push(producto);
+        }
 
-      // Agregar el nuevo producto al array
-      productosEnCarrito.push(producto);
 
-      // Guardar el array actualizado en localStorage
-      localStorage.setItem(
-        "productosEnCarrito",
-        JSON.stringify(productosEnCarrito)
-      );
+        // Guardar el array actualizado en localStorage
+        localStorage.setItem(
+          "productosEnCarrito",
+          JSON.stringify(productosEnCarrito)
+        );
 
-      console.log("Producto agregado al carrito");
-    } catch (error) {
-      console.error("Error al agregar producto al carrito:", error);
-    }
-  };
+        console.log("Producto agregado al carrito");
+      } catch (error) {
+        console.error("Error al agregar producto al carrito:", error);
+      }
+    };
+
+  }
 
   const obtenerProductosEnCarrito = () => {
     // Obtener productos del localStorage
@@ -53,22 +71,20 @@ const Productos = () => {
     //lista de diccionarios [{}]
     //esto se hace para poder guardar mas cositas, es un diccionario de datos es como un json xD
     {
-      marca: "Comida para perros",
-      pathImg:
-        "https://static.vecteezy.com/system/resources/previews/004/830/317/non_2x/food-for-dog-in-bag-isolated-icon-free-vector.jpg",
+      marca: "Comida para Perro",
+      pathImg: imgContainer,
       precio: "1000",
       referencia: "01",
     },
     {
-      marca: "Cepillo para perros",
-      pathImg:
-        "https://img.freepik.com/vector-premium/peine-perros-gatos-estilo-plano-dibujos-animados-equipo-aseo-cuidado-capa-mascotas-ilustracion-vectorial_384065-520.jpg",
+      marca: "Cepillo para Perro",
+      pathImg: imgContainer1,
       precio: "2000",
       referencia: "02",
     },
     {
-      marca: "yosise",
-      imagen: "../assets/comida.png",
+      marca: "Juguete para Perro",
+      pathImg: imgContainer2,
       precio: "2000",
       referencia: "03",
     },
@@ -77,22 +93,20 @@ const Productos = () => {
     //lista de diccionarios [{}]
     //esto se hace para poder guardar mas cositas, es un diccionario de datos es como un json xD
     {
-      marca: "Comida para perros",
-      pathImg:
-        "https://static.vecteezy.com/system/resources/previews/004/830/317/non_2x/food-for-dog-in-bag-isolated-icon-free-vector.jpg",
+      marca: "Comida para Gato",
+      pathImg: imgContainer3,
       precio: "1000",
       referencia: "04",
     },
     {
-      marca: "Cepillo para perros",
-      pathImg:
-        "https://img.freepik.com/vector-premium/peine-perros-gatos-estilo-plano-dibujos-animados-equipo-aseo-cuidado-capa-mascotas-ilustracion-vectorial_384065-520.jpg",
+      marca: "Cepillo para Gato",
+      pathImg: imgContainer4,
       precio: "2000",
       referencia: "05",
     },
     {
-      marca: "yosise",
-      imagen: "../assets/comida.png",
+      marca: "Juguete para Gato",
+      pathImg: imgContainer5,
       precio: "2000",
       referencia: "06",
     },

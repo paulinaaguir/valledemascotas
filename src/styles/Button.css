@@ -12,6 +12,9 @@
     background-color: #ffffff;
     transition: background-color 0.3s, color 0.3s;
   }
+  .botonImg{
+    width: 20px;
+  }
   
   /* Efecto al pasar el ratón sobre el botón */
   .btn-responsive:hover {

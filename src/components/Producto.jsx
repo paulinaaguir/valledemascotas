@@ -21,7 +21,7 @@ const Producto = ({imagen, precio, referencia, marca, onAgregarAlCarrito,
   }
   const handleClickAgregarAlCarrito = (stock) => {
     onAgregarAlCarrito(producto);
-    setMostrarBoton(false); // Oculta el botón después de hacer clic
+    setMostrarBoton(false); // Oculta el botón después de hacer click
   };
   const handleRestarCantidad = () => {
     if (cantidad > 0) {
@@ -29,16 +29,11 @@ const Producto = ({imagen, precio, referencia, marca, onAgregarAlCarrito,
     }
   };
 
-  // const handleSumarCantidad = () => {
-  //   if (cantidad < stock) {
-  //     setCantidad(cantidad + 1);
-  //   }
-  // };
   return (
     <section class="productos-fila">
       <div className="producto">
         <div className="imagen-producto">
-          <img src={imagen} alt={marca} />
+          <img src={imagen} alt={marca} style={{width:"16vh", height: "16vh"}}/>
         </div>
         <div className="informacion-producto">
           <p className="marca">{marca}</p>  
