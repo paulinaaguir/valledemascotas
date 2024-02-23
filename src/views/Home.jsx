@@ -1,11 +1,16 @@
 import React from "react";
 import "../styles/Home.css"
 const Home = () => {
+    const Home = () =>{
+    }
     return (
         <>
+        <div className="homeContainer"></div>
+        <br />
+        <h1>Valle de Mascotas</h1>
         <br />
         <img src="https://img.freepik.com/fotos-premium/banner-gran-grupo-perros-juntos-fila-sobre-fondo-naranja_191971-28737.jpg" alt="Valle de Mascotas" class="banner"></img>
-            <h1>Valle de Mascotas</h1>
+           
             <p>Tu aliado para el bienestar de tu peludito</p>
             <section id="blog">
                 <h2>Blog</h2>

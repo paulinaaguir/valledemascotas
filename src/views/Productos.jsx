@@ -2,20 +2,23 @@ import React, { useEffect } from "react";
 import "../components/Producto";
 import Producto from "../components/Producto";
 import "../styles/Productos.css";
-import imgContainer from "../assets/comidaPerro.jpg"
+import imgContainer from "../assets/jugueteGato.jpg"
 import imgContainer1 from "../assets/peinePerro.jpg"
 import imgContainer2 from "../assets/juguetePerro.jpg"
 import imgContainer3 from "../assets/comidaGato.png"
 import imgContainer4 from "../assets/peineGato.jpg"
 import imgContainer5 from "../assets/jugueteGato.jpg"
+import imgContainer6 from "../assets/comidaPeces.jpg"
+import imgContainer7 from "../assets/cepilloPeces.jpg"
+import imgContainer8 from "../assets/juguetePeces.jpg"
 
-let state = false
+let state = false 
 //import imgContainer3 from "../assets/cepilloGato.png"
 const Productos = () => {
   const agregarCarrito = (producto) => {
     if (!state) {
       let bool = false
-      try {
+      try { 
         // Obtener productos del localStorage
         let productosEnCarrito = obtenerProductosEnCarrito();
         productosEnCarrito.map((item) => {
@@ -115,22 +118,20 @@ const Productos = () => {
     //lista de diccionarios [{}]
     //esto se hace para poder guardar mas cositas, es un diccionario de datos es como un json xD
     {
-      marca: "Comida para perros",
-      pathImg:
-        "https://static.vecteezy.com/system/resources/previews/004/830/317/non_2x/food-for-dog-in-bag-isolated-icon-free-vector.jpg",
+      marca: "Comida para Peces",
+      pathImg: imgContainer6,
       precio: "1000",
       referencia: "07",
     },
     {
       marca: "Cepillo para perros",
-      pathImg:
-        "https://img.freepik.com/vector-premium/peine-perros-gatos-estilo-plano-dibujos-animados-equipo-aseo-cuidado-capa-mascotas-ilustracion-vectorial_384065-520.jpg",
+      pathImg: imgContainer7,
       precio: "2000",
       referencia: "08",
     },
     {
       marca: "yosise",
-      imagen: "../assets/comida.png",
+      pathImg: imgContainer8,
       precio: "2000",
       referencia: "09",
     },
@@ -157,6 +158,7 @@ const Productos = () => {
       /> */}
       <div class="div-principal">
         <div class="div-hijo">
+          <h2>comidas</h2>
           {productosIzquierda &&
             productosIzquierda.map((producto, index) => {
               //el mapeo permite modificar objetos
@@ -176,6 +178,7 @@ const Productos = () => {
             })}
         </div>
         <div class="div-hijo">
+          <h2>Accesorios</h2>
           {productosMitad &&
             productosMitad.map((producto, index) => {
               //el mapeo permite modificar objetos
@@ -194,6 +197,7 @@ const Productos = () => {
             })}
         </div>
         <div class="div-hijo">
+          <h2>juguetes</h2>
           {productosDerecha &&
             productosDerecha.map((producto, index) => {
               return (

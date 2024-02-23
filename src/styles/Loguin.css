@@ -1,0 +1,102 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  height: 30rem;
+}
+.form{
+  justify-content: center;
+  margin-top: 3.5rem;
+}
+.login-form {
+  position: absolute;
+  width: 400px;
+  height: 380px;
+  border-radius: 10px;
+  background-color: #fff; /* White background for the form */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.logo {
+  width: auto; /* Adjust logo width as needed */
+  margin-bottom: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: black;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: black;
+}
+
+input[type="text"],
+input[type="password"] {
+  position: relative;
+  width: auto;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box; /* Ensures padding doesn't affect input width */
+}
+
+button {
+
+  padding: 10px 20px;
+  background-color: #007bff; /* Blue button color */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #0062cc; /* Darker blue on hover */
+}
+a {
+ 
+  margin: 0; /* Elimina el margen por defecto de los enlaces */
+  padding: 5px; /* Ajusta el relleno de los enlaces */
+  text-decoration: none; /* Elimina el subrayado de los enlaces */
+  color: #000; /* Ajusta el color de los enlaces */
+}
+.form a {
+  display: flex;
+  margin: 0 5px;
+  padding: 5px 10px;
+  text-decoration: none;
+  color: #000;
+  justify-content: center; 
+}
+
+.form a:hover {
+  background-color: #f0f2f5; /* Change background color on hover */
+}
+.login-image {
+  width: 50%;
+  background-image: url("login-background.jpg"); /* Replace with your image */
+  background-size: cover;
+  background-position: center;
+}
+
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
+  }
+
+  .login-image {
+    width: 100%;
+    height: 50vh;
+  }
+
+}

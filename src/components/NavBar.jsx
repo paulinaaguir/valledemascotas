@@ -18,7 +18,7 @@ const NavBar = () => {
                     <a href="/home">Home</a>
                     <a href="/productos">Productos</a>
                     
-                    <a href="/borrar">Contacto</a>
+                    <a href="/login">Login</a>
                     {/* <a href="#">Catálogo de Productos</a> */}
                     <a onClick={handleClick} ><img id="imgNav" src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" /></a>
                 </nav>

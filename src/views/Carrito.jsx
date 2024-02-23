@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from "react";
 import "../styles/Carrito.css";
 import ProductoCarro from "../components/ProductoCarro";
-import { Button } from "../components/Button"
+import { Button } from "../components/Button";
 
 const Carrito = () => {
-  const [actualizarCarro, setActualizarCarro] = useState(false)
+  
+  const [actualizarCarro, setActualizarCarro] = useState(false);
   useEffect(() => {
     if (actualizarCarro == true) {
-      setActualizarCarro(false);  
+      setActualizarCarro(false);
     }
   }, [actualizarCarro]);
   // localStorage.removeItem() para elimiar el item del local jaja que belleza
   let carrito = localStorage.getItem("productosEnCarrito");
   if (carrito && carrito.trim() !== "") {
-
-
     if (carrito && carrito.trim() !== "") {
       carrito = JSON.parse(carrito);
 
@@ -34,13 +33,14 @@ const Carrito = () => {
                         imagen={producto.imagen}
                         precio={producto.precio}
                         referencia={producto.referencia}
-                        fn={(actualizarCarro) => { setActualizarCarro(!actualizarCarro) }}
+                        fn={(actualizarCarro) => {
+                          setActualizarCarro(!actualizarCarro);
+                        }}
                       />
                     );
                   })}
-                <Button label="Pagar"  ></Button>
+                <Button label="Pagar"></Button>
               </div>
-
             </div>
           </>
         );
