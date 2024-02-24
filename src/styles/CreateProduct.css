@@ -1,0 +1,15 @@
+.create-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: auto;
+    height: 30rem;
+  }
+  .create-form {
+    position: absolute;
+    width: 400px;
+    height: 380px;
+    border-radius: 10px;
+    background-color: #fff; /* White background for the form */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
