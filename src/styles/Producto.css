@@ -54,3 +54,12 @@
   margin: 0 10px;
   color: black;
 }
+
+#botoncito{
+margin: auto;
+  width: 50%;
+}
+#buttonAgregar{
+  margin: auto;
+  width: 60%;
+}

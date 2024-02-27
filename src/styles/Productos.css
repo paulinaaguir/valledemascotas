@@ -1,16 +1,18 @@
 .div-principal {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
   width: 100%;
   flex-wrap: wrap;
-  justify-content: space-around
+  padding-top: 3%;
+  justify-content: space-around;
+  
 }
 .div-hijo {
   text-align: center;
-
   padding: 10px;
   box-sizing: border-box;
   background-color: transparent;
+  display: grid;
+  grid-template-columns: auto auto auto;
 }
 @media (max-width: 768px) {
   .div-principal {
@@ -18,7 +20,27 @@
     width: 300px;
     margin-left: 8%;
   }
-  
+  .div-hijo {
+    text-align: center;
+    margin: auto;
+    box-sizing: border-box;
+    background-color: transparent;
+    display: grid;
+    grid-template-columns: auto;
   }
+  .div-principal {
+    display: flex;
+    justify-content: center;
+    width: 70%;
+    flex-wrap: wrap;
+  }
+  .div-principal > div > input{
+    margin: auto;
+    padding: auto;
+    margin-left: 1.5rem;
+    width: 100%;
+  }
+  }
+  
  
     

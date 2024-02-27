@@ -69,7 +69,7 @@ const Login = () => {
                 placeholder="Ingresa tu contraseña"
               />
             </div>
-            <button type="submit">Ingresar</button>
+            <button className = "buttonSub" type="submit">Ingresar</button>
             <br />
             <br />
             <a onClick={passChange}>¿Olvidaste tu contraseña?</a>

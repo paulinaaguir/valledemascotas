@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../components/Producto";
 import Producto from "../components/Producto";
 import "../styles/Productos.css";
@@ -12,13 +12,15 @@ import imgContainer6 from "../assets/comidaPeces.jpg"
 import imgContainer7 from "../assets/cepilloPeces.jpg"
 import imgContainer8 from "../assets/juguetePeces.jpg"
 
-let state = false 
+
+
+let state = false
 //import imgContainer3 from "../assets/cepilloGato.png"
 const Productos = () => {
   const agregarCarrito = (producto) => {
     if (!state) {
       let bool = false
-      try { 
+      try {
         // Obtener productos del localStorage
         let productosEnCarrito = obtenerProductosEnCarrito();
         productosEnCarrito.map((item) => {
@@ -70,29 +72,7 @@ const Productos = () => {
   //para poder borrar el hp local xD
   const productoEnCarro = obtenerProductosEnCarrito();
 
-  let productosIzquierda = [
-    //lista de diccionarios [{}]
-    //esto se hace para poder guardar mas cositas, es un diccionario de datos es como un json xD
-    {
-      marca: "Comida para Perro",
-      pathImg: imgContainer,
-      precio: "1000",
-      referencia: "01",
-    },
-    {
-      marca: "Cepillo para Perro",
-      pathImg: imgContainer1,
-      precio: "2000",
-      referencia: "02",
-    },
-    {
-      marca: "Juguete para Perro",
-      pathImg: imgContainer2,
-      precio: "2000",
-      referencia: "03",
-    },
-  ];
-  const productosMitad = [
+  let productos = [
     //lista de diccionarios [{}]
     //esto se hace para poder guardar mas cositas, es un diccionario de datos es como un json xD
     {
@@ -113,10 +93,6 @@ const Productos = () => {
       precio: "2000",
       referencia: "06",
     },
-  ];
-  const productosDerecha = [
-    //lista de diccionarios [{}]
-    //esto se hace para poder guardar mas cositas, es un diccionario de datos es como un json xD
     {
       marca: "Comida para Peces",
       pathImg: imgContainer6,
@@ -135,8 +111,46 @@ const Productos = () => {
       precio: "2000",
       referencia: "09",
     },
+    {
+      marca: "Comida para Perro",
+      pathImg: imgContainer,
+      precio: "1000",
+      referencia: "01",
+    },
+    {
+      marca: "Cepillo para Perro",
+      pathImg: imgContainer1,
+      precio: "2000",
+      referencia: "02",
+    },
+    {
+      marca: "Juguete para Perro",
+      pathImg: imgContainer2,
+      precio: "2000",
+      referencia: "03",
+    }
   ];
-  const nuevosProductosIzquierda = productosIzquierda.map((item) => {
+
+  //Cambios evidentes
+  let data = ""
+  const [searchInput, setSearchInput] = useState("")
+
+  React.useEffect(() => {
+
+  }, [searchInput, data])
+
+  const FilteredData = (data) => {
+
+    return searchInput == "" ? data : data?.filter(
+      (item) => {
+        return Object.keys(item).some((text, index) => {
+          return item[text]?.toString()?.toLowerCase()?.includes(searchInput.toLowerCase())
+        })
+      }
+    );
+  };
+
+  const nuevosProductos = productos.map((item) => {
     const productoEnCarroEncontrado = productoEnCarro.find(
       (producto) => item.referencia === producto.referencia
     );
@@ -147,7 +161,7 @@ const Productos = () => {
       disableButton: !!productoEnCarroEncontrado,
     };
   });
-  productosIzquierda = nuevosProductosIzquierda;
+  productos = nuevosProductos;
   return (
     <>
       {/* <Producto
@@ -156,50 +170,18 @@ const Productos = () => {
         precio={item.precio}
         referencia={item.referencia}
       /> */}
+
       <div class="div-principal">
-        <div class="div-hijo">
-          <h2>comidas</h2>
-          {productosIzquierda &&
-            productosIzquierda.map((producto, index) => {
-              //el mapeo permite modificar objetos
-              //Se revisa que productos no sea undefined para que no explote, si no es undefined hace lo de la derecha, el mapeo
-              //variable de desicion jaja
-              return (
-                <Producto
-                  marca={producto.marca}
-                  imagen={producto.pathImg}
-                  precio={producto.precio}
-                  referencia={producto.referencia}
-                  onAgregarAlCarrito={(producto) => {
-                    agregarCarrito(producto);
-                  }}
-                />
-              );
-            })}
+        <div className="filter">
+          <input type="text" className="filterInput" onChange={(e) => {
+            setSearchInput(e.target.value)
+            console.log(searchInput)
+          }} />
         </div>
+
         <div class="div-hijo">
-          <h2>Accesorios</h2>
-          {productosMitad &&
-            productosMitad.map((producto, index) => {
-              //el mapeo permite modificar objetos
-              //Se revisa que productos no sea undefined para que no explote, si no es undefined hace lo de la derecha, el mapeo
-              return (
-                <Producto
-                  marca={producto.marca}
-                  imagen={producto.pathImg}
-                  precio={producto.precio}
-                  referencia={producto.referencia}
-                  onAgregarAlCarrito={(producto) => {
-                    agregarCarrito(producto);
-                  }}
-                />
-              );
-            })}
-        </div>
-        <div class="div-hijo">
-          <h2>juguetes</h2>
-          {productosDerecha &&
-            productosDerecha.map((producto, index) => {
+          {productos &&
+            FilteredData(productos).map((producto, index) => {
               return (
                 <Producto
                   marca={producto.marca}

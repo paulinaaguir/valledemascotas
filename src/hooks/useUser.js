@@ -27,3 +27,4 @@ export const useRegisterUser = async (datas) => {
   if (!data) data = "error";
   return data;
 };
+

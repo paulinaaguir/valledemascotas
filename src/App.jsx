@@ -6,7 +6,7 @@ import Productos from "./views/Productos";
 import Carrito from "./views/Carrito";
 import Login from "./views/Login.jsx";
 import RecoverPass from "./views/RecoverPass.jsx";
-import ProductosCrud from "./viewAdmin/ProductosCrud.jsx" 
+import ProductosCrud from "./viewAdmin/productosCrud.jsx"
 import RegisterUs from "./views/RegisterUs.jsx"
 import DeleteProducto from "./viewAdmin/DeleteProducto.jsx";
 function App() {

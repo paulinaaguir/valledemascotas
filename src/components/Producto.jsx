@@ -42,7 +42,7 @@ const Producto = ({imagen, precio, referencia, marca, onAgregarAlCarrito,
         </div>
         {mostrarBoton && (
           <div>
-            <div className="cantidad-botones">
+            <div id= "botoncito" className="cantidad-botones">
               <Button label="-" fn={handleRestarCantidad} />
               <p className="cantidad">{cantidad}</p>
               <Button
@@ -55,7 +55,9 @@ const Producto = ({imagen, precio, referencia, marca, onAgregarAlCarrito,
               />
             </div>
             <br />
+            <div id="buttonAgregar">
             <Button label="Agregar" fn={handleClickAgregarAlCarrito} />
+            </div>
           </div>
         )}
       </div>
