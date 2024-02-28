@@ -8,11 +8,12 @@
   .form{
     justify-content: center;
     margin-top: 3.5rem;
+
   }
   .recover-form {
     position: absolute;
     width: 400px;
-    height: 400px;
+    height: 420px;
     border-radius: 10px;
     background-color: #fff; /* White background for the form */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
@@ -21,7 +22,7 @@
     position: relative;
     width: 250px;
     padding: 10px;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box; /* Ensures padding doesn't affect input width */

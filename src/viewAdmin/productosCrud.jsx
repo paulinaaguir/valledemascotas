@@ -3,22 +3,12 @@ import "../styles/productosCrud.css";
 import { useSeeAll } from "../hooks/useProduct.js";
 import { showErrorMessage } from "../components/Notifications.jsx";
 import { Button } from "../components/Button";
-import ProductoCarro from "../components/ProductoCarro.jsx"
+import ProductoCarro from "../components/ProductoCarro.jsx";
 import { useDeleteProduct } from "../hooks/useProduct.js";
 const ProductosCrud = () => {
-
   const formRef = React.useRef();
   //   const navigate = useNavigate();
-    const [dataSession, setDataSession] = useState();
-
   const [dataResive, setDataResive] = useState();
-  if (dataResive && dataResive !== "error") {
-    const algo = dataResive.productos;
-    console.log(algo);
-  }
-  if (dataResive === "error") {
-    showErrorMessage("Error al traer productos");
-  }
   const getProducts = async () => {
     // const navigate = useNavigate();
 
@@ -40,6 +30,13 @@ const ProductosCrud = () => {
       console.log(e);
     }
   };
+  if (dataResive && dataResive !== "error") {
+    const algo = dataResive.productos;
+    console.log(algo);
+  }
+  if (dataResive === "error") {
+    showErrorMessage("Error al traer productos");
+  }
   return (
     <>
       <div className="contenedor">

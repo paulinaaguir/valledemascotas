@@ -164,13 +164,6 @@ const Productos = () => {
   productos = nuevosProductos;
   return (
     <>
-      {/* <Producto
-        marca={item.marca}
-        imagen={item.pathImg}
-        precio={item.precio}
-        referencia={item.referencia}
-      /> */}
-
       <div class="div-principal">
         <div className="filter">
           <input type="text" className="filterInput" onChange={(e) => {
@@ -191,7 +184,6 @@ const Productos = () => {
                   onAgregarAlCarrito={(producto) => {
                     agregarCarrito(producto);
                   }}
-                  disableButton={producto.disableButton}
                 />
               );
             })}

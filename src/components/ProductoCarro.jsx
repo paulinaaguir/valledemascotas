@@ -57,8 +57,10 @@ const ProductoCarro = ({ imagen, precio, referencia, marca, fn }) => {
             <p className="referencia">{referencia}</p>
             <p className="precio">${precio}</p>
           </div>
+         <div className="buttonCarrito">
+         <Button  icon={botonBorrar} fn={borrarProducto}/>
+         </div>
          
-          <Button icon={botonBorrar} fn={borrarProducto}/>
         </div>
       </section>
     </>
