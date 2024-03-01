@@ -4,6 +4,7 @@ const RecoverPass = () => {
   
   return (
     <>
+    <NavBar mostrarEnlaceLogin={true}/>
       <div class="recover-container">
         <div class="recover-form">
           <form className="form" action="#">

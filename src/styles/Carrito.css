@@ -6,7 +6,7 @@ img{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around; /* Opcional: ajusta según tus necesidades */
-    background-color: yellow; /* Color de fondo del contenedor */
+   /* background-color: yellow;  Color de fondo del contenedor */
     border-radius: 5px;
   }
   

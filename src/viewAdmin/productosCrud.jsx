@@ -4,7 +4,8 @@ import { useSeeAll } from "../hooks/useProduct.js";
 import { showErrorMessage } from "../components/Notifications.jsx";
 import { Button } from "../components/Button";
 import ProductoCarro from "../components/ProductoCarro.jsx";
-import { useDeleteProduct } from "../hooks/useProduct.js";
+//import { useDeleteProduct } from "../hooks/useProduct.js";
+import NavBar from "../components/NavBar.jsx"
 const ProductosCrud = () => {
   const formRef = React.useRef();
   //   const navigate = useNavigate();
@@ -39,6 +40,7 @@ const ProductosCrud = () => {
   }
   return (
     <>
+    <NavBar mostrarEnlaceLogin={false}/>
       <div className="contenedor">
         <div className="contenedor-flex ">
           {dataResive &&

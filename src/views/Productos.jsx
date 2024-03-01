@@ -11,7 +11,7 @@ import imgContainer5 from "../assets/jugueteGato.jpg"
 import imgContainer6 from "../assets/comidaPeces.jpg"
 import imgContainer7 from "../assets/cepilloPeces.jpg"
 import imgContainer8 from "../assets/juguetePeces.jpg"
-
+import NavBar from "../components/NavBar"
 
 
 let state = false
@@ -164,6 +164,7 @@ const Productos = () => {
   productos = nuevosProductos;
   return (
     <>
+     <NavBar mostrarEnlaceLogin={false}/>
       <div class="div-principal">
         <div className="filter">
           <input type="text" className="filterInput" onChange={(e) => {

@@ -11,9 +11,9 @@ export const registerProduct = async (data)=>{
             body: JSON.stringify(data)
         })
 
-        if(!response.ok){
+        if(!response.ok){           
             throw new Error(`Error en la peticion: ${response.status}`)
-        }
+        } 
 
         const jsonData = await response.json();
         console.log(jsonData.message)

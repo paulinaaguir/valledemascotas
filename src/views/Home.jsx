@@ -1,10 +1,12 @@
 import React from "react";
 import "../styles/Home.css"
+import NavBar from "../components/NavBar";
 const Home = () => {
     const Home = () =>{
     }
     return (
         <>
+        <NavBar mostrarEnlaceLogin={true}/>
         <div className="homeContainer"></div>
         <br />
         <h1>Valle de Mascotas</h1>

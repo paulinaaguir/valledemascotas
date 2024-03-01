@@ -6,14 +6,16 @@ import Productos from "./views/Productos";
 import Carrito from "./views/Carrito";
 import Login from "./views/Login.jsx";
 import RecoverPass from "./views/RecoverPass.jsx";
-import ProductosCrud from "./viewAdmin/ProductosCrud.jsx"
+import ProductosCrud from "./viewAdmin/productosCrud.jsx"
 import RegisterUs from "./views/RegisterUs.jsx"
 import DeleteProducto from "./viewAdmin/DeleteProducto.jsx";
+import ComponentCrud from "./viewAdmin/ComponentCrud.jsx";
+
 function App() {
   return (
     <div className="">
       <Router>
-        <NavBar />
+        {/* <NavBar/> */}
         <Routes>
         <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
@@ -24,6 +26,7 @@ function App() {
           <Route path="/register" element={<RegisterUs />} />
          <Route path="/crud" element={<ProductosCrud/>} />
          <Route path="/delete" element={<DeleteProducto/>} />
+         <Route path="/algo" element={<ComponentCrud/>} />
         </Routes>
       </Router>
     </div>

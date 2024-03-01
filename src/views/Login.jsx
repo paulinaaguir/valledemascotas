@@ -6,9 +6,11 @@ import {
   showErrorMessage,
 } from "../components/Notifications.jsx";
 import { useLogUser } from "../hooks/useUser.js";
+import NavBar from "../components/NavBar";
 
 
 const Login = () => {
+ 
   const formRef = React.useRef();
   const navigate = useNavigate();
   const [dataSession, setDataSession] = useState();
@@ -47,6 +49,7 @@ const Login = () => {
 
   return (
     <>
+     <NavBar mostrarEnlaceLogin={false}/>
       <div class="login-container">
         <div class="login-form">
           <form className="form" onSubmit={handleSubmit} ref={formRef}>

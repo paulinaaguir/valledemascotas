@@ -1,7 +1,13 @@
 import React from "react";
+import NavBar from "../components/NavBar.jsx";
 
 const RegisterUs = () => {
-  return <div>RegisterUs</div>;
+  return (
+    <>
+      <NavBar mostrarEnlaceLogin={true} />
+      
+    </>
+  );
 };
 
 export default RegisterUs;
