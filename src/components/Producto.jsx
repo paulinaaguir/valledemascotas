@@ -43,7 +43,7 @@ const Producto = ({imagen, precio, referencia, marca, onAgregarAlCarrito,
         {mostrarBoton && (
           <div>
             <div id= "botoncito" className="cantidad-botones">
-              <Button label="-" fn={handleRestarCantidad} />
+              <Button label="-" fn={handleRestarCantidad} mostrarBoton={true}/>
               <p className="cantidad">{cantidad}</p>
               <Button
                 label="+"
@@ -52,11 +52,12 @@ const Producto = ({imagen, precio, referencia, marca, onAgregarAlCarrito,
                     setCantidad(cantidad + 1);
                   }
                 }}
+                mostrarBoton={true}
               />
             </div>
             <br />
             <div id="buttonAgregar">
-            <Button label="Agregar" fn={handleClickAgregarAlCarrito} />
+            <Button label="Agregar" fn={handleClickAgregarAlCarrito} mostrarBoton={true}/>
             </div>
           </div>
         )}

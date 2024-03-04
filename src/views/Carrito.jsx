@@ -36,6 +36,7 @@ const Carrito = () => {
                         fn={(actualizarCarro) => {
                           setActualizarCarro(!actualizarCarro);
                         }}
+                        trueOrFalse={true}
                       />
                     );
                   })}

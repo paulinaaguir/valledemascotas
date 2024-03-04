@@ -24,7 +24,7 @@ const ComponentCrud = () => {
   }
   return (
     <>
-      <NavBar />
+      <NavBar mostrarAlgo={false}/>
       <div className="algo">
         <div class="formulario-container">
           <h2>Crear Producto</h2>

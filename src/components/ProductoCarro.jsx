@@ -2,7 +2,7 @@ import React from "react";
 import { Button } from "../components/Button"
 import "../styles/ProductoCarro.css"
 import botonBorrar from "../assets/borrarBoton.png"
-const ProductoCarro = ({ imagen, precio, referencia, marca, fn }) => {
+const ProductoCarro = ({ imagen, precio, referencia, marca, fn,nombre,trueOrFalse }) => {
   const obtenerProductosEnCarrito = () => {
     // Obtener productos del localStorage
     const productosEnCarritoString = localStorage.getItem("productosEnCarrito");
@@ -53,12 +53,13 @@ const ProductoCarro = ({ imagen, precio, referencia, marca, fn }) => {
             <img src={imagen} alt={marca} />
           </div>
           <div className="informacion-producto">
+          <p className="nombre">{nombre}</p>
             <p className="marca">{marca}</p>
             <p className="referencia">{referencia}</p>
             <p className="precio">${precio}</p>
           </div>
          <div className="buttonCarrito">
-         <Button  icon={botonBorrar} fn={borrarProducto}/>
+         <Button mostrarBoton={trueOrFalse} icon={botonBorrar} fn={borrarProducto}/>
          </div>
          
         </div>

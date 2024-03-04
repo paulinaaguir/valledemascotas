@@ -1,12 +1,12 @@
 import React from "react";
 import "../styles/Button.css"
-export const Button = ({ label, fn, icon }) => {
+export const Button = ({ label, fn, icon,mostrarBoton }) => {
   return (
     <>
-        <button className="btn-responsive" onClick={fn}>
+        {mostrarBoton &&< button  className="btn-responsive" onClick={fn}>
           {label}
           {icon && <img className= "botonImg"src={icon}></img>}
-        </button>     
+        </button> }    
     </>
   );
 };

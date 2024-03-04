@@ -1,9 +1,18 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import "../styles/productosCrud.css";
 import { useSeeAll } from "../hooks/useProduct.js";
 import { showErrorMessage } from "../components/Notifications.jsx";
 import { Button } from "../components/Button";
 import ProductoCarro from "../components/ProductoCarro.jsx";
+import imgContainer from "../assets/jugueteGato.jpg"
+import imgContainer1 from "../assets/peinePerro.jpg"
+import imgContainer2 from "../assets/juguetePerro.jpg"
+import imgContainer3 from "../assets/comidaGato.png"
+import imgContainer4 from "../assets/peineGato.jpg"
+import imgContainer5 from "../assets/jugueteGato.jpg"
+import imgContainer6 from "../assets/comidaPeces.jpg"
+import imgContainer7 from "../assets/cepilloPeces.jpg"
+import imgContainer8 from "../assets/juguetePeces.jpg"
 //import { useDeleteProduct } from "../hooks/useProduct.js";
 import NavBar from "../components/NavBar.jsx"
 const ProductosCrud = () => {
@@ -38,6 +47,10 @@ const ProductosCrud = () => {
   if (dataResive === "error") {
     showErrorMessage("Error al traer productos");
   }
+  useEffect(() => {
+    getProducts();
+  }, []); // Empty dependency array means this effect will run once after the initial render
+
   return (
     <>
     <NavBar mostrarEnlaceLogin={false}/>
@@ -47,14 +60,18 @@ const ProductosCrud = () => {
             dataResive.map((producto) => {
               return (
                 <ProductoCarro
+                nombre={producto.nombre}
                   marca={producto.marca}
-                  imagen={producto.imagen}
+                  imagen={()=>{
+                    if(producto.tipo == 'Comida' )
+                    console.log("shi")
+                  }}
                   precio={producto.precio}
                   referencia={producto.referencia}
+                  trueOrFalse={false}
                 />
               );
             })}
-          <Button label="Pagar" fn={getProducts}></Button>
         </div>
       </div>
     </>

@@ -164,7 +164,7 @@ const Productos = () => {
   productos = nuevosProductos;
   return (
     <>
-     <NavBar mostrarEnlaceLogin={false}/>
+     <NavBar mostrarEnlaceLogin={false} mostrarAlgo={true}/>
       <div class="div-principal">
         <div className="filter">
           <input type="text" className="filterInput" onChange={(e) => {
@@ -178,6 +178,7 @@ const Productos = () => {
             FilteredData(productos).map((producto, index) => {
               return (
                 <Producto
+                nombre = {producto.nombre}
                   marca={producto.marca}
                   imagen={producto.pathImg}
                   precio={producto.precio}

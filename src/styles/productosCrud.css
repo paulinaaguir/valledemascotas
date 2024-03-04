@@ -1,6 +1,11 @@
-
-
-
+.contenedor-flex {
+  text-align: center;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: transparent;
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
 label {
     display: block;
     margin-bottom: 8px;
