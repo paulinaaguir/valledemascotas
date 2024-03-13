@@ -53,7 +53,7 @@ const ProductosCrud = () => {
 
   return (
     <>
-    <NavBar mostrarEnlaceLogin={false}/>
+    <NavBar mostrarEnlaceLogin={false} />
       <div className="contenedor">
         <div className="contenedor-flex ">
           {dataResive &&

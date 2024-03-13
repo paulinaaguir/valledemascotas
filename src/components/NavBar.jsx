@@ -16,7 +16,7 @@ const NavBar = ({mostrarEnlaceLogin,mostrarAlgo}) => {
             <h3>valle de mascotas</h3>
                 <nav>
                     {/* <a href="/productos">Productos</a> */}
-                    
+                     <a href="/home">home</a>
                     {mostrarEnlaceLogin && <a href="/login">Login</a>}
                     {/* <a href="#">Catálogo de Productos</a> */}
                    { mostrarAlgo && <a onClick={handleClick} ><img id="imgNav" src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" /></a>}

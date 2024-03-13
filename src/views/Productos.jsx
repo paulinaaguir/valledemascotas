@@ -132,6 +132,7 @@ const Productos = () => {
   ];
 
   //Cambios evidentes
+  //aqui tenemos la barra de navegacion por si deseamos usarla en otro momento xD
   let data = ""
   const [searchInput, setSearchInput] = useState("")
 
