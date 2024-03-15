@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/RecoverPass.css";
+import NavBar from "../components/NavBar";
 const RecoverPass = () => {
   
   return (
