@@ -26,7 +26,7 @@ function App() {
           <Route path="/register" element={<RegisterUs />} />
          <Route path="/crud" element={<ProductosCrud/>} />
          <Route path="/delete" element={<DeleteProducto/>} />
-         <Route path="/algo" element={<ComponentCrud/>} />
+         <Route path="/createProduct" element={<ComponentCrud/>} />
         </Routes>
       </Router>
     </div>
