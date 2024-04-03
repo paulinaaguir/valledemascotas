@@ -25,7 +25,7 @@ function App() {
           <Route path="/recover" element={<RecoverPass />} />
           <Route path="/register" element={<RegisterUs />} />
          <Route path="/crud" element={<ProductosCrud/>} />
-         <Route path="/delete" element={<DeleteProducto/>} />
+         <Route path="/deleteProduct" element={<DeleteProducto/>} />
          <Route path="/createProduct" element={<ComponentCrud/>} />
         </Routes>
       </Router>
