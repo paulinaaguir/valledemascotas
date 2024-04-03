@@ -1,4 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,700&display=swap');
+
 #root {
+  --primary-color: #0a2333;
+  --primari-light: #003b5f;
+  --black: #000;
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -39,4 +44,38 @@
 
 .read-the-docs {
   color: #888;
+}
+
+h1, h2, h3, h4, h5{
+font-family: Poppins !important;
+font-weight: bold;
+}
+
+p{
+  color: var(--black);
+}
+
+*{
+  box-sizing: border-box !important;
+}
+
+input{
+  border: 1.2px solid var(--primary-color);
+  font-family: Poppins !important;
+}
+input:hover{
+  border: 1.2px solid var(--primary-light);
+  font-family: Poppins !important;
+}
+
+button{
+  background-color: #0a2333 !important;
+  color: #ffffff !important;
+  font-family: Poppins !important;
+  font-size: 14px;
+  border: none !important;
+}
+
+p, a{
+  font-size: 16px;
 }

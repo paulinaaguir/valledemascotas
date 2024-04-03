@@ -1,25 +1,17 @@
 body {
-    font-family: sans-serif;
     margin: 0;
     padding: 0;
     position: relative;
-    background-image: url("../assets/valle.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center center;
   }
-  
-  h1, h2 {
-    font-weight: bold;
-  }
-  
   p {
     margin-bottom: 10px;
   }
-  
+  .footer-container{
+    color:red;
+  }
   a {
     text-decoration: none;
-    color: #000;
+    color: #ffffff;
   }
   
   a:hover {
@@ -71,10 +63,12 @@ body {
   /* Estilos para el footer */
   
   footer {
-    background-color: #333;
-    color: black;
     text-align: center;
-    padding: 20px;
+    margin: auto;
+    padding: 0;
+    width: 80%;
+    position: fixed;
+    bottom: 0;
   }
   
   /* Media queries para responsive */
@@ -139,7 +133,6 @@ header .usuario a {
 }
 
 .banner {
-    background-color: #ccc;
     padding: 20px;
     text-align: center;
 }

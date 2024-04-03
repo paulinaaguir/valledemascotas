@@ -4,18 +4,18 @@ body {
   color: #fff;
 }
 #imgNav {
-  margin: auto auto auto auto;
+  margin: auto;
   width: 30px;
   height: auto;
 
 }
 #navbar {
-  background-color: #9087F5;
+  background-color: var(--primary-color);
   display: flex;
   text-align: center;
   justify-content: space-between;
   width: auto;
-  height: auto;
+  height: 75px;
   margin-left: -2%;
   margin-top: -20px;
   z-index: 1000;
@@ -51,8 +51,8 @@ div > h3{
 @media (max-width : 800px) {
   #navbar {
     font: .7em sans-serif;
-    background-color: #9087F5;
-
+    background-color: var(--primary-color);
+    
     text-align: center;
     justify-content: space-between;
     width: auto;
@@ -67,7 +67,7 @@ div > h3{
 @media (max-width : 1000px) {
   #navbar {
     font: .7em sans-serif;
-    background-color: #9087F5;
+    background-color: var(--primary-color);
 
     text-align: center;
     justify-content: space-between;

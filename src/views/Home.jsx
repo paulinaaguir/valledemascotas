@@ -2,14 +2,12 @@ import React from "react";
 import "../styles/Home.css"
 import NavBar from "../components/NavBar";
 const Home = () => {
-    const Home = () =>{
-    }
     return (
         <>
         <NavBar mostrarEnlaceLogin={true}/>
         <div className="homeContainer"></div>
-        <br />
-        <h1>Valle de Mascotas</h1>
+        {/* <br /> */}
+        {/* <h1>Valle de Mascotas</h1> */}
         <br />
         <img src="https://img.freepik.com/fotos-premium/banner-gran-grupo-perros-juntos-fila-sobre-fondo-naranja_191971-28737.jpg" alt="Valle de Mascotas" class="banner"></img>
            

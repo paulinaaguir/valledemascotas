@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { logUser, registerUser } from "../services/user.service.js";
+import { logUser, recoverPass, registerUser } from "../services/user.service.js";
 
 export const useLogUser = async (datas) => {
   // console.log("🚀 ~ useUser ~ datas:", datas)
@@ -27,4 +27,17 @@ export const useRegisterUser = async (datas) => {
   if (!data) data = "error";
   return data;
 };
+
+export const useRecoverPassword = async (datas) => {
+  let data = null;
+
+  const fetchData = async () => {
+    const reponse = await recoverPass(datas);
+    data = datas.passWord
+  };
+  await fetchData();
+  if (!data) data = "error";
+  return data;
+};
+
 

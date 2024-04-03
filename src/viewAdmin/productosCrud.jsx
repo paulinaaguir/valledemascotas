@@ -1,24 +1,42 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/productosCrud.css";
 import { useSeeAll } from "../hooks/useProduct.js";
 import { showErrorMessage } from "../components/Notifications.jsx";
 import { Button } from "../components/Button";
 import ProductoCarro from "../components/ProductoCarro.jsx";
-import imgContainer from "../assets/jugueteGato.jpg"
-import imgContainer1 from "../assets/peinePerro.jpg"
-import imgContainer2 from "../assets/juguetePerro.jpg"
-import imgContainer3 from "../assets/comidaGato.png"
-import imgContainer4 from "../assets/peineGato.jpg"
-import imgContainer5 from "../assets/jugueteGato.jpg"
-import imgContainer6 from "../assets/comidaPeces.jpg"
-import imgContainer7 from "../assets/cepilloPeces.jpg"
-import imgContainer8 from "../assets/juguetePeces.jpg"
+import imgContainer from "../assets/jugueteGato.jpg";
+import imgContainer1 from "../assets/peinePerro.jpg";
+import imgContainer2 from "../assets/juguetePerro.jpg";
+import imgContainer3 from "../assets/comidaGato.png";
+import imgContainer4 from "../assets/peineGato.jpg";
+import imgContainer5 from "../assets/jugueteGato.jpg";
+import imgContainer6 from "../assets/comidaPeces.jpg";
+import imgContainer7 from "../assets/cepilloPeces.jpg";
+import imgContainer8 from "../assets/juguetePeces.jpg";
+import imgContainer9 from "../assets/comidaPerro.jpg"
 //import { useDeleteProduct } from "../hooks/useProduct.js";
-import NavBar from "../components/NavBar.jsx"
+import NavBar from "../components/NavBar.jsx";
 const ProductosCrud = () => {
   const formRef = React.useRef();
   //   const navigate = useNavigate();
   const [dataResive, setDataResive] = useState();
+  function setImage(productName){
+    if(productName == "comida para gatos"){
+      return imgContainer3
+    } else if(productName == "comida para perro"){
+      return imgContainer9
+    } else if(productName == "comida para pez"){
+      return imgContainer6
+    }else if(productName == "juguete para perro"){
+      return imgContainer2
+    }else if(productName == "juguete para gato"){
+      return imgContainer
+    }else if(productName == "juguete para perro"){
+      return imgContainer2
+    }
+    
+    }
+  
   const getProducts = async () => {
     // const navigate = useNavigate();
 
@@ -31,7 +49,7 @@ const ProductosCrud = () => {
     //   // console.log(fetchData)
     //   setDataResive(fetchData);
     // };
-
+   
     try {
       let fetchData = await useSeeAll();
       setDataResive(fetchData.productos);
@@ -53,19 +71,16 @@ const ProductosCrud = () => {
 
   return (
     <>
-    <NavBar mostrarEnlaceLogin={false} />
+      <NavBar mostrarEnlaceLogin={false} />
       <div className="contenedor">
         <div className="contenedor-flex ">
           {dataResive &&
-            dataResive.map((producto) => {
+            dataResive.map((producto, index) => {
               return (
                 <ProductoCarro
-                nombre={producto.nombre}
+                  nombre={producto.nombre}
                   marca={producto.marca}
-                  imagen={()=>{
-                    if(producto.tipo == 'Comida' )
-                    console.log("shi")
-                  }}
+                  imagen={setImage(producto.nombre.toLowerCase())}
                   precio={producto.precio}
                   referencia={producto.referencia}
                   trueOrFalse={false}

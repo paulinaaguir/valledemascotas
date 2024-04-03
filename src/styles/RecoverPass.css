@@ -13,10 +13,10 @@
   .recover-form {
     position: absolute;
     width: 400px;
-    height: 420px;
+    height: fit-content;
     border-radius: 10px;
     background-color: #fff; /* White background for the form */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   }
   .recoverInput {
     position: relative;
