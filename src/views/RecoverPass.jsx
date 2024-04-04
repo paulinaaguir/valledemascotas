@@ -13,6 +13,8 @@ const RecoverPass = () => {
     console.log("🚀 ~ handleSubmit ~ data:", data)
     
     let response = await useRecoverPassword(data);
+    console.log("🚀 ~ handleSubmit ~ response:", response)
+    
   };
   return (
     <>
