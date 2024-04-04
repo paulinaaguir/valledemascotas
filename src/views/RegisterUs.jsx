@@ -5,7 +5,9 @@ const RegisterUs = () => {
   return (
     <>
       <NavBar mostrarEnlaceLogin={true} />
-      
+      <div>
+        
+      </div>
     </>
   );
 };

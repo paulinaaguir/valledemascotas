@@ -32,7 +32,7 @@ const DeleteProduct = () => {
           placeholder="Ingresa tu información"
           name="referencia"
         />
-        <Button label={"borrar"} type="submit" />
+        <Button label={"borrar"} type="submit" fn={handleSubmit}mostrarBoton={true}/>
       </form>
     </>
   );
