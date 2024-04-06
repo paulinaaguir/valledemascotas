@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { showSuccessMessage } from "../components/Notifications.jsx";
 import { useDeleteProduct } from "../hooks/useProduct.js";
 import { Button } from "../components/Button.jsx";
+import NavBar from "../components/NavBar.jsx";
 
 const DeleteProduct = () => {
   const formRef = React.useRef();
@@ -24,7 +25,9 @@ const DeleteProduct = () => {
     }, 800);
   }
   return (
+  
     <>
+      <NavBar mostrarCreate={false} mostrarProductos={true}/>
       <form class="formulario" onSubmit={handleSubmit} ref={formRef}>
         <h1>Formulario</h1>
         <input

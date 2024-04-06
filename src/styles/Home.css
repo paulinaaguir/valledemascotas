@@ -1,13 +1,44 @@
-body {
-    margin: 0;
-    padding: 0;
-    position: relative;
-  }
+
   p {
     margin-bottom: 10px;
   }
-  .footer-container{
-    color:red;
+  .container{
+    width: 100%;
+    justify-content: center;
+  }
+  .banner-container{
+    background-color: #74bed8;
+  }
+  .info{
+    display: inline-block; /* Coloca los divs en línea */
+    width: 30%; /* Ancho de cada div */
+    height: 100%; /* Altura de cada div */
+    background-color: whitesmoke; /* Color de fondo */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.137); /* Subtle shadow */
+    border-radius: 1%;
+    margin-bottom: 2%;
+  }
+  .info1{
+    display: inline-block; 
+    width: 30%;
+    height: 100%;
+    background-color: whitesmoke; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.137); 
+    margin-left: 11%;
+    border-radius: 1%;
+  }
+  .footer-container ul li{
+    display: inline;
+  }
+  .footer-img{
+    width: 8%; 
+  }
+  .footer-img1{
+    width: 5%;
+    margin: 15px;
+  }
+  .img{
+    width: 30%;
   }
   a {
     text-decoration: none;
@@ -67,7 +98,7 @@ body {
     margin: auto;
     padding: 0;
     width: 80%;
-    position: fixed;
+    position: relative;
     bottom: 0;
   }
   
@@ -80,8 +111,7 @@ body {
       display: flex;
       flex-direction: column;
     }
-  
-   
+
   }
   body {
     font-family: sans-serif;
@@ -135,6 +165,7 @@ header .usuario a {
 .banner {
     padding: 20px;
     text-align: center;
+
 }
 
 .banner h1 {

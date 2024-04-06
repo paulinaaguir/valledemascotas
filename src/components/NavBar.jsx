@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "../styles/NavBar.css"
 import { ModalForm } from "../components/Modal";
-const NavBar = ({mostrarEnlaceLogin,mostrarAlgo}) => {
+const NavBar = ({mostrarEnlaceLogin,mostrarAlgo,mostrarCreate,mostrarDelete,mostrarProductos}) => {
     const [estadoCarrito, setEstadoCarrito] = useState(false);
     const handleClick = () => {
         setEstadoCarrito(true);
@@ -20,6 +20,9 @@ const NavBar = ({mostrarEnlaceLogin,mostrarAlgo}) => {
                     {mostrarEnlaceLogin && <a href="/login">Login</a>}
                     {/* <a href="#">Catálogo de Productos</a> */}
                    { mostrarAlgo && <a onClick={handleClick} ><img id="imgNav" src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" /></a>}
+                 {  mostrarCreate && <a href="/createProduct">Crear producto</a>}
+                   {mostrarDelete && <a href="/delete">Borrar producto</a>}
+                   {mostrarProductos && <a href="/crud">Productos</a>}
                 </nav>
             </div>
             {estadoCarrito!==false && <ModalForm CerrarModal={closeClick} titulo={"Carrito de Compras"}/>}

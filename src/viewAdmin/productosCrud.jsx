@@ -71,7 +71,9 @@ const ProductosCrud = () => {
 
   return (
     <>
-      <NavBar mostrarEnlaceLogin={false} />
+    
+      <NavBar mostrarEnlaceLogin={false} mostrarCreate={true} mostrarDelete={true} />
+      <p>Productos</p>
       <div className="contenedor">
         <div className="contenedor-flex ">
           {dataResive &&
@@ -83,11 +85,14 @@ const ProductosCrud = () => {
                   imagen={setImage(producto.nombre.toLowerCase())}
                   precio={producto.precio}
                   referencia={producto.referencia}
-                  trueOrFalse={false}
+                  trueOrFalse={true}
+                  
                 />
               );
             })}
+             
         </div>
+       
       </div>
     </>
   );

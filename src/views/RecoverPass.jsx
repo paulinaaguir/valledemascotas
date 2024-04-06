@@ -2,23 +2,21 @@ import React from "react";
 import "../styles/RecoverPass.css";
 import NavBar from "../components/NavBar";
 import { useRecoverPassword } from "../hooks/useUser";
+import { useNavigate } from "react-router-dom";
 const RecoverPass = () => {
 
   const formRef = React.useRef();
-
+  const navigate = useNavigate();
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData(formRef.current);
     const data = Object.fromEntries(formData);
     console.log("🚀 ~ handleSubmit ~ data:", data)
-    
-    let response = await useRecoverPassword(data);
-    console.log("🚀 ~ handleSubmit ~ response:", response)
-    
+    navigate("/login")
   };
   return (
     <>
-    <NavBar mostrarEnlaceLogin={true}/>
+    <NavBar mostrarEnlaceLogin={false}/>
       <div class="recover-container">
         <div class="recover-form">
           <form  className="form" onSubmit={handleSubmit} ref={formRef}>

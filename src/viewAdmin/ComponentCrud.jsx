@@ -24,7 +24,7 @@ const ComponentCrud = () => {
   }
   return (
     <>
-      <NavBar mostrarAlgo={false}/>
+      <NavBar mostrarAlgo={false} mostrarDelete={true} mostrarProductos={true}/>
       <div className="algo">
         <div class="formulario-container">
           <h2>Crear Producto</h2>
@@ -32,15 +32,6 @@ const ComponentCrud = () => {
             <div class="form-group">
               <label for="nombre">Nombre del Producto:</label>
               <input name="nombre" type="text" id="nombre" required />
-            </div>
-            <div class="form-group">
-              <label for="opcion">tipo:</label>
-              <select id="opcion" name="tipo" drequired>
-                <option disabled selected hidden >eliga algo</option>
-                <option value="comida">comida</option>
-                <option value="juguete">juguete</option>
-                <option value="cepillo">cepillo</option>
-              </select>
             </div>
             <div class="form-group">
               <label for="id">marca:</label>
@@ -53,6 +44,15 @@ const ComponentCrud = () => {
             <div class="form-group">
               <label for="id">referencia:</label>
               <input name="referencia" type="text" id="referencia" required />
+            </div>
+            <div class="form-group">
+              <label for="opcion">tipo:</label>
+              <select id="opcion" name="tipo" class="select" required>
+                <option disabled selected hidden >eliga algo</option>
+                <option value="comida">comida</option>
+                <option value="juguete">juguete</option>
+                <option value="cepillo">cepillo</option>
+              </select>
             </div>
             <button type="submit">Crear Producto</button>
           </form>
