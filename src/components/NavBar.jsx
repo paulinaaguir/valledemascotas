@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "../styles/NavBar.css"
 import { ModalForm } from "../components/Modal";
+import Carrito from "../views/Carrito";
+import imgContainer from "../assets/CarritoBlanco.png"
+import CreateProcuct from "../viewAdmin/CreateProduct"
 const NavBar = ({mostrarEnlaceLogin,mostrarAlgo,mostrarCreate,mostrarDelete,mostrarProductos}) => {
     const [estadoCarrito, setEstadoCarrito] = useState(false);
     const handleClick = () => {
@@ -8,6 +11,13 @@ const NavBar = ({mostrarEnlaceLogin,mostrarAlgo,mostrarCreate,mostrarDelete,most
     }
     const closeClick = () => {
         setEstadoCarrito(false);
+    }
+    const [estadoCreate, setEstadoCreate] = useState(false);
+    const handleClickCreate = () => {
+      setEstadoCreate(true);
+    }
+    const closeClickCreate = () => {
+      setEstadoCreate(false);
     }
     
     return (
@@ -19,13 +29,14 @@ const NavBar = ({mostrarEnlaceLogin,mostrarAlgo,mostrarCreate,mostrarDelete,most
                      <a href="/home">Home</a>
                     {mostrarEnlaceLogin && <a href="/login">Login</a>}
                     {/* <a href="#">Catálogo de Productos</a> */}
-                   { mostrarAlgo && <a onClick={handleClick} ><img id="imgNav" src="https://cdn-icons-png.flaticon.com/512/3144/3144456.png" /></a>}
-                 {  mostrarCreate && <a href="/createProduct">Crear producto</a>}
+                   { mostrarAlgo && <a onClick={handleClick} ><img id="imgNav" src={imgContainer} /></a>}
+                 {  mostrarCreate && <a onClick={handleClickCreate}>Crear producto</a>} 
                    {mostrarDelete && <a href="/delete">Borrar producto</a>}
                    {mostrarProductos && <a href="/crud">Productos</a>}
                 </nav>
             </div>
-            {estadoCarrito!==false && <ModalForm CerrarModal={closeClick} titulo={"Carrito de Compras"}/>}
+            {estadoCarrito!==false && <ModalForm html={<Carrito/>}CerrarModal={closeClick} titulo={"Carrito de Compras"} width={'auto'}/>}
+            {estadoCreate!==false && <ModalForm html={<CreateProcuct/>}CerrarModal={closeClickCreate} width={'500px'}/>}
         </>
     )
 };

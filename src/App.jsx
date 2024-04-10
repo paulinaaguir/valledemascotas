@@ -9,7 +9,8 @@ import RecoverPass from "./views/RecoverPass.jsx";
 import ProductosCrud from "./viewAdmin/productosCrud.jsx"
 import RegisterUs from "./views/RegisterUs.jsx"
 import DeleteProducto from "./viewAdmin/DeleteProducto.jsx";
-import ComponentCrud from "./viewAdmin/ComponentCrud.jsx";
+import ComponentCrud from "./viewAdmin/CreateProduct.jsx";
+import ProductInventory from "./viewAdmin/ProductInventory.jsx";
 
 function App() {
   return (
@@ -24,9 +25,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/recover" element={<RecoverPass />} />
           <Route path="/register" element={<RegisterUs />} />
-         <Route path="/crud" element={<ProductosCrud/>} />
          <Route path="/delete" element={<DeleteProducto/>} />
-         <Route path="/createProduct" element={<ComponentCrud/>} />
+         <Route path="/inventario" element={<ProductInventory/>} />
         </Routes>
       </Router>
     </div>

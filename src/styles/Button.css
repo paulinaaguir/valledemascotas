@@ -1,6 +1,6 @@
 /* Estilos generales del botón */
 .btn-responsive {
-    display: inline-block;
+   
     padding: 8px 16px;
     font-size: 14px;
     text-align: center;
@@ -12,7 +12,6 @@
     color: #3498db;
     background-color: #ffffff;
     transition: background-color 0.3s, color 0.3s;
-   
   }
   .botonImg{
     width: 20px;

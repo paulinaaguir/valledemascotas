@@ -21,6 +21,8 @@ const ProductosCrud = () => {
   //   const navigate = useNavigate();
   const [dataResive, setDataResive] = useState();
   function setImage(productName){
+    console.log("🚀 ~ setImage ~ productName:", productName)
+    
     if(productName == "comida para gatos"){
       return imgContainer3
     } else if(productName == "comida para perro"){
@@ -73,7 +75,6 @@ const ProductosCrud = () => {
     <>
     
       <NavBar mostrarEnlaceLogin={false} mostrarCreate={true} mostrarDelete={true} />
-      <p>Productos</p>
       <div className="contenedor">
         <div className="contenedor-flex ">
           {dataResive &&

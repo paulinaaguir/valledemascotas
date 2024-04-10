@@ -1,0 +1,37 @@
+/* Estilos generales */
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Estilos para el encabezado de la tabla */
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  /* Estilos para las filas impares */
+  tr:nth-child(odd) {
+    background-color: #f9f9f9;
+  }
+  
+  /* Estilos para las filas seleccionadas */
+  tr.selected {
+    background-color: #cce5ff; /* Cambia este color según tu preferencia */
+  }
+  
+  /* Estilos para la casilla de verificación de selección */
+  input[type="checkbox"] {
+    transform: scale(1.5); /* Ajusta el tamaño de la casilla de verificación según sea necesario */
+  }
+  
+  /* Cambia el color del texto en las casillas de verificación seleccionadas */
+  input[type="checkbox"]:checked {
+    color: #007bff; /* Cambia este color según tu preferencia */
+  }
+  

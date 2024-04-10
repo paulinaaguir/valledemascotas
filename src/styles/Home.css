@@ -106,12 +106,26 @@
   
   @media (max-width: 768px) {
     /* Aplicar estilos para pantallas pequeñas */
-  
+    .container{
+      width:auto;
+     /* Coloca los divs en línea */ /* Ancho de cada div */
+    }
     section {
-      display: flex;
       flex-direction: column;
     }
-
+    .info{ 
+      margin: 20px;
+      background-color: whitesmoke; /* Color de fondo */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.137); /* Subtle shadow */
+      border-radius: 1%;
+    }
+    .info1{
+      display: inline-block; /* Coloca los divs en línea */
+      background-color: whitesmoke; 
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.137); 
+      border-radius: 1%;
+      margin-top: -20px;
+    }
   }
   body {
     font-family: sans-serif;

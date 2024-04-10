@@ -78,6 +78,32 @@ export const deleteProduct = async (data)=>{
     }
     
 }
+export const updateProducto = async (data)=>{
+    console.log(data)
+    try{
+        const response = await fetch(backUrl + "/updateProducto", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+
+        if(!response.ok){
+            throw new Error(`Error en la peticion: ${response.status}`)
+        }
+
+        const jsonData = await response.json();
+        console.log(jsonData.message)
+        // localStorage.setItem("name", (jsonData.response.name))
+        // localStorage.setItem("tokenSession", (jsonData.tokenSession))
+        return jsonData
+    }catch(e){
+        console.error(e)
+        return null
+    }
+    
+}
 // export const registerUser = async (data)=>{
 //     try{
 //         const response = await fetch(backUrl + "/register_user", {

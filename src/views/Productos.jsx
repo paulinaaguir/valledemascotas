@@ -2,22 +2,40 @@ import React, { useEffect, useState } from "react";
 import "../components/Producto";
 import Producto from "../components/Producto";
 import "../styles/Productos.css";
-import imgContainer from "../assets/jugueteGato.jpg"
-import imgContainer1 from "../assets/peinePerro.jpg"
-import imgContainer2 from "../assets/juguetePerro.jpg"
-import imgContainer3 from "../assets/comidaGato.png"
-import imgContainer4 from "../assets/peineGato.jpg"
-import imgContainer5 from "../assets/jugueteGato.jpg"
-import imgContainer6 from "../assets/comidaPeces.jpg"
-import imgContainer7 from "../assets/cepilloPeces.jpg"
-import imgContainer8 from "../assets/juguetePeces.jpg"
+ import imgContainer from "../assets/jugueteGato.jpg"
+ import imgContainer1 from "../assets/comidaPerro.jpg"
+ import imgContainer2 from "../assets/juguetePerro.jpg"
+ import imgContainer3 from "../assets/comidaGato.png"
+ import imgContainer4 from "../assets/peineGato.jpg"
+ import imgContainer5 from "../assets/jugueteGato.jpg"
+ import imgContainer6 from "../assets/comidaPeces.jpg"
+ import imgContainer7 from "../assets/cepilloPeces.jpg"
+ import imgContainer8 from "../assets/juguetePeces.jpg"
 import NavBar from "../components/NavBar"
-
+import { useSeeAll } from "../hooks/useProduct";
 
 let state = false
-//import imgContainer3 from "../assets/cepilloGato.png"
 const Productos = () => {
+  function setImage(productName){
+    console.log("🚀 ~ setImage ~ productName:", productName)
+    
+    if(productName == "comida para gatos"){
+      return imgContainer3
+    } else if(productName == "comida para perros" || productName == "comida para perro"){
+      return imgContainer1
+    } else if(productName == "comida para pez"|| productName == "comida para peces"){
+      return imgContainer6
+    }else if(productName == "juguete para perro" || productName == "juguete para perro"){
+      return imgContainer2
+    }else if(productName == "juguete para gato"){
+      return imgContainer
+    }else if(productName == "juguete para perro"){
+      return imgContainer2
+    }
+    
+    }
   const agregarCarrito = (producto) => {
+    
     if (!state) {
       let bool = false
       try {
@@ -72,64 +90,89 @@ const Productos = () => {
   //para poder borrar el hp local xD
   const productoEnCarro = obtenerProductosEnCarrito();
 
-  let productos = [
-    //lista de diccionarios [{}]
-    //esto se hace para poder guardar mas cositas, es un diccionario de datos es como un json xD
-    {
-      marca: "Comida para Gato",
-      pathImg: imgContainer3,
-      precio: "1000",
-      referencia: "04",
-    },
-    {
-      marca: "Cepillo para Gato",
-      pathImg: imgContainer4,
-      precio: "2000",
-      referencia: "05",
-    },
-    {
-      marca: "Juguete para Gato",
-      pathImg: imgContainer5,
-      precio: "2000",
-      referencia: "06",
-    },
-    {
-      marca: "Comida para Peces",
-      pathImg: imgContainer6,
-      precio: "1000",
-      referencia: "07",
-    },
-    {
-      marca: "Cepillo para perros",
-      pathImg: imgContainer7,
-      precio: "2000",
-      referencia: "08",
-    },
-    {
-      marca: "yosise",
-      pathImg: imgContainer8,
-      precio: "2000",
-      referencia: "09",
-    },
-    {
-      marca: "Comida para Perro",
-      pathImg: imgContainer,
-      precio: "1000",
-      referencia: "01",
-    },
-    {
-      marca: "Cepillo para Perro",
-      pathImg: imgContainer1,
-      precio: "2000",
-      referencia: "02",
-    },
-    {
-      marca: "Juguete para Perro",
-      pathImg: imgContainer2,
-      precio: "2000",
-      referencia: "03",
-    }
-  ];
+  // let productos = [
+  //   //lista de diccionarios [{}]
+  //   //esto se hace para poder guardar mas cositas, es un diccionario de datos es como un json xD
+  //   {
+  //     marca: "Comida para Gato",
+  //     pathImg: imgContainer3,
+  //     precio: "1000",
+  //     referencia: "04",
+  //   },
+  //   {
+  //     marca: "Cepillo para Gato",
+  //     pathImg: imgContainer4,
+  //     precio: "2000",
+  //     referencia: "05",
+  //   },
+  //   {
+  //     marca: "Juguete para Gato",
+  //     pathImg: imgContainer5,
+  //     precio: "2000",
+  //     referencia: "06",
+  //   },
+  //   {
+  //     marca: "Comida para Peces",
+  //     pathImg: imgContainer6,
+  //     precio: "1000",
+  //     referencia: "07",
+  //   },
+  //   {
+  //     marca: "Cepillo para perros",
+  //     pathImg: imgContainer7,
+  //     precio: "2000",
+  //     referencia: "08",
+  //   },
+  //   {
+  //     marca: "yosise",
+  //     pathImg: imgContainer8,
+  //     precio: "2000",
+  //     referencia: "09",
+  //   },
+  //   {
+  //     marca: "Comida para Perro",
+  //     pathImg: imgContainer,
+  //     precio: "1000",
+  //     referencia: "01",
+  //   },
+  //   {
+  //     marca: "Cepillo para Perro",
+  //     pathImg: imgContainer1,
+  //     precio: "2000",
+  //     referencia: "02",
+  //   },
+  //   {
+  //     marca: "Juguete para Perro",
+  //     pathImg: imgContainer2,
+  //     precio: "2000",
+  //     referencia: "03",
+  //   }
+  // ];
+
+
+
+  const [products, setProducts] = useState([]);
+
+
+
+
+  useEffect(() => {
+    // Aquí puedes realizar una solicitud HTTP para obtener los datos de la base de datos
+    // Supongamos que tienes una función fetchDataFromDatabase para esto
+    const fetchData = async () => {
+      try {
+        const data = await useSeeAll();
+        console.log("🚀 ~ fetchData ~ data:", data.productos)
+        setProducts(data.productos);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+
 
   //Cambios evidentes
   //aqui tenemos la barra de navegacion por si deseamos usarla en otro momento xD
@@ -151,18 +194,7 @@ const Productos = () => {
     );
   };
 
-  const nuevosProductos = productos.map((item) => {
-    const productoEnCarroEncontrado = productoEnCarro.find(
-      (producto) => item.referencia === producto.referencia
-    );
-
-    // Si se encuentra un producto en el carro con la misma referencia, se deshabilita el botón
-    return {
-      ...item,
-      disableButton: !!productoEnCarroEncontrado,
-    };
-  });
-  productos = nuevosProductos;
+  
   return (
     <>
      <NavBar mostrarEnlaceLogin={false} mostrarAlgo={true}/>
@@ -170,18 +202,18 @@ const Productos = () => {
         <div className="filter">
           <input type="text" className="filterInput" onChange={(e) => {
             setSearchInput(e.target.value)
-            console.log(searchInput)
+
           }} />
         </div>
 
         <div class="div-hijo">
-          {productos &&
-            FilteredData(productos).map((producto, index) => {
+          {products &&
+            FilteredData(products).map((producto, index) => {
               return (
                 <Producto
                 nombre = {producto.nombre}
                   marca={producto.marca}
-                  imagen={producto.pathImg}
+                  imagen={setImage(producto.nombre.toLowerCase())}
                   precio={producto.precio}
                   referencia={producto.referencia}
                   onAgregarAlCarrito={(producto) => {

@@ -110,7 +110,7 @@ const Home = () => {
             <img src={imgContainer2} alt="" class="img" />
             <p>
               Nuestro equipo está formado por amantes de los animales con años
-              de experiencia en el cuidado y atención de mascotas.{" "}
+              de experiencia en el cuidado y atención de mascotas.
             </p>
           </div>
         </section>

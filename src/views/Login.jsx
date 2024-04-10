@@ -36,8 +36,8 @@ const Login = () => {
      console.log(algo)
       if (algo == "admin") {
         showSuccessMessage("admin Logged");
-        navigate("/crud");
-      } else {
+        navigate("/inventario");
+      } else if(algo == "user"){
         showSuccessMessage("user Logged");
         navigate("/productos");
       }

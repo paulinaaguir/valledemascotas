@@ -3,7 +3,7 @@ import "../styles/Producto.css";
 import { Button } from "./Button";
 import { useState } from "react";
 const Producto = ({imagen, precio, referencia, marca, onAgregarAlCarrito,
-}) => {
+nombre}) => {
   let productosEnCarrito = localStorage.getItem("productosEnCarrito");
   const [cantidad, setCantidad] = useState(0);
   let producto = {
@@ -36,8 +36,9 @@ const Producto = ({imagen, precio, referencia, marca, onAgregarAlCarrito,
           <img src={imagen} alt={marca} style={{width:"16vh", height: "16vh"}}/>
         </div>
         <div className="informacion-producto">
+        <p className="nombre">{nombre}</p> 
           <p className="marca">{marca}</p>  
-          <p className="referencia">{referencia}</p>
+          {/* <p className="referencia">{referencia}</p> */}
           <p className="precio">${precio}</p>
         </div>
         {mostrarBoton && (

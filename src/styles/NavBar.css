@@ -3,8 +3,9 @@
   margin: auto;
   width: 30px;
   height: auto;
-
+  cursor: pointer;
 }
+
 #navbar {
   background-color: var(--primary-color);
   display: flex;
@@ -25,7 +26,7 @@ nav {
   background-color: transparent; 
 }
 
-nav > a {
+nav > a ,h3{
   margin: auto;
   color: #fff;
   font-family: "Constantia", serif;
