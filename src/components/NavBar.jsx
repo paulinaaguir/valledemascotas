@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "../styles/NavBar.css"
 import { ModalForm } from "../components/Modal";
-import Carrito from "../views/Carrito";
-import imgContainer from "../assets/CarritoBlanco.png"
+import { useNavigate } from "react-router";
 import CreateProcuct from "../viewAdmin/CreateProduct"
-const NavBar = ({mostrarEnlaceLogin,mostrarAlgo,mostrarCreate,mostrarDelete,mostrarProductos}) => {
+import Carrito from "../views/Carrito.jsx"
+const NavBar = ({ mostrarEnlaceLogin, mostrarAlgo, mostrarCreate, mostrarDelete, mostrarProductos }) => {
+
+    const navigate = useNavigate();
+
     const [estadoCarrito, setEstadoCarrito] = useState(false);
     const handleClick = () => {
         setEstadoCarrito(true);
@@ -14,29 +17,37 @@ const NavBar = ({mostrarEnlaceLogin,mostrarAlgo,mostrarCreate,mostrarDelete,most
     }
     const [estadoCreate, setEstadoCreate] = useState(false);
     const handleClickCreate = () => {
-      setEstadoCreate(true);
+        setEstadoCreate(true);
     }
     const closeClickCreate = () => {
-      setEstadoCreate(false);
+        setEstadoCreate(false);
     }
-    
+
     return (
         <>
             <div id="navbar">
-            <h3>Valle de Mascotas</h3>
+                <h3>Valle de Mascotas</h3>
                 <nav>
                     {/* <a href="/productos">Productos</a> */}
-                     <a href="/home">Home</a>
-                    {mostrarEnlaceLogin && <a href="/login">Login</a>}
-                    {/* <a href="#">Catálogo de Productos</a> */}
-                   { mostrarAlgo && <a onClick={handleClick} ><img id="imgNav" src={imgContainer} /></a>}
-                 {  mostrarCreate && <a onClick={handleClickCreate}>Crear producto</a>} 
-                   {mostrarDelete && <a href="/delete">Borrar producto</a>}
-                   {mostrarProductos && <a href="/crud">Productos</a>}
+                    <a onClick={() => {
+                        navigate('/home')
+                    }}><span class="material-symbols-outlined">
+                            home
+                        </span></a>
+                    {mostrarEnlaceLogin && <a onClick={() => {
+                        navigate('/login');
+                    }}><span>
+                            Login
+                        </span></a>}
+                    {mostrarAlgo && <a onClick={handleClick} ><span class="material-symbols-outlined">
+                        shopping_cart
+                    </span></a>}
+                    {mostrarCreate && <a onClick={handleClickCreate}>Crear producto</a>}
+                    {mostrarProductos && <a href="/crud">Productos</a>}
                 </nav>
             </div>
-            {estadoCarrito!==false && <ModalForm html={<Carrito/>}CerrarModal={closeClick} titulo={"Carrito de Compras"} width={'auto'}/>}
-            {estadoCreate!==false && <ModalForm html={<CreateProcuct/>}CerrarModal={closeClickCreate} width={'500px'}/>}
+            {estadoCarrito !== false && <ModalForm html={<Carrito />} CerrarModal={closeClick} titulo={"Carrito de Compras"} width={'auto'} />}
+            {estadoCreate !== false && <ModalForm html={<CreateProcuct />} CerrarModal={closeClickCreate} width={'49.5%'} />}
         </>
     )
 };

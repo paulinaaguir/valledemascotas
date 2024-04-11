@@ -10,7 +10,7 @@ import NavBar from "../components/NavBar";
 
 
 const Login = () => {
- 
+
   const formRef = React.useRef();
   const navigate = useNavigate();
   const [dataSession, setDataSession] = useState();
@@ -32,12 +32,12 @@ const Login = () => {
   };
   if (dataSession && dataSession !== "error") {
     setTimeout(() => {
-     const algo = dataSession.response.role
-     console.log(algo)
+      const algo = dataSession.response.role
+      console.log(algo)
       if (algo == "admin") {
         showSuccessMessage("admin Logged");
         navigate("/inventario");
-      } else if(algo == "user"){
+      } else if (algo == "user") {
         showSuccessMessage("user Logged");
         navigate("/productos");
       }
@@ -49,7 +49,7 @@ const Login = () => {
 
   return (
     <>
-     <NavBar mostrarEnlaceLogin={false}/>
+      <NavBar mostrarEnlaceLogin={false} />
       <div class="login-container">
         <div class="login-form">
           <form className="form" onSubmit={handleSubmit} ref={formRef}>
@@ -72,7 +72,7 @@ const Login = () => {
                 placeholder="Ingresa tu contraseña"
               />
             </div>
-            <button className = "buttonSub" type="submit">Ingresar</button>
+            <button className="buttonSub" type="submit">Ingresar</button>
             <br />
             <br />
             <a onClick={passChange}>¿Olvidaste tu contraseña?</a>

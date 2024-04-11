@@ -25,9 +25,9 @@ const DeleteProduct = () => {
     }, 800);
   }
   return (
-  
+
     <>
-      <NavBar mostrarCreate={false} mostrarProductos={true}/>
+      <NavBar mostrarCreate={false} mostrarProductos={true} />
       <form class="formulario" onSubmit={handleSubmit} ref={formRef}>
         <h1>Formulario</h1>
         <input
@@ -35,7 +35,7 @@ const DeleteProduct = () => {
           placeholder="Ingresa tu información"
           name="referencia"
         />
-        <Button label={"borrar"} type="submit" fn={handleSubmit}mostrarBoton={true}/>
+        <Button label={"borrar"} type="submit" fn={handleSubmit} mostrarBoton={true} />
       </form>
     </>
   );

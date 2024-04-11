@@ -1,25 +1,25 @@
 .algo {
   font-family: Arial, sans-serif;
-  margin: auto;
-  padding: 0;
-  display: flex;
+
   justify-content: center;
   align-items: center;
-  height: 85vh;
+  height: auto;
   width: 100%;
 }
-.select{
+
+.select {
   width: 60%;
 }
+
 .formulario-container {
   padding-top: 0rem;
   padding-bottom: 2rem;
-  position: absolute;
-  width: 80%;
-  height: fit-content;
+  width: 100%;
   border-radius: 10px;
-  background-color: #fff; /* White background for the form */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.137); /* Subtle shadow */
+  background-color: #fff;
+  /* White background for the form */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.137);
+  /* Subtle shadow */
 }
 
 #formulario-producto {

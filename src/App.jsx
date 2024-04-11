@@ -18,15 +18,15 @@ function App() {
       <Router>
         {/* <NavBar/> */}
         <Routes>
-        <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/productos" element={<Productos />} />
           <Route path="/carrito" element={<Carrito />} />
           <Route path="/login" element={<Login />} />
           <Route path="/recover" element={<RecoverPass />} />
           <Route path="/register" element={<RegisterUs />} />
-         <Route path="/delete" element={<DeleteProducto/>} />
-         <Route path="/inventario" element={<ProductInventory/>} />
+          <Route path="/delete" element={<DeleteProducto />} />
+          <Route path="/inventario" element={<ProductInventory />} />
         </Routes>
       </Router>
     </div>

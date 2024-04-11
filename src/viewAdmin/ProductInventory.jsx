@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { ModalConfirm, ModalForm} from "../components/Modal";
+import { ModalConfirm, ModalForm } from "../components/Modal";
 import "../styles/ProductInventory.css";
 import { useDeleteProduct, useSeeAll, useUpdateProducto } from "../hooks/useProduct";
 import { Button } from "../components/Button";
@@ -15,7 +15,7 @@ const ProductInventory = () => {
   const [toggle, setToggle] = useState(false);
   const [dataModal, setDataModal] = useState();
   const [selectedRows, setSelectedRows] = useState([]);
-//  const [refreshpage,setRefreshPage] = useState(false)
+  //  const [refreshpage,setRefreshPage] = useState(false)
   useEffect(() => {
     // Aquí puedes realizar una solicitud HTTP para obtener los datos de la base de datos
     // Supongamos que tienes una función fetchDataFromDatabase para esto
@@ -55,10 +55,10 @@ const ProductInventory = () => {
     }
   };
   useEffect(() => {
-  }, []); 
+  }, []);
   return (
     <>
-    <NavBar mostrarCreate={true}/>
+      <NavBar mostrarCreate={true} />
       <div>
         {toggle && (
           <ModalConfirm
@@ -66,12 +66,12 @@ const ProductInventory = () => {
             cerrarModal={() => setToggle(false)}
           />
         )}
-        {toggle && (
+        {/* {toggle && (
           <ModalForm
             html={<UpdateProduct />}
             cerrarModal={() => setToggle(false)}
           />
-        )} 
+        )} */}
 
         <h2>Product Inventory</h2>
         <table>
@@ -105,22 +105,30 @@ const ProductInventory = () => {
                 /> */}
                     <Button
                       mostrarBoton={true}
-                      icon={imgContainer}
+                      icon={
+                        <span class="material-symbols-outlined">
+                          delete
+                        </span>
+                      }
                       fn={() => {
                         setDataModal(product.referencia);
                         setToggle(true);
                       }}
                     />
-                    
-                      <Button 
+
+                    {/* <Button
                       mostrarBoton={true}
-                      icon={imgContainer1}
+                      icon={
+                        <span class="material-symbols-outlined">
+                          edit
+                        </span>
+                      }
                       fn={() => {
                         setDataModal(product.referencia);
                         setToggle(true);
                       }}
-                    /> 
-                     
+                    /> */}
+
                   </td>
                 </tr>
               ))}

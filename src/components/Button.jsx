@@ -12,13 +12,14 @@ import "../styles/Button.css"
  * 
  * @returns {void}
  */
-export const Button = ({ label, fn, icon,mostrarBoton }) => {
+export const Button = ({ label, fn, icon, mostrarBoton }) => {
   return (
     <>
-        {mostrarBoton &&< button  className="btn-responsive" onClick={fn}>
-          {label}
-          {icon && <img className= "botonImg"src={icon}></img>}
-        </button> }    
+      {mostrarBoton && < button className="btn-responsive" onClick={fn}>
+        {label}
+        {/* {icon && <img className= "botonImg"src={icon}></img>} */}
+        {icon}
+      </button>}
     </>
   );
 };

@@ -19,6 +19,24 @@
   border-radius: 12px;
   transition: background-color 0.5s;
 }
+nav > a:hover{
+color: white;
+}
+nav > a{
+  width: fit-content;
+  height: fit-content;
+}
+
+span{
+  cursor: pointer;
+}
+span:hover{
+  color: rgba(255,
+    255,
+    255,
+    0.7)
+}
+
 
 nav {
   display: flex;
