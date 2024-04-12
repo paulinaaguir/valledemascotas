@@ -4,7 +4,7 @@ import { ModalForm } from "../components/Modal";
 import { useNavigate } from "react-router";
 import CreateProcuct from "../viewAdmin/CreateProduct"
 import Carrito from "../views/Carrito.jsx"
-const NavBar = ({ mostrarEnlaceLogin, mostrarAlgo, mostrarCreate, mostrarDelete, mostrarProductos }) => {
+const NavBar = ({ mostrarEnlaceLogin, mostrarAlgo, mostrarCreate, mostrarProductos }) => {
 
     const navigate = useNavigate();
 

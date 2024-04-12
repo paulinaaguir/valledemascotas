@@ -3,7 +3,9 @@ table {
     border-collapse: collapse;
     width: 100%;
   }
-  
+  .butons Button{
+    margin-left: 1%;
+  }
   th, td {
     padding: 8px;
     text-align: left;

@@ -1,20 +1,23 @@
 import React, { useState, useEffect } from "react";
 import { ModalConfirm, ModalForm } from "../components/Modal";
 import "../styles/ProductInventory.css";
-import { useDeleteProduct, useSeeAll, useUpdateProducto } from "../hooks/useProduct";
+import {
+  useDeleteProduct,
+  useSeeAll,
+  useUpdateProducto,
+} from "../hooks/useProduct";
 import { Button } from "../components/Button";
-import imgContainer from "../assets/borrarBoton.png";
 import { ENCABEZADO_TABLA_PRODUCTOS } from "../const/headers";
 import NavBar from "../components/NavBar.jsx";
-import imgContainer1 from "../assets/editarBoton.png"
-import CreateProcuct from "../viewAdmin/CreateProduct.jsx"
 import UpdateProduct from "./UpdateProduct.jsx";
 const ProductInventory = () => {
   // Estado para almacenar los datos de productos y las filas seleccionadas
   const [products, setProducts] = useState([]);
   const [toggle, setToggle] = useState(false);
   const [dataModal, setDataModal] = useState();
+  const [dataUpdate, setDataUpdate] = useState();
   const [selectedRows, setSelectedRows] = useState([]);
+  const [estado, setEstado] = useState(false);
   //  const [refreshpage,setRefreshPage] = useState(false)
   useEffect(() => {
     // Aquí puedes realizar una solicitud HTTP para obtener los datos de la base de datos
@@ -22,7 +25,6 @@ const ProductInventory = () => {
     const fetchData = async () => {
       try {
         const data = await useSeeAll();
-        console.log("🚀 ~ fetchData ~ data:", data);
         setProducts(data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -37,11 +39,6 @@ const ProductInventory = () => {
     let fetchData = await useDeleteProduct({ referencia });
     console.log(fetchData);
   };
-
-  const handleUpdate = async (referencia) => {
-    let fetchData = await useUpdateProducto({ referencia });
-    console.log(fetchData);
-  };
   const handleRowSelect = (productId) => {
     const index = selectedRows.indexOf(productId);
     if (index === -1) {
@@ -54,8 +51,7 @@ const ProductInventory = () => {
       setSelectedRows(updatedSelectedRows);
     }
   };
-  useEffect(() => {
-  }, []);
+  useEffect(() => {}, []);
   return (
     <>
       <NavBar mostrarCreate={true} />
@@ -66,12 +62,12 @@ const ProductInventory = () => {
             cerrarModal={() => setToggle(false)}
           />
         )}
-        {/* {toggle && (
+        {estado && (
           <ModalForm
-            html={<UpdateProduct />}
-            cerrarModal={() => setToggle(false)}
+            html={<UpdateProduct data={dataUpdate} />}
+            CerrarModal={() => setEstado(false)}
           />
-        )} */}
+        )}
 
         <h2>Product Inventory</h2>
         <table>
@@ -95,40 +91,36 @@ const ProductInventory = () => {
                   <td>{product.tipo}</td>
                   <td>{product.marca}</td>
                   <td>{product.stock}</td>
+                  <td>{product.fecha}</td>
                   <td>
-                    {/* Aquí puedes renderizar un control de selección */}
-                    {/* Por ejemplo, una casilla de verificación */}
                     {/* <input
                   type="checkbox"
                   checked={selectedRows.includes(product.id)}
                   readOnly
                 /> */}
-                    <Button
-                      mostrarBoton={true}
-                      icon={
-                        <span class="material-symbols-outlined">
-                          delete
-                        </span>
-                      }
-                      fn={() => {
-                        setDataModal(product.referencia);
-                        setToggle(true);
-                      }}
-                    />
 
-                    {/* <Button
-                      mostrarBoton={true}
-                      icon={
-                        <span class="material-symbols-outlined">
-                          edit
-                        </span>
-                      }
-                      fn={() => {
-                        setDataModal(product.referencia);
-                        setToggle(true);
-                      }}
-                    /> */}
-
+                    <div class="butons">
+                      <Button
+                        mostrarBoton={true}
+                        icon={
+                          <span class="material-symbols-outlined">delete</span>
+                        }
+                        fn={() => {
+                          setDataModal(product.referencia);
+                          setToggle(true);
+                        }}
+                      />
+                      <Button
+                        mostrarBoton={true}
+                        icon={
+                          <span class="material-symbols-outlined">edit</span>
+                        }
+                        fn={() => {
+                          setDataUpdate(product);
+                          setEstado(true);
+                        }}
+                      />
+                    </div>
                   </td>
                 </tr>
               ))}

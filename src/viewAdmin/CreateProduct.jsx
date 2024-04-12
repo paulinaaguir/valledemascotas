@@ -20,40 +20,41 @@ const ComponentCrud = () =>{
  
   if (dataSave && dataSave !== "error") {
     setTimeout(() => {
-      console.log("aa")
         showSuccessMessage("producto guardado");
     }, 800);
   }
  
   return (
     <>
-      {/* <NavBar mostrarAlgo={false} mostrarDelete={true} mostrarProductos={true}/> */}
-      <div className="algo">
         <div class="formulario-container">
           <form id="formulario-producto" onSubmit={handleSubmit} ref={formRef}>
             <div class="form-group">
-              <label for="nombre">Nombre del Producto:</label>
+              <label class="label-nombre" for="nombre">Nombre</label>
               <input name="nombre" type="text" id="nombre" required />
             </div>
             <div class="form-group">
-              <label for="id">marca:</label>
-              <input name="marca" type="text" id="marca" required />
+              <label class="label-create" for="id">Marca</label>
+              <input class = "product-item" name="marca" type="text" id="marca" required />
             </div>
             <div class="form-group">
-              <label for="id">precio:</label>
-              <input name="precio" type="text" id="prefio" required />
+              <label class="label-create" for="id">Fecha</label>
+              <input class = "product-item" name="fecha" type="date" id="fecha" required />
             </div>
             <div class="form-group">
-              <label for="id">referencia:</label>
-              <input name="referencia" type="text" id="referencia" required />
+              <label class="label-create" for="id">Precio</label>
+              <input class = "product-item" name="precio" type="text" id="prefio" required />
             </div>
             <div class="form-group">
-              <label for="id">stock:</label>
-              <input name="stock" type="text" id="stock" required />
+              <label class="label-referencia" for="id">Referencia</label>
+              <input class = "product-item" name="referencia" type="text" id="referencia" required />
             </div>
             <div class="form-group">
-              <label for="opcion">tipo:</label>
-              <select id="opcion" name="tipo" class="select" required>
+              <label class="label-create" for="id">Stock</label>
+              <input class = "product-item" name="stock" type="text" id="stock" required />
+            </div>
+            <div class="form-group">
+              <label class="label-create" for="opcion">Tipo</label>
+              <select  id="opcion" name="tipo" class="select" required>
                 <option disabled selected hidden >eliga algo</option>
                 <option value="comida">comida</option>
                 <option value="juguete">juguete</option>
@@ -64,7 +65,7 @@ const ComponentCrud = () =>{
             
           </form>
         </div>
-      </div>
+      
     </>
   );
 };

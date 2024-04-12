@@ -5,5 +5,6 @@ export const ENCABEZADO_TABLA_PRODUCTOS = [
             "Tipo",
             "Marca",
             "stock",
-            "Acciones"
+            "Fecha de Vencimiento",
+            ""
 ]
