@@ -4,7 +4,6 @@ import ProductoCarro from "../components/ProductoCarro";
 import { Button } from "../components/Button";
 
 const Carrito = () => {
-  
   const [actualizarCarro, setActualizarCarro] = useState(false);
   useEffect(() => {
     if (actualizarCarro == true) {
@@ -23,25 +22,29 @@ const Carrito = () => {
       if (carrito.length > 0) {
         return (
           <>
-            <div className="contenedor">
-              <div className="contenedor-flex ">
-                {carrito &&
-                  carrito.map((producto) => {
-                    return (
-                      <ProductoCarro
-                        marca={producto.marca}
-                        imagen={producto.imagen}
-                        precio={producto.precio}
-                        referencia={producto.referencia}
-                        fn={(actualizarCarro) => {
-                          setActualizarCarro(!actualizarCarro);
-                        }}
-                        trueOrFalse={true}
-                      />
-                    );
-                  })}
-                <Button label="Pagar"></Button>
+            <div className="payments">
+              <div className="contenedor">
+                <div className="contenedor-flex ">
+                  {carrito &&
+                    carrito.map((producto) => {
+                      return (
+                        <ProductoCarro
+                          marca={producto.marca}
+                          imagen={producto.imagen}
+                          precio={producto.precio}
+                          referencia={producto.referencia}
+                          fn={(actualizarCarro) => {
+                            setActualizarCarro(!actualizarCarro);
+                          }}
+                          trueOrFalse={true}
+                        />
+                      );
+                    })}
+
+                 
+                </div>
               </div>
+              <Button label="Pagar" mostrarBoton={true}></Button>
             </div>
           </>
         );

@@ -21,7 +21,6 @@ const ProductosCrud = () => {
   //   const navigate = useNavigate();
   const [dataResive, setDataResive] = useState();
   function setImage(productName){
-    console.log("🚀 ~ setImage ~ productName:", productName)
     
     if(productName == "comida para gatos"){
       return imgContainer3

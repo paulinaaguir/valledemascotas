@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/Home.css";
 import NavBar from "../components/NavBar";
 import imgContainer from "../assets/perritoFeliz.png";
@@ -6,15 +6,39 @@ import imgContainer2 from "../assets/gatoFeliz.webp";
 import imgContainer3 from "../assets/facebook.webp";
 import imgContainer4 from "../assets/ig.png";
 import imgContainer5 from "../assets/perro1.webp";
-import imgContainer6 from "../assets/gato.png"
-import imgContainer7 from "../assets/perro2.png"
-import imgContainer8 from "../assets/perro3.webp"
-import imgContainer9 from "../assets/pez.png"
-import imgContainer10 from "../assets/peritoBanner1.webp"
-import imgContainer11 from "../assets/perritoBanner2.png"
+import imgContainer6 from "../assets/gato.png";
+import imgContainer7 from "../assets/perro2.png";
+import imgContainer8 from "../assets/perro3.webp";
+import imgContainer9 from "../assets/pez.png";
+import imgContainer10 from "../assets/peritoBanner1.webp";
+import imgContainer11 from "../assets/perritoBanner2.png";
+import Producto from "../components/Producto";
+import { useSeeAll } from "../hooks/useProduct";
+import ProductoCarro from "../components/ProductoCarro";
+import { Navigate } from "react-router-dom";
+import { Button } from "../components/Button";
 // import imgContainer12 from ""
 
 const Home = () => {
+  const [products, setProducts] = useState([]);
+  const [n, setN] = useState(0);
+
+  useEffect(() => {
+    // Aquí puedes realizar una solicitud HTTP para obtener los datos de la base de datos
+    // Supongamos que tienes una función fetchDataFromDatabase para esto
+    const fetchData = async () => {
+      try {
+        const data = await useSeeAll();
+        // console.log("🚀 ~ fetchData ~ data:", data.productos)
+        setProducts(data.productos);
+      } catch (error) {
+        // console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
   return (
     <>
       <NavBar
@@ -23,32 +47,81 @@ const Home = () => {
         mostrarDelete={false}
       />
       {/* esto es decoración */}
-      <div style={{backgroundColor : '#091f2a',width : '100px',position: 'relative'}}>
-
-      </div>
-       <div  style={{ position: 'relative'}}>
-        <div  style={{ zIndex : -1,position: 'absolute',top: '19rem' , left : '2%',  width: '150px',transform: 'rotate(330deg)'}}>
-          { <img src={imgContainer5} alt="" />}
+      <div
+        style={{
+          backgroundColor: "#091f2a",
+          width: "100px",
+          position: "relative",
+        }}
+      ></div>
+      <div style={{ position: "relative" }}>
+        <div
+          style={{
+            zIndex: -1,
+            position: "absolute",
+            top: "19rem",
+            left: "2%",
+            width: "150px",
+            transform: "rotate(330deg)",
+          }}
+        >
+          {<img src={imgContainer5} alt="" />}
         </div>
       </div>
-      <div  style={{ position: 'relative'}}>
-        <div  style={{ zIndex : -1,position: 'absolute',top: '23rem' , left : '90%',  width: '100px',transform: 'rotate(400deg)'}}>
-          { <img src={imgContainer6} alt="" />}
+      <div style={{ position: "relative" }}>
+        <div
+          style={{
+            zIndex: -1,
+            position: "absolute",
+            top: "23rem",
+            left: "90%",
+            width: "100px",
+            transform: "rotate(400deg)",
+          }}
+        >
+          {<img src={imgContainer6} alt="" />}
         </div>
       </div>
-      <div  style={{ position: 'relative'}}>
-        <div  style={{ zIndex : -1,position: 'absolute',top: '55rem' , left : '20%',  width: '100px',transform: 'rotate(400deg)'}}>
-          { <img src={imgContainer7} alt="" />}
+      <div style={{ position: "relative" }}>
+        <div
+          style={{
+            zIndex: -1,
+            position: "absolute",
+            top: "55rem",
+            left: "20%",
+            width: "100px",
+            transform: "rotate(400deg)",
+          }}
+        >
+          {<img src={imgContainer7} alt="" />}
         </div>
       </div>
-      <div  style={{ position: 'relative'}}>
-        <div  style={{ zIndex : -1,position: 'absolute',top: '25rem' , left : '45%',  width: '100px',transform: 'rotate(400deg)'}}>
-          { <img src={imgContainer8} alt="" />}
+      <div style={{ position: "relative" }}>
+        <div
+          style={{
+            zIndex: -1,
+            position: "absolute",
+            top: "25rem",
+            left: "45%",
+            width: "100px",
+            transform: "rotate(400deg)",
+          }}
+        >
+          {<img src={imgContainer8} alt="" />}
         </div>
       </div>
-      <div  style={{ position: 'relative'}}>
-        <div  style={{ zIndex : -1,position: 'absolute',top: '25rem' , left : '45%',  width: '100px',transform: 'rotate(400deg)'}}>
-          { <img src={imgContainer9} alt="" />}
+      <div style={{ position: "relative" }}>
+        <div
+          style={{
+            zIndex: -1,
+            position: "absolute",
+            top: "25rem",
+            left: "45%",
+            width: "100px",
+            transform: "rotate(400deg)",
+          }}
+        >
+          {<img src={imgContainer9} alt="" />}
         </div>
       </div>
       <br />
@@ -58,7 +131,7 @@ const Home = () => {
           alt="Valle de Mascotas"
           class="banner"
         ></img>
-       
+
         {/* <div  style={{ zIndex : 0,position: 'absolute',top: '9rem' , left : '26%',  width: '300px'}}>
            <img src={imgContainer10} alt="" />
       </div>
@@ -114,6 +187,65 @@ const Home = () => {
             </p>
           </div>
         </section>
+      </div>
+      <div>
+        <h1>
+          {" "}
+          productos
+          <div className="container-products" >
+            <div className="div-productos">
+              {products &&
+                products
+                  .slice(n, n + 3) // Mostrar los siguientes 3 productos
+                  .map((producto) => {
+                    return (
+                      <a href="/login" key={producto.id}>
+                        <ProductoCarro
+                          nombre={producto.nombre}
+                          marca={producto.marca}
+                          imagen={""} // Asegúrate de proporcionar la imagen adecuada aquí
+                          precio={producto.precio}
+                          referencia={producto.referencia}
+                          onAgregarAlCarrito={(producto) => {
+                            agregarCarrito(producto);
+                          }}
+                        />
+                      </a>
+                    );
+                  })}
+            </div>
+            
+           <div className="buttons-container">
+           <Button
+                mostrarBoton={true}
+                label="<"
+                fn={() => {
+                  setN(()=>{
+                    if(n>0){
+                      return n - 1
+                    } else{
+                      return Math.ceil(products.length/3)
+                    }
+                  });
+                }}
+              />
+              
+            <Button
+                mostrarBoton={true}
+                label=">"
+                fn={() => {
+                  setN(()=>{
+                    if(n <=Math.ceil(products.length/3)){
+                      return n +1
+                    }else{
+                      return 0
+                    }
+                  });
+                }}
+              />
+           </div>
+          </div>
+        </h1>
       </div>
       <footer>
         <p>Valle de Mascotas &copy; 2023</p>

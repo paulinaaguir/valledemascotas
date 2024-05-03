@@ -17,7 +17,6 @@ import { useSeeAll } from "../hooks/useProduct";
 let state = false
 const Productos = () => {
   function setImage(productName){
-    console.log("🚀 ~ setImage ~ productName:", productName)
     
     if(productName == "comida para gatos"){
       return imgContainer3

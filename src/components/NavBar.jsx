@@ -42,7 +42,7 @@ const NavBar = ({ mostrarEnlaceLogin, mostrarAlgo, mostrarCreate, mostrarProduct
                     {mostrarAlgo && <a onClick={handleClick} ><span class="material-symbols-outlined">
                         shopping_cart
                     </span></a>}
-                    {mostrarCreate && <a onClick={handleClickCreate}>Crear producto</a>}
+                    {mostrarCreate && <a className="createProduct" onClick={handleClickCreate}>Crear producto</a>}
                     {mostrarProductos && <a href="/crud">Productos</a>}
                 </nav>
             </div>

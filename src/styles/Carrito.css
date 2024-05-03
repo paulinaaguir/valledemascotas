@@ -10,7 +10,9 @@ img{
     border-radius: 5px;
   }
   
-  
+  .payments {
+    
+  }
   
   /* Agrega estos estilos si quieres que se ajuste en pantallas más pequeñas */
   @media (max-width: 768px) {
