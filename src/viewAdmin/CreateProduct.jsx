@@ -38,11 +38,11 @@ const ComponentCrud = () =>{
             </div>
             <div class="form-group">
               <label class="label-create" for="id">Fecha</label>
-              <input class = "product-item" name="fecha" type="date" id="fecha" required />
+              <input class = "product-item" name="fecha" type="date" id="fecha"/>
             </div>
             <div class="form-group">
               <label class="label-create" for="id">Precio</label>
-              <input class = "product-item" name="precio" type="text" id="prefio" required />
+              <input class = "product-item" name="precio" type="text" id="precio" required />
             </div>
             <div class="form-group">
               <label class="label-referencia" for="id">Referencia</label>

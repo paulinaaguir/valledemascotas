@@ -33,6 +33,7 @@ const Carrito = () => {
                           imagen={producto.imagen}
                           precio={producto.precio}
                           referencia={producto.referencia}
+                          // stock={producto.stock}
                           fn={(actualizarCarro) => {
                             setActualizarCarro(!actualizarCarro);
                           }}
