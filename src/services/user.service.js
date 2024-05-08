@@ -1,8 +1,8 @@
 
 const backUrl = "http://localhost:3000"
-export const logUser = async (data)=>{
+export const logUser = async (data) => {
 
-    try{
+    try {
         const response = await fetch(backUrl + "/login_user", {
             method: "POST",
             headers: {
@@ -11,7 +11,7 @@ export const logUser = async (data)=>{
             body: JSON.stringify(data)
         })
 
-        if(!response.ok){
+        if (!response.ok) {
             throw new Error(`Error en la peticion: ${response.status}`)
         }
 
@@ -20,15 +20,15 @@ export const logUser = async (data)=>{
         // localStorage.setItem("name", (jsonData.response.name))
         // localStorage.setItem("tokenSession", (jsonData.tokenSession))
         return jsonData
-    }catch(e){
+    } catch (e) {
         console.error(e)
         return null
     }
-    
+
 }
 
-export const registerUser = async (data)=>{
-    try{
+export const registerUser = async (data) => {
+    try {
         const response = await fetch(backUrl + "/register_user", {
             method: "POST",
             headers: {
@@ -37,22 +37,22 @@ export const registerUser = async (data)=>{
             body: JSON.stringify(data)
         })
 
-        if(!response.ok){
+        if (!response.ok) {
             throw new Error(`Error en la peticion: ${response.status}`)
         }
         console.log("hola", response)
         const jsonData = await response.json()
 
         return jsonData
-    }catch(e){
+    } catch (e) {
         console.error(e)
         return null
     }
-    
+
 }
 
-export const recoverPass = async (data)=>{
-    try{
+export const recoverPass = async (data) => {
+    try {
         const response = await fetch(backUrl + "/recoverPass", {
             method: "PUT",
             headers: {
@@ -61,16 +61,15 @@ export const recoverPass = async (data)=>{
             body: JSON.stringify(data)
         })
 
-        if(!response.ok){
+        if (!response.ok) {
             throw new Error(`Error en la peticion: ${response.status}`)
         }
-        console.log("hola", response)
         const jsonData = await response.json()
 
         return jsonData
-    }catch(e){
+    } catch (e) {
         console.error(e)
         return null
     }
-    
+
 }

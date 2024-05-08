@@ -1,8 +1,7 @@
 import React from "react";
 import { Button } from "../components/Button"
 import "../styles/ProductoCarro.css"
-import botonBorrar from "../assets/borrarBoton.png"
-const ProductoCarro = ({ imagen, precio, referencia, marca,stock, fn, nombre, trueOrFalse }) => {
+const ProductoCarro = ({ imagen, precio, referencia, marca, stock, fn, nombre, trueOrFalse }) => {
   const obtenerProductosEnCarrito = () => {
     // Obtener productos del localStorage
     const productosEnCarritoString = localStorage.getItem("productosEnCarrito");
@@ -41,7 +40,7 @@ const ProductoCarro = ({ imagen, precio, referencia, marca,stock, fn, nombre, tr
     // ... (Aquí puedes usar el estado de React para actualizar la lista de productos en el carrito)
 
     // Mostrar un mensaje de confirmación al usuario
-    alert(`El producto ${productoAEliminar.marca} ha sido eliminado del carrito`);
+    alert(`El producto ${productoAEliminar.nombre} ha sido eliminado del carrito`);
     fn()
   };
 
@@ -56,8 +55,8 @@ const ProductoCarro = ({ imagen, precio, referencia, marca,stock, fn, nombre, tr
             <p className="nombre">{nombre}</p>
             <p className="marca">{marca}</p>
             <p className="referencia">{referencia}</p>
-            <p className="precio">${precio}</p>
-            <p className="stock">${stock}</p>
+            {precio && <p className="precio">${precio}</p>}
+            {stock && <p className="stock">${stock}</p>}
           </div>
           <div className="buttonCarrito">
             <Button mostrarBoton={trueOrFalse} icon={<span class="material-symbols-outlined">

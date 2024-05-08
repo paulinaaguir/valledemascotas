@@ -1,9 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 //import { getAnalytics } from "firebase/analytics";
-import {getStorage,ref,uploadBytes,getDownloadURL} from 'firebase/storage';
+import { getStorage, ref, uploadBytes, getDownloadURL, deleteObject } from 'firebase/storage';
 import { getAnalytics } from "firebase/analytics";
-
 
 const firebaseConfig = {
   apiKey: "AIzaSyA4W4BET568mbsZW8r2Ayw6QXNY0YXnuCs",
@@ -20,15 +19,23 @@ const app = initializeApp(firebaseConfig);
 export const storage = getStorage(app)
 const analytics = getAnalytics(app);
 
-export async function uploadFiles(file,name) {
-    const storageRef = ref(storage,'images/'+name)
-   return await uploadBytes(storageRef,file)
+export async function uploadFiles(file, name) {
+  const storageRef = ref(storage, 'images/' + name)
+  return await uploadBytes(storageRef, file)
 }
 
-export async function getUrl(name){
-  const storageRef = ref(storage,'images/'+name)
- const url = await getDownloadURL(storageRef)
- console.log("🚀 ~ getUrl ~ urreele:", url)
- 
- return url
+export async function getUrl(name) {
+  const storageRef = ref(storage, 'images/' + name)
+  const url = await getDownloadURL(storageRef)
+  return url
+}
+
+export async function deleteImg(name) {
+  const desertRef = ref(storage, 'images/' + name);
+  // Delete the file
+  deleteObject(desertRef).then(() => {
+    console.log("se borró la imagen")
+  }).catch((error) => {
+    console.log("no se borró por: ", error)
+  });
 }

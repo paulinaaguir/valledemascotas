@@ -10,7 +10,9 @@ import { Button } from "../components/Button";
 import { ENCABEZADO_TABLA_PRODUCTOS } from "../const/headers";
 import NavBar from "../components/NavBar.jsx";
 import UpdateProduct from "./UpdateProduct.jsx";
+import { deleteImg } from "../firebase/config.js";
 const ProductInventory = () => {
+
   // Estado para almacenar los datos de productos y las filas seleccionadas
   const [products, setProducts] = useState([]);
   const [toggle, setToggle] = useState(false);
@@ -39,6 +41,19 @@ const ProductInventory = () => {
     let fetchData = await useDeleteProduct({ referencia });
     console.log(fetchData);
   };
+
+
+  const handleDeleteImg = async (nombre) => {
+    //aqui va la basura de delete img 
+    try {
+      await deleteImg(nombre)
+      console.log("sisas")
+    } catch (error) {
+      console.log("nosa")
+    }
+  };
+
+
   const handleRowSelect = (productId) => {
     const index = selectedRows.indexOf(productId);
     if (index === -1) {
@@ -51,7 +66,7 @@ const ProductInventory = () => {
       setSelectedRows(updatedSelectedRows);
     }
   };
-  useEffect(() => {}, []);
+  useEffect(() => { }, []);
   return (
     <>
       <NavBar mostrarCreate={true} />
@@ -108,6 +123,7 @@ const ProductInventory = () => {
                         fn={() => {
                           setDataModal(product.referencia);
                           setToggle(true);
+                          handleDeleteImg(product.nombre);
                         }}
                       />
                       <Button

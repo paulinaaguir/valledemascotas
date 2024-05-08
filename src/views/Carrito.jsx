@@ -42,7 +42,7 @@ const Carrito = () => {
                       );
                     })}
 
-                 
+
                 </div>
               </div>
               <Button label="Pagar" mostrarBoton={true}></Button>

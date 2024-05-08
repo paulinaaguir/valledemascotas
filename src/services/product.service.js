@@ -1,8 +1,8 @@
 
 const backUrl = "http://localhost:3000"
-export const registerProduct = async (data)=>{
+export const registerProduct = async (data) => {
 
-    try{
+    try {
         const response = await fetch(backUrl + "/register_producto", {
             method: "POST",
             headers: {
@@ -11,24 +11,21 @@ export const registerProduct = async (data)=>{
             body: JSON.stringify(data)
         })
 
-        if(!response.ok){           
+        if (!response.ok) {
             throw new Error(`Error en la peticion: ${response.status}`)
-        } 
+        }
 
         const jsonData = await response.json();
-        console.log(jsonData.message)
-        // localStorage.setItem("name", (jsonData.response.name))
-        // localStorage.setItem("tokenSession", (jsonData.tokenSession))
         return jsonData
-    }catch(e){
+    } catch (e) {
         console.error(e)
         return null
     }
-    
-}
-export const seeAll = async ()=>{
 
-    try{
+}
+export const seeAll = async () => {
+
+    try {
         const response = await fetch(backUrl + "/get_productos", {
             method: "GET",
             headers: {
@@ -36,25 +33,23 @@ export const seeAll = async ()=>{
             },
         })
 
-        if(!response.ok){
+        if (!response.ok) {
             throw new Error(`Error en la peticion: ${response.status}`)
         }
 
         const jsonData = await response.json();
         console.log(jsonData.message)
-        // localStorage.setItem("name", (jsonData.response.name))
-        // localStorage.setItem("tokenSession", (jsonData.tokenSession))
         return jsonData
-    }catch(e){
+    } catch (e) {
         console.error(e)
         return null
     }
-    
+
 }
 
-export const deleteProduct = async (data)=>{
+export const deleteProduct = async (data) => {
     console.log(data)
-    try{
+    try {
         const response = await fetch(backUrl + "/deleteProducto", {
             method: "POST",
             headers: {
@@ -63,24 +58,22 @@ export const deleteProduct = async (data)=>{
             body: JSON.stringify(data)
         })
 
-        if(!response.ok){
+        if (!response.ok) {
             throw new Error(`Error en la peticion: ${response.status}`)
         }
 
         const jsonData = await response.json();
         console.log(jsonData.message)
-        // localStorage.setItem("name", (jsonData.response.name))
-        // localStorage.setItem("tokenSession", (jsonData.tokenSession))
         return jsonData
-    }catch(e){
+    } catch (e) {
         console.error(e)
         return null
     }
-    
+
 }
-export const updateProducto = async (data)=>{
+export const updateProducto = async (data) => {
     console.log(data)
-    try{
+    try {
         const response = await fetch(backUrl + "/updateProducto", {
             method: "POST",
             headers: {
@@ -89,7 +82,7 @@ export const updateProducto = async (data)=>{
             body: JSON.stringify(data)
         })
 
-        if(!response.ok){
+        if (!response.ok) {
             throw new Error(`Error en la peticion: ${response.status}`)
         }
 
@@ -98,32 +91,9 @@ export const updateProducto = async (data)=>{
         // localStorage.setItem("name", (jsonData.response.name))
         // localStorage.setItem("tokenSession", (jsonData.tokenSession))
         return jsonData
-    }catch(e){
+    } catch (e) {
         console.error(e)
         return null
     }
-    
+
 }
-// export const registerUser = async (data)=>{
-//     try{
-//         const response = await fetch(backUrl + "/register_user", {
-//             method: "POST",
-//             headers: {
-//                 "Content-Type": "application/json"
-//             },
-//             body: JSON.stringify(data)
-//         })
-
-//         if(!response.ok){
-//             throw new Error(`Error en la peticion: ${response.status}`)
-//         }
-//         console.log("hola", response)
-//         const jsonData = await response.json()
-
-//         return jsonData
-//     }catch(e){
-//         console.error(e)
-//         return null
-//     }
-    
-// }

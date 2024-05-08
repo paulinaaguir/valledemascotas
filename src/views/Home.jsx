@@ -10,8 +10,6 @@ import imgContainer6 from "../assets/gato.png";
 import imgContainer7 from "../assets/perro2.png";
 import imgContainer8 from "../assets/perro3.webp";
 import imgContainer9 from "../assets/pez.png";
-import imgContainer10 from "../assets/peritoBanner1.webp";
-import imgContainer11 from "../assets/perritoBanner2.png";
 import Producto from "../components/Producto";
 import { useSeeAll } from "../hooks/useProduct";
 import ProductoCarro from "../components/ProductoCarro";
@@ -190,8 +188,6 @@ const Home = () => {
       </div>
       <div>
         <h1>
-          {" "}
-          productos
           <div className="container-products" >
             <div className="div-productos">
               {products &&
@@ -199,51 +195,47 @@ const Home = () => {
                   .slice(n, n + 3) // Mostrar los siguientes 3 productos
                   .map((producto) => {
                     return (
-                      <a href="/login" key={producto.id}>
+                      <a href="/login" key={producto.id} className="pointer">
                         <ProductoCarro
                           nombre={producto.nombre}
                           marca={producto.marca}
-                          imagen={""} // Asegúrate de proporcionar la imagen adecuada aquí
+                          imagen={producto.url}
                           precio={producto.precio}
-                          referencia={producto.referencia}
-                          onAgregarAlCarrito={(producto) => {
-                            agregarCarrito(producto);
-                          }}
                         />
                       </a>
                     );
                   })}
             </div>
-            
-           <div className="buttons-container">
-           <Button
+
+            <div className="buttons-container">
+              <Button
                 mostrarBoton={true}
                 label="<"
                 fn={() => {
-                  setN(()=>{
-                    if(n>0){
+                  setN(() => {
+                    if (n > 0) {
                       return n - 1
-                    } else{
-                      return Math.ceil(products.length/3)
+                    } else {
+                      return Math.ceil(products.length / 3)
                     }
                   });
                 }}
               />
-              
-            <Button
+
+              <Button
                 mostrarBoton={true}
                 label=">"
                 fn={() => {
-                  setN(()=>{
-                    if(n <=Math.ceil(products.length/3)){
-                      return n +1
-                    }else{
+                  setN(() => {
+                    if (n <= Math.ceil(products.length / 3)) {
+                      return n + 1
+                    } else {
                       return 0
                     }
                   });
                 }}
               />
-           </div>
+            </div>
           </div>
         </h1>
       </div>

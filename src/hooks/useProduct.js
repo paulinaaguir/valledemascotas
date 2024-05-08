@@ -2,7 +2,8 @@
 import { registerProduct, seeAll, deleteProduct, updateProducto } from "../services/product.service.js";
 
 export const useCreateProduct = async (datas) => {
-  
+  console.log("🚀 ~ useCreateProduct ~ datas:", datas)
+
   let data = null;
 
   const fetchData = async () => {
@@ -15,7 +16,7 @@ export const useCreateProduct = async (datas) => {
 };
 
 export const useSeeAll = async () => {
- 
+
   let data = null;
 
   const fetchData = async () => {

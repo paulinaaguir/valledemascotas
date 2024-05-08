@@ -25,7 +25,7 @@ const Login = () => {
   };
 
   const registerAction = async () => {
-    navigate("/register");
+    navigate("/crearUs");
   };
   const passChange = async () => {
     navigate("/recover");

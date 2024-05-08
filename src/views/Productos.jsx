@@ -7,19 +7,16 @@ import { useSeeAll } from "../hooks/useProduct";
 
 let state = false
 const Productos = () => {
-  // async function getImageUrl(name){
-  //   console.log(url)
-  //   return url.toString()
-    
-  //  }
-   
+
   const agregarCarrito = (producto) => {
-    
+
     if (!state) {
       let bool = false
       try {
         // Obtener productos del localStorage
         let productosEnCarrito = obtenerProductosEnCarrito();
+        console.log("🚀 ~ agregarCarrito ~ mentiri  :", productosEnCarrito)
+
         productosEnCarrito.map((item) => {
           if (item.referencia == producto.referencia) {
             bool = true;
@@ -28,6 +25,7 @@ const Productos = () => {
         if (!bool) {
           // Agregar el nuevo producto al array
           productosEnCarrito.push(producto);
+
         }
 
 
@@ -37,10 +35,11 @@ const Productos = () => {
           JSON.stringify(productosEnCarrito)
         );
 
-        console.log("Producto agregado al carrito");
+
       } catch (error) {
         console.error("Error al agregar producto al carrito:", error);
       }
+
     };
 
   }
@@ -51,6 +50,7 @@ const Productos = () => {
 
     // Verificar si la cadena existe y no está vacía
     if (productosEnCarritoString && productosEnCarritoString.trim() !== "") {
+
       try {
         // Intentar parsear la cadena como JSON
         const productosEnCarrito = JSON.parse(productosEnCarritoString);
@@ -66,7 +66,7 @@ const Productos = () => {
       return [];
     }
   };
- 
+
   const productoEnCarro = obtenerProductosEnCarrito(); //Se usa esta linea para setear el local como nuevo
   const [products, setProducts] = useState([]);
   useEffect(() => {
@@ -75,7 +75,7 @@ const Productos = () => {
     const fetchData = async () => {
       try {
         const data = await useSeeAll();
-        console.log("🚀 ~ fetchData ~ data:", data.productos)
+
         setProducts(data.productos);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -90,7 +90,7 @@ const Productos = () => {
   //Cambios evidentes
   //aqui tenemos la barra de navegacion por si deseamos usarla en otro momento xD
   let data = ""
-  const [searchInput, setSearchInput] = useState("")  
+  const [searchInput, setSearchInput] = useState("")
   React.useEffect(() => {
 
   }, [searchInput, data])
@@ -106,10 +106,10 @@ const Productos = () => {
     );
   };
 
-  
+
   return (
     <>
-     <NavBar mostrarEnlaceLogin={false} mostrarAlgo={true}/>
+      <NavBar mostrarEnlaceLogin={false} mostrarAlgo={true} />
       <div class="div-principal">
         <div className="filter">
           <input type="text" className="filterInput" onChange={(e) => {
@@ -120,11 +120,12 @@ const Productos = () => {
         <div class="div-hijo">
           {products &&
             FilteredData(products).map((producto) => {
+
               return (
                 <Producto
-                nombre = {producto.nombre}
+                  nombre={producto.nombre}
                   marca={producto.marca}
-                  imagen={'https://firebasestorage.googleapis.com/v0/b/paulina-4cb34.appspot.com/o/images%2Fcomida%20para%20perros?alt=media&token=f38d0e10-164f-4375-94e4-df6516e5be34'}
+                  imagen={producto.url}
                   precio={producto.precio}
                   referencia={producto.referencia}
                   onAgregarAlCarrito={(producto) => {

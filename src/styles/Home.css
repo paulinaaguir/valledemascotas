@@ -1,244 +1,276 @@
+p {
+  margin-bottom: 10px;
+}
 
-  p {
-    margin-bottom: 10px;
+.container {
+  width: 100%;
+  justify-content: center;
+}
+
+.banner-container {
+  background-color: #74bed8;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.info {
+  display: inline-block;
+  /* Coloca los divs en línea */
+  width: 30%;
+  /* Ancho de cada div */
+  height: 100%;
+  /* Altura de cada div */
+  background-color: whitesmoke;
+  /* Color de fondo */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.137);
+  /* Subtle shadow */
+  border-radius: 1%;
+  margin-bottom: 2%;
+}
+
+.info1 {
+  display: inline-block;
+  width: 30%;
+  height: 100%;
+  background-color: whitesmoke;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.137);
+  margin-left: 11%;
+  border-radius: 1%;
+}
+
+.container-products {
+  background-color: whitesmoke;
+  /* Color de fondo */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.137);
+  /* Subtle shadow */
+  border-radius: 1%;
+  margin-bottom: 2%;
+  justify-content: space-between;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.div-productos {
+  border-radius: 1%;
+  justify-content: space-between;
+  text-align: center;
+  padding: 20px;
+  margin: 20px;
+  box-sizing: border-box;
+  background-color: transparent;
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
+.footer-container ul li {
+  display: inline;
+}
+
+.footer-img {
+  width: 8%;
+}
+
+.footer-img1 {
+  width: 5%;
+  margin: 15px;
+}
+
+.img {
+  width: 30%;
+}
+
+a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+a:hover {
+  color: #444;
+}
+
+/* Estilos para el header */
+
+header {
+  background-color: #333;
+  color: black;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+/* Estilos para el main */
+
+main {
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 20px;
+}
+
+#blog {
+  color: black;
+}
+
+p {
+  color: black;
+}
+
+h2 {
+  margin-top: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+/* Estilos para el footer */
+
+footer {
+  text-align: center;
+  margin: auto;
+  padding: 0;
+  width: 80%;
+  position: relative;
+  bottom: 0;
+}
+
+/* Media queries para responsive */
+
+@media (max-width: 768px) {
+
+  /* Aplicar estilos para pantallas pequeñas */
+  .container {
+    width: auto;
+    /* Coloca los divs en línea */
+    /* Ancho de cada div */
   }
-  .container{
-    width: 100%;
-    justify-content: center;
-  }
-  .banner-container{
-    background-color: #74bed8;
-  }
-  
-  .info{
-    display: inline-block; /* Coloca los divs en línea */
-    width: 30%; /* Ancho de cada div */
-    height: 100%; /* Altura de cada div */
-    background-color: whitesmoke; /* Color de fondo */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.137); /* Subtle shadow */
-    border-radius: 1%;
-    margin-bottom: 2%;
-  }
- 
-  .info1{
-    display: inline-block; 
-    width: 30%;
-    height: 100%;
-    background-color: whitesmoke; 
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.137); 
-    margin-left: 11%;
-    border-radius: 1%;
-  }
-  .container-products{
-    background-color: whitesmoke; /* Color de fondo */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.137); /* Subtle shadow */
-    border-radius: 1%;
-    margin-bottom: 2%;
-    justify-content: space-between;
-  }
-  .buttons-container{
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-  }
-  .div-productos{
-    border-radius: 1%;
-    justify-content: space-between;
-    text-align: center;
-    padding: 20px;
-    margin: 20px;
-    box-sizing: border-box;
-    background-color: transparent;
-    display: grid;
-    grid-template-columns: auto auto auto;
-  }
-  .footer-container ul li{
-    display: inline;
-  }
-  .footer-img{
-    width: 8%; 
-  }
-  .footer-img1{
-    width: 5%;
-    margin: 15px;
-  }
-  .img{
-    width: 30%;
-  }
-  a {
-    text-decoration: none;
-    color: #ffffff;
-  }
-  
-  a:hover {
-    color: #444;
-  }
-  
-  /* Estilos para el header */
-  
-  header {
-    background-color: #333;
-    color: black;
-    text-align: center;
-    padding: 20px;
-  }
-  
-  h1 {
-    margin-top: 0;
-  }
-  
-  /* Estilos para el main */
-  
-  main {
-    padding: 20px;
-  }
-  
+
   section {
-    margin-bottom: 20px;
+    flex-direction: column;
   }
-  #blog{
-    color: black;
+
+  .info {
+    margin: 20px;
+    background-color: whitesmoke;
+    /* Color de fondo */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.137);
+    /* Subtle shadow */
+    border-radius: 1%;
   }
-  p{
-    color: black;
-  }
-  h2 {
-    margin-top: 0;
-  }
-  
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-  
-  li {
+
+  .info1 {
     display: inline-block;
-    margin-right: 10px;
+    /* Coloca los divs en línea */
+    background-color: whitesmoke;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.137);
+    border-radius: 1%;
+    margin-top: -20px;
   }
-  
-  /* Estilos para el footer */
-  
-  footer {
-    text-align: center;
-    margin: auto;
-    padding: 0;
-    width: 80%;
-    position: relative;
-    bottom: 0;
-  }
-  
-  /* Media queries para responsive */
-  
-  @media (max-width: 768px) {
-    /* Aplicar estilos para pantallas pequeñas */
-    .container{
-      width:auto;
-     /* Coloca los divs en línea */ /* Ancho de cada div */
-    }
-    section {
-      flex-direction: column;
-    }
-    .info{ 
-      margin: 20px;
-      background-color: whitesmoke; /* Color de fondo */
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.137); /* Subtle shadow */
-      border-radius: 1%;
-    }
-    .info1{
-      display: inline-block; /* Coloca los divs en línea */
-      background-color: whitesmoke; 
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.137); 
-      border-radius: 1%;
-      margin-top: -20px;
-    }
-  }
-  body {
-    font-family: sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #fff;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
 }
 
 header {
-    background-color: #222;
-    color: #fff;
-    padding: 10px;
+  background-color: #222;
+  color: #fff;
+  padding: 10px;
 }
 
 header a {
-    text-decoration: none;
-    color: #fff;
+  text-decoration: none;
+  color: #fff;
 }
 
 header .logo {
-    width: 200px;
+  width: 200px;
 }
 
 header .buscador {
-    float: right;
-    margin-right: 10px;
+  float: right;
+  margin-right: 10px;
 }
 
 header .buscador input {
-    width: 200px;
-    padding: 5px;
-    border: 1px solid #ccc;
+  width: 200px;
+  padding: 5px;
+  border: 1px solid #ccc;
 }
 
 header .buscador button {
-    background-color: #000;
-    color: #fff;
-    border: 1px solid #ccc;
-    padding: 5px 10px;
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #ccc;
+  padding: 5px 10px;
 }
 
 header .usuario {
-    float: right;
-    margin-right: 10px;
+  float: right;
+  margin-right: 10px;
 }
 
 header .usuario a {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .banner {
-    padding: 20px;
-    text-align: center;
+  padding: 20px;
+  text-align: center;
 
 }
 
 .banner h1 {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 .banner img {
-    width: 100%;
+  width: 100%;
 }
 
 .productos {
-    padding: 20px;
+  padding: 20px;
 }
 
 .productos h2 {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 .productos ul {
-    list-style: none;
-    padding: 0;
+  list-style: none;
+  padding: 0;
 }
 
 .productos ul li {
-    display: inline-block;
-    margin: 10px;
-    width: 200px;
+  display: inline-block;
+  margin: 10px;
+  width: 200px;
 }
 
 .productos ul li a {
-    text-decoration: none;
-    color: #000;
+  text-decoration: none;
+  color: #000;
 }
 
 .productos ul li img {
-    width: 100%;
+  width: 100%;
 }

@@ -4,10 +4,10 @@
   border-radius: 4px;
   margin: 10px;
   padding: 10px;
-  width: 250px;
+  width: 280px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   display: grid;
-  height: 45vh;
+  height: 94%;
   grid-template-columns: auto auto auto auto auto;
   align-items: center;
   display: inline-block;
@@ -16,6 +16,7 @@
     width: 100%;
   }
 }
+
 .productos-fila {
   display: flex;
   flex-wrap: wrap;
@@ -56,12 +57,12 @@
   color: black;
 }
 
-#botoncito{
-margin: auto;
+#botoncito {
+  margin: auto;
   width: 50%;
 }
-#buttonAgregar{
+
+#buttonAgregar {
   margin: auto;
   width: 60%;
 }
-
