@@ -11,6 +11,7 @@ import RegisterUs from "./views/RegisterUs.jsx"
 import DeleteProducto from "./viewAdmin/DeleteProducto.jsx";
 import ComponentCrud from "./viewAdmin/CreateProduct.jsx";
 import ProductInventory from "./viewAdmin/ProductInventory.jsx";
+import CreateUser from "./viewAdmin/CreateUser.jsx";
 
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           <Route path="/register" element={<RegisterUs />} />
           <Route path="/delete" element={<DeleteProducto />} />
           <Route path="/inventario" element={<ProductInventory />} />
+          <Route path="/crearUs" element={<CreateUser />} />
         </Routes>
       </Router>
     </div>
