@@ -1,36 +1,81 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/CreateProduct.css";
 import { useCreateProduct } from "../hooks/useProduct.js";
-import {showSuccessMessage} from "../components/Notifications.jsx";
+import { showSuccessMessage } from "../components/Notifications.jsx";
+import { uploadFiles, getUrl } from "../firebase/config.js";
 
-const ComponentCrud = () =>{
+const ComponentCrud = () => {
   const formRef = React.useRef();
   const [dataSave, setDataSave] = useState();
+  const [imgName, setImageName] = useState('');
+  const [imgUrl, setImgUrl] = useState('');
+  const [imgUrl1, setUrl] = useState('');
+
+  // Este efecto se ejecutará cada vez que imgUrl1 se actualice
+  useEffect(() => {
+    if (imgUrl1) {
+      // Agregar la URL a los datos del producto
+      const dataWithUrl = { ...dataSave, url: imgUrl1 };
+
+      // Guardar los datos del producto en la base de datos
+      useCreateProduct(dataWithUrl)
+        .then(() => {
+          // Mostrar mensaje de éxito
+          showSuccessMessage("Producto guardado exitosamente");
+
+          // Limpiar los campos del formulario
+          if (formRef.current) {
+            formRef.current.reset();
+          }
+        })
+        .catch(error => {
+          console.error("Error al guardar el producto:", error);
+        });
+    }
+  }, [imgUrl1]);
+
+  const handleChange = (event) => {
+    setImageName(event.target.value);
+  };
+
+  const handleChangeUrl = (event) => {
+    setImgUrl(event.target.files[0]);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     const formData = new FormData(formRef.current);
     const data = Object.fromEntries(formData);
 
-    let fetchData = await useCreateProduct(data);
+    try {
+      // Subir el archivo a Firebase
+      await uploadFiles(imgUrl, imgName);
 
-    setDataSave(fetchData);
+      // Obtener la URL del archivo subido y asignarla a imgUrl1
+      const url = await getUrl(imgName);
+      console.log("🚀 ~ handleSubmit ~ erreuele:", url)
+   
+      setUrl(url);
+      console.log("Santa url"+ imgUrl1)
+      console.log("🚀 ~ handleSubmit ~ imgName:", imgName)
+      // Guardar los datos del producto sin la URL por ahora
+      setDataSave(data);
+    } catch (error) {
+      console.error("Error al guardar el producto:", error);
+    }
   };
 
- 
-  if (dataSave && dataSave !== "error") {
-    setTimeout(() => {
-        showSuccessMessage("producto guardado");
-    }, 800);
-  }
- 
   return (
     <>
-        <div class="formulario-container">
-          <form id="formulario-producto" onSubmit={handleSubmit} ref={formRef}>
-            <div class="form-group">
-              <label class="label-nombre" for="nombre">Nombre</label>
-              <input name="nombre" type="text" id="nombre" required />
+      <div className="formulario-container">
+        <form id="formulario-producto" onSubmit={handleSubmit} ref={formRef}>
+          <div className="form-group">
+            <input name="img" type="file" id="img" onChange={handleChangeUrl} required />
+          </div>
+          <div class="form-group">
+              <label class="label-nombre" for="nombre" >Nombre</label>
+              <input name="nombre" type="text" id="nombre" onChange={handleChange} required />
             </div>
             <div class="form-group">
               <label class="label-create" for="id">Marca</label>
@@ -61,11 +106,10 @@ const ComponentCrud = () =>{
                 <option value="cepillo">cepillo</option>
               </select>
             </div>
-            <button type="submit">Crear Producto</button>
-            
-          </form>
-        </div>
-      
+
+          <button type="submit">Crear Producto</button>
+        </form>
+      </div>
     </>
   );
 };

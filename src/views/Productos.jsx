@@ -2,37 +2,17 @@ import React, { useEffect, useState } from "react";
 import "../components/Producto";
 import Producto from "../components/Producto";
 import "../styles/Productos.css";
- import imgContainer from "../assets/jugueteGato.jpg"
- import imgContainer1 from "../assets/comidaPerro.jpg"
- import imgContainer2 from "../assets/juguetePerro.jpg"
- import imgContainer3 from "../assets/comidaGato.png"
- import imgContainer4 from "../assets/peineGato.jpg"
- import imgContainer5 from "../assets/jugueteGato.jpg"
- import imgContainer6 from "../assets/comidaPeces.jpg"
- import imgContainer7 from "../assets/cepilloPeces.jpg"
- import imgContainer8 from "../assets/juguetePeces.jpg"
 import NavBar from "../components/NavBar"
 import { useSeeAll } from "../hooks/useProduct";
 
 let state = false
 const Productos = () => {
-  function setImage(productName){
+  // async function getImageUrl(name){
+  //   console.log(url)
+  //   return url.toString()
     
-    if(productName == "comida para gatos"){
-      return imgContainer3
-    } else if(productName == "comida para perros" || productName == "comida para perro"){
-      return imgContainer1
-    } else if(productName == "comida para pez"|| productName == "comida para peces"){
-      return imgContainer6
-    }else if(productName == "juguete para perro" || productName == "juguete para perro"){
-      return imgContainer2
-    }else if(productName == "juguete para gato"){
-      return imgContainer
-    }else if(productName == "juguete para perro"){
-      return imgContainer2
-    }
-    
-    }
+  //  }
+   
   const agregarCarrito = (producto) => {
     
     if (!state) {
@@ -86,75 +66,9 @@ const Productos = () => {
       return [];
     }
   };
-  //para poder borrar el hp local xD
-  const productoEnCarro = obtenerProductosEnCarrito();
-
-  // let productos = [
-  //   //lista de diccionarios [{}]
-  //   //esto se hace para poder guardar mas cositas, es un diccionario de datos es como un json xD
-  //   {
-  //     marca: "Comida para Gato",
-  //     pathImg: imgContainer3,
-  //     precio: "1000",
-  //     referencia: "04",
-  //   },
-  //   {
-  //     marca: "Cepillo para Gato",
-  //     pathImg: imgContainer4,
-  //     precio: "2000",
-  //     referencia: "05",
-  //   },
-  //   {
-  //     marca: "Juguete para Gato",
-  //     pathImg: imgContainer5,
-  //     precio: "2000",
-  //     referencia: "06",
-  //   },
-  //   {
-  //     marca: "Comida para Peces",
-  //     pathImg: imgContainer6,
-  //     precio: "1000",
-  //     referencia: "07",
-  //   },
-  //   {
-  //     marca: "Cepillo para perros",
-  //     pathImg: imgContainer7,
-  //     precio: "2000",
-  //     referencia: "08",
-  //   },
-  //   {
-  //     marca: "yosise",
-  //     pathImg: imgContainer8,
-  //     precio: "2000",
-  //     referencia: "09",
-  //   },
-  //   {
-  //     marca: "Comida para Perro",
-  //     pathImg: imgContainer,
-  //     precio: "1000",
-  //     referencia: "01",
-  //   },
-  //   {
-  //     marca: "Cepillo para Perro",
-  //     pathImg: imgContainer1,
-  //     precio: "2000",
-  //     referencia: "02",
-  //   },
-  //   {
-  //     marca: "Juguete para Perro",
-  //     pathImg: imgContainer2,
-  //     precio: "2000",
-  //     referencia: "03",
-  //   }
-  // ];
-
-
-
+ 
+  const productoEnCarro = obtenerProductosEnCarrito(); //Se usa esta linea para setear el local como nuevo
   const [products, setProducts] = useState([]);
-
-
-
-
   useEffect(() => {
     // Aquí puedes realizar una solicitud HTTP para obtener los datos de la base de datos
     // Supongamos que tienes una función fetchDataFromDatabase para esto
@@ -176,8 +90,7 @@ const Productos = () => {
   //Cambios evidentes
   //aqui tenemos la barra de navegacion por si deseamos usarla en otro momento xD
   let data = ""
-  const [searchInput, setSearchInput] = useState("")
-
+  const [searchInput, setSearchInput] = useState("")  
   React.useEffect(() => {
 
   }, [searchInput, data])
@@ -201,18 +114,17 @@ const Productos = () => {
         <div className="filter">
           <input type="text" className="filterInput" onChange={(e) => {
             setSearchInput(e.target.value)
-
           }} />
         </div>
 
         <div class="div-hijo">
           {products &&
-            FilteredData(products).map((producto, index) => {
+            FilteredData(products).map((producto) => {
               return (
                 <Producto
                 nombre = {producto.nombre}
                   marca={producto.marca}
-                  imagen={setImage(producto.nombre.toLowerCase())}
+                  imagen={'https://firebasestorage.googleapis.com/v0/b/paulina-4cb34.appspot.com/o/images%2Fcomida%20para%20perros?alt=media&token=f38d0e10-164f-4375-94e4-df6516e5be34'}
                   precio={producto.precio}
                   referencia={producto.referencia}
                   onAgregarAlCarrito={(producto) => {

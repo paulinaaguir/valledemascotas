@@ -12,6 +12,7 @@ import DeleteProducto from "./viewAdmin/DeleteProducto.jsx";
 import ComponentCrud from "./viewAdmin/CreateProduct.jsx";
 import ProductInventory from "./viewAdmin/ProductInventory.jsx";
 
+
 function App() {
   return (
     <div className="">
