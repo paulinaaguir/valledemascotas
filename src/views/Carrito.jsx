@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../styles/Carrito.css";
 import ProductoCarro from "../components/ProductoCarro";
 import { Button } from "../components/Button";
-
+import { get_informe } from "../services/pdf.service.js"
 const Carrito = () => {
   const [actualizarCarro, setActualizarCarro] = useState(false);
   useEffect(() => {
@@ -45,7 +45,9 @@ const Carrito = () => {
 
                 </div>
               </div>
-              <Button label="Pagar" mostrarBoton={true}></Button>
+              <Button label="Pagar" mostrarBoton={true} fn={async () => {
+                await get_informe(carrito)
+              }}></Button>
             </div>
           </>
         );

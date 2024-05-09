@@ -67,6 +67,8 @@ const Productos = () => {
     }
   };
 
+
+
   const productoEnCarro = obtenerProductosEnCarrito(); //Se usa esta linea para setear el local como nuevo
   const [products, setProducts] = useState([]);
   useEffect(() => {
