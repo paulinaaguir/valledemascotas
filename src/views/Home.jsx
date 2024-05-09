@@ -10,7 +10,7 @@ import imgContainer6 from "../assets/gato.png";
 import imgContainer7 from "../assets/perro2.png";
 import imgContainer8 from "../assets/perro3.webp";
 import imgContainer9 from "../assets/pez.png";
-import Producto from "../components/Producto";
+import imgContainer10 from "../assets/conejito.avif";
 import { useSeeAll } from "../hooks/useProduct";
 import ProductoCarro from "../components/ProductoCarro";
 import { Navigate } from "react-router-dom";
@@ -85,8 +85,8 @@ const Home = () => {
           style={{
             zIndex: -1,
             position: "absolute",
-            top: "55rem",
-            left: "20%",
+            top: "80rem",
+            left: "90%",
             width: "100px",
             transform: "rotate(400deg)",
           }}
@@ -113,13 +113,59 @@ const Home = () => {
           style={{
             zIndex: -1,
             position: "absolute",
-            top: "25rem",
-            left: "45%",
+            top: "50rem",
+            left: "50%",
             width: "100px",
             transform: "rotate(400deg)",
           }}
         >
           {<img src={imgContainer9} alt="" />}
+        </div>
+      </div>
+      <div style={{ position: "relative" }}>
+        <div
+          style={{
+            zIndex: -1,
+            position: "absolute",
+            top: "77rem",
+            left: "15%",
+            width: "200px",
+            transform: "rotate(400deg)",
+          }}
+        >
+          {<img src={imgContainer10} alt="" />}
+        </div>
+      </div>
+      <div style={{ position: "relative" }}>
+        <div
+          style={{
+            zIndex: -1,
+            position: "absolute",
+            top: "50rem",
+            left: "10%",
+            width: "200px",
+            transform: "rotate(400deg)"
+          }}
+        >
+          <div className="decorate">
+           
+          </div>
+        </div>
+      </div>
+      <div style={{ position: "relative" }}>
+        <div
+          style={{
+            zIndex: -1,
+            position: "absolute",
+            top: "50rem",
+            left: "80%",
+            width: "200px",
+            transform: "rotate(400deg)"
+          }}
+        >
+          <div className="decorate1">
+           
+          </div>
         </div>
       </div>
       <br />
@@ -130,15 +176,7 @@ const Home = () => {
           class="banner"
         ></img>
 
-        {/* <div  style={{ zIndex : 0,position: 'absolute',top: '9rem' , left : '26%',  width: '300px'}}>
-           <img src={imgContainer10} alt="" />
-      </div>
-      <div  style={{ zIndex : 0,position: 'absolute',top: '9rem' , left : '20%',  width: '300px'}}>
-           <img src={imgContainer11} alt="" />
-      </div>
-      <div  style={{ zIndex : 0,position: 'absolute',top: '9rem' , left : '24%',  width: '300px'}}>
-           <img src={imgContainer12} alt="" />
-      </div>  */}
+        
       </div>
 
       <p>Donde tu mascota hace parte de la familia</p>

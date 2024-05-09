@@ -10,7 +10,18 @@ p {
 .banner-container {
   background-color: #74bed8;
 }
-
+.decorate{
+  width: 100px;
+  height: 100px;
+  border-radius:100%;
+  background: linear-gradient( #ffffff,#DEF0FC);
+}
+.decorate1{
+  width: 100px;
+  height: 100px;
+  border-radius:100%;
+  background: linear-gradient( #DEF0FC, #ffffff);
+}
 .pointer {
   cursor: pointer;
 }
