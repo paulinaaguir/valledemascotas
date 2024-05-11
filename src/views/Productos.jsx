@@ -4,7 +4,13 @@ import Producto from "../components/Producto";
 import "../styles/Productos.css";
 import NavBar from "../components/NavBar"
 import { useSeeAll } from "../hooks/useProduct";
-
+import imgContainer5 from "../assets/perro1.webp";
+import imgContainer6 from "../assets/gato.png";
+import imgContainer7 from "../assets/perro2.png";
+import imgContainer8 from "../assets/perro3.webp";
+import imgContainer9 from "../assets/pez.png";
+import imgContainer10 from "../assets/conejito.avif";
+import Decorate from "../components/Decorate";
 let state = false
 const Productos = () => {
 
@@ -15,7 +21,7 @@ const Productos = () => {
       try {
         // Obtener productos del localStorage
         let productosEnCarrito = obtenerProductosEnCarrito();
-        console.log("🚀 ~ agregarCarrito ~ mentiri  :", productosEnCarrito)
+    
 
         productosEnCarrito.map((item) => {
           if (item.referencia == producto.referencia) {
@@ -66,7 +72,11 @@ const Productos = () => {
       return [];
     }
   };
-
+//para poder actualizar el stock
+  const handleSubmit = async (referencia,stock) => {
+    let data = {referencia,stock}
+    let fetchData = await useGetStock(data);
+  };
 
 
   const productoEnCarro = obtenerProductosEnCarrito(); //Se usa esta linea para setear el local como nuevo
@@ -111,7 +121,17 @@ const Productos = () => {
 
   return (
     <>
+    
       <NavBar mostrarEnlaceLogin={false} mostrarAlgo={true} />
+
+      <Decorate left={"2%"}top={"4rem"} width={"140px"} url={imgContainer5} rotate={"rotate(400deg)"}/>
+      <Decorate left={"85%"}top={"15rem"} width={"140px"} url={imgContainer6} rotate={"rotate(400deg)"}/>
+      <Decorate left={"86%"}top={"55rem"} width={"140px"} url={imgContainer7} rotate={"rotate(400deg)"}/>
+      <Decorate left={"74%"}top={"40rem"} width={"140px"} url={imgContainer9} rotate={"rotate(400deg)"}/>
+      <Decorate left={"38%"}top={"35rem"} width={"140px"} url={imgContainer7} rotate={"rotate(400deg)"}/>
+      <Decorate left={"45%"}top={"10rem"} width={"140px"} url={imgContainer8} rotate={"rotate(400deg)"}/>
+      <Decorate left={"2%"}top={"30rem"} width={"200px"} url={imgContainer10} rotate={"rotate(400deg)"}/>
+      <Decorate left={"20%"}top={"55rem"} width={"140px"} url={imgContainer9} rotate={"rotate(400deg)"}/>
       <div class="div-principal">
         <div className="filter">
           <input type="text" className="filterInput" onChange={(e) => {

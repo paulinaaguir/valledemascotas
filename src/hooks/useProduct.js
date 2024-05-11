@@ -1,8 +1,7 @@
 
-import { registerProduct, seeAll, deleteProduct, updateProducto } from "../services/product.service.js";
+import { registerProduct, seeAll, deleteProduct, updateProducto, updateStock } from "../services/product.service.js";
 
 export const useCreateProduct = async (datas) => {
-  console.log("🚀 ~ useCreateProduct ~ datas:", datas)
 
   let data = null;
 
@@ -42,6 +41,17 @@ export const useUpdateProducto = async (datas) => {
   let data = null;
   const fetchData = async () => {
     const product = await updateProducto(datas);
+    data = product;
+  };
+  await fetchData();
+  if (!data) data = "error";
+  return data;
+};
+
+export const useUpdateStock = async (datas) => {
+  let data = null;
+  const fetchData = async () => {
+    const product = await updateStock(datas);
     data = product;
   };
   await fetchData();

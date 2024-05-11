@@ -4,7 +4,7 @@ import { Button } from "./Button";
 import { useState } from "react";
 const Producto = ({ nombre, imagen, precio, referencia, marca, onAgregarAlCarrito }) => {
   let productosEnCarrito = localStorage.getItem("productosEnCarrito");
-  const [cantidad, setCantidad] = useState(0);
+  const [cantidad, setCantidad] = useState(1);
   let producto = {
     nombre: nombre,
     imagen: imagen,
@@ -14,17 +14,12 @@ const Producto = ({ nombre, imagen, precio, referencia, marca, onAgregarAlCarrit
     cantidad: cantidad
   };
 
-  let stock = 100;
   const [mostrarBoton, setMostrarBoton] = useState(true);
   if (productosEnCarrito && productosEnCarrito.trim() !== "") {
-    console.log("🚀 ~ Producto ~ shiiiii:", productosEnCarrito)
-
     productosEnCarrito = JSON.parse(productosEnCarrito);
 
-
-
   }
-  const handleClickAgregarAlCarrito = (stock) => {
+  const handleClickAgregarAlCarrito = () => {
     onAgregarAlCarrito(producto);
     setMostrarBoton(false); // Oculta el botón después de hacer click
   };
@@ -54,9 +49,7 @@ const Producto = ({ nombre, imagen, precio, referencia, marca, onAgregarAlCarrit
               <Button
                 label="+"
                 fn={() => {
-                  if (cantidad < stock) {
                     setCantidad(cantidad + 1);
-                  }
                 }}
                 mostrarBoton={true}
               />

@@ -38,7 +38,7 @@ export const seeAll = async () => {
         }
 
         const jsonData = await response.json();
-        console.log(jsonData.message)
+
         return jsonData
     } catch (e) {
         console.error(e)
@@ -48,7 +48,7 @@ export const seeAll = async () => {
 }
 
 export const deleteProduct = async (data) => {
-    console.log(data)
+  
     try {
         const response = await fetch(backUrl + "/deleteProducto", {
             method: "POST",
@@ -63,7 +63,7 @@ export const deleteProduct = async (data) => {
         }
 
         const jsonData = await response.json();
-        console.log(jsonData.message)
+        
         return jsonData
     } catch (e) {
         console.error(e)
@@ -72,7 +72,7 @@ export const deleteProduct = async (data) => {
 
 }
 export const updateProducto = async (data) => {
-    console.log(data)
+   
     try {
         const response = await fetch(backUrl + "/updateProducto", {
             method: "POST",
@@ -87,9 +87,33 @@ export const updateProducto = async (data) => {
         }
 
         const jsonData = await response.json();
-        console.log(jsonData.message)
+       
         // localStorage.setItem("name", (jsonData.response.name))
         // localStorage.setItem("tokenSession", (jsonData.tokenSession))
+        return jsonData
+    } catch (e) {
+        console.error(e)
+        return null
+    }
+
+}
+export const updateStock = async (data) => {
+   
+    try {
+        const response = await fetch(backUrl + "/updateStock", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(data)
+        })
+
+        if (!response.ok) {
+            throw new Error(`Error en la peticion: ${response.status}`)
+        }
+
+        const jsonData = await response.json();
+
         return jsonData
     } catch (e) {
         console.error(e)

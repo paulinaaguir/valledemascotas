@@ -12,6 +12,7 @@ import imgContainer6 from "../assets/gato.png";
 import imgContainer7 from "../assets/perro2.png";
 import imgContainer8 from "../assets/perro3.webp";
 import imgContainer9 from "../assets/pez.png";
+import Decorate from "../components/Decorate";
 
 const Login = () => {
   const formRef = React.useRef();
@@ -53,86 +54,14 @@ const Login = () => {
 
   return (
     <>
-      <div
-        style={{
-          backgroundColor: "#091f2a",
-          width: "100px",
-          position: "relative",
-        }}
-      ></div>
-      <div style={{ position: "relative" }}>
-        <div
-          style={{
-            zIndex: -1,
-            position: "absolute",
-            top: "19rem",
-            left: "2%",
-            width: "150px",
-            transform: "rotate(330deg)",
-          }}
-        >
-          {<img src={imgContainer5} alt="" />}
-        </div>
-      </div>
-      <div style={{ position: "relative" }}>
-        <div
-          style={{
-            zIndex: -1,
-            position: "absolute",
-            top: "23rem",
-            left: "90%",
-            width: "100px",
-            transform: "rotate(400deg)",
-          }}
-        >
-          {<img src={imgContainer6} alt="" />}
-        </div>
-      </div>
-      <div style={{ position: "relative" }}>
-        <div
-          style={{
-            zIndex: -1,
-            position: "absolute",
-            top: "35rem",
-            left: "20%",
-            width: "100px",
-            transform: "rotate(400deg)",
-          }}
-        >
-          {<img src={imgContainer7} alt="" />}
-        </div>
-      </div>
-      <div style={{ position: "relative" }}>
-        <div
-          style={{
-            zIndex: -1,
-            position: "absolute",
-            top: "25rem",
-            left: "45%",
-            width: "100px",
-            transform: "rotate(400deg)",
-          }}
-        >
-          {<img src={imgContainer8} alt="" />}
-        </div>
-      </div>
-      <div style={{ position: "relative" }}>
-        <div
-          style={{
-            zIndex: -1,
-            position: "absolute",
-            top: "25rem",
-            left: "45%",
-            width: "100px",
-            transform: "rotate(400deg)",
-          }}
-        >
-          {<img src={imgContainer9} alt="" />}
-        </div>
-      </div>
+    <Decorate left={"90%"}top={"15rem"} width={"70px"} url={imgContainer9} rotate={"rotate(300deg)"}/>
+    <Decorate left={"26%"}top={"30rem"} width={"70px"} url={imgContainer9} rotate={"rotate(300deg)"}/>
+     <Decorate left={"0%"}top={"20rem"} width={"70px"} url={imgContainer8} rotate={"rotate(300deg)"}/>
+     <Decorate left={"65%"}top={"8rem"} width={"70px"} url={imgContainer8} rotate={"rotate(300deg)"}/>
+      <Decorate left={"80%"}top={"30rem"} width={"70px"} url={imgContainer6} rotate={"rotate(400deg)"}/>
+      <Decorate left={"15%"}top={"10rem"} width={"100px"} url={imgContainer5} rotate={"rotate(400deg)"}/>
+      <Decorate left={"2%"}top={"34rem"} width={"90px"} url={imgContainer7} rotate={"rotate(360deg)"}/>
       <br />
-    
-
       <NavBar mostrarEnlaceLogin={false} />
       <div class="login-container">
         <div class="login-form">

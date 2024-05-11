@@ -1,39 +1,54 @@
-/* Estilos generales */
+/* Estilos generales para la tabla */
 table {
-    border-collapse: collapse;
-    width: 100%;
-  }
-  .butons Button{
-    margin-left: 1%;
-  }
-  th, td {
-    padding: 8px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  /* Estilos para el encabezado de la tabla */
-  th {
-    background-color: #f2f2f2;
-  }
-  
-  /* Estilos para las filas impares */
-  tr:nth-child(odd) {
-    background-color: #f9f9f9;
-  }
-  
-  /* Estilos para las filas seleccionadas */
-  tr.selected {
-    background-color: #cce5ff; /* Cambia este color según tu preferencia */
-  }
-  
-  /* Estilos para la casilla de verificación de selección */
-  input[type="checkbox"] {
-    transform: scale(1.5); /* Ajusta el tamaño de la casilla de verificación según sea necesario */
-  }
-  
-  /* Cambia el color del texto en las casillas de verificación seleccionadas */
-  input[type="checkbox"]:checked {
-    color: #007bff; /* Cambia este color según tu preferencia */
-  }
-  
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  margin-bottom: 20px;
+  font-family: Arial, sans-serif;
+}
+
+/* Estilos para el encabezado de la tabla */
+thead {
+  background-color: #2980b9;
+  color: white;
+  height: 40px;
+}
+
+thead th {
+  padding: 15px;
+  text-align: left;
+}
+
+/* Estilos para las celdas de datos */
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+  background-color: #ddd;
+}
+
+tbody td {
+  padding: 10px 15px;
+}
+
+/* Estilos para los botones dentro de las celdas */
+.butons {
+  display: flex;
+}
+
+.butons button {
+  padding: 10px 15px;
+  margin: 0 5px;
+  border: none;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.butons button:hover {
+  background-color: #45a049;
+}

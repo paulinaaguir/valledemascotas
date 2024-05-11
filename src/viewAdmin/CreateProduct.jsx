@@ -40,7 +40,6 @@ const ComponentCrud = () => {
 
       // Obtener la URL del archivo subido y asignarla a imgUrl1
       const url = await getUrl(imgName);
-      console.log("🚀 ~ handleSubmit ~ erreuele:", url)
       const dataWithUrl = { ...data, url: url };
 
       // Guardar los datos del producto en la base de datos
@@ -69,6 +68,8 @@ const ComponentCrud = () => {
     <>
       <div className="formulario-container">
         <form id="formulario-producto" onSubmit={handleSubmit} ref={formRef}>
+          <br />
+          <br />
           <div className="form-group">
             <input name="img" type="file" id="img" onChange={handleChangeUrl} required />
           </div>

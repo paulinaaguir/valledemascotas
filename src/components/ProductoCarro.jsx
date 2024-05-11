@@ -1,7 +1,7 @@
 import React from "react";
 import { Button } from "../components/Button"
 import "../styles/ProductoCarro.css"
-const ProductoCarro = ({ imagen, precio, referencia, marca, stock, fn, nombre, trueOrFalse }) => {
+const ProductoCarro = ({ imagen, precio, referencia, marca, stock, fn, nombre,cantidad, trueOrFalse,mostrarRef}) => {
   const obtenerProductosEnCarrito = () => {
     // Obtener productos del localStorage
     const productosEnCarritoString = localStorage.getItem("productosEnCarrito");
@@ -54,7 +54,8 @@ const ProductoCarro = ({ imagen, precio, referencia, marca, stock, fn, nombre, t
           <div className="informacion-producto">
             <p className="nombre">{nombre}</p>
             <p className="marca">{marca}</p>
-            <p className="referencia">{referencia}</p>
+            {mostrarRef && <p className="referencia">{referencia}</p>}
+            {cantidad && <p className="referencia">{cantidad} unidades</p>}
             {precio && <p className="precio">${precio}</p>}
             {stock && <p className="stock">${stock}</p>}
           </div>

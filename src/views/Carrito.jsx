@@ -3,6 +3,7 @@ import "../styles/Carrito.css";
 import ProductoCarro from "../components/ProductoCarro";
 import { Button } from "../components/Button";
 import { get_informe } from "../services/pdf.service.js"
+import { useUpdateStock } from "../hooks/useProduct.js";
 const Carrito = () => {
   const [actualizarCarro, setActualizarCarro] = useState(false);
   useEffect(() => {
@@ -16,23 +17,29 @@ const Carrito = () => {
     if (carrito && carrito.trim() !== "") {
       carrito = JSON.parse(carrito);
 
-      const objeto = {
-        carrito: carrito,
-      };
+//actualizar el stock
+const handleSubmit = async (referencia,stock) => {
+  let data = {referencia,stock}
+  await useUpdateStock(data);
+};
+
       if (carrito.length > 0) {
         return (
           <>
             <div className="payments">
               <div className="contenedor">
-                <div className="contenedor-flex ">
+                <div className="contenedor-flex">
                   {carrito &&
                     carrito.map((producto) => {
                       return (
                         <ProductoCarro
+                        nombre={producto.nombre}
                           marca={producto.marca}
                           imagen={producto.imagen}
                           precio={producto.precio}
                           referencia={producto.referencia}
+                          cantidad = {producto.cantidad}
+                          mostrarRef={false}
                           // stock={producto.stock}
                           fn={(actualizarCarro) => {
                             setActualizarCarro(!actualizarCarro);
@@ -41,14 +48,18 @@ const Carrito = () => {
                         />
                       );
                     })}
-
-
                 </div>
-              </div>
-              <Button label="Pagar" mostrarBoton={true} fn={async () => {
-                await get_informe(carrito)
-              }}></Button>
+                <div className="ayuda">
+            <Button label="Pagar" mostrarBoton={true} fn={async () => {
+                await get_informe(carrito);
+              }}/>
             </div>
+              </div>
+              
+            </div>
+            <br /><br />
+            
+            
           </>
         );
       } else {

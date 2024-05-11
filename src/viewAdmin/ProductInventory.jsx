@@ -87,11 +87,16 @@ const ProductInventory = () => {
         <h2>Product Inventory</h2>
         <table>
           <thead>
+           
             <tr>
+            
               {ENCABEZADO_TABLA_PRODUCTOS.map((header) => {
+                
                 return <td>{header}</td>;
+                
               })}
             </tr>
+            
           </thead>
           <tbody>
             {products &&
@@ -101,6 +106,7 @@ const ProductInventory = () => {
                   onClick={() => handleRowSelect(product.id)}
                 >
                   <td>{product.referencia}</td>
+                  
                   <td>{product.nombre}</td>
                   <td>{product.precio}</td>
                   <td>{product.tipo}</td>

@@ -3,7 +3,7 @@ import Swal from "sweetalert2"
 import withReactContent from "sweetalert2-react-content"
 import Carrito from '../views/Carrito'
 import "../styles/ModalStyles.css"
-export const ModalForm = ({ datos, titulo, CerrarModal, html, width }) => {
+export const ModalForm = ({ datos, titulo, CerrarModal, html, width}) => {
 
 
   const MySwal = withReactContent(Swal)
