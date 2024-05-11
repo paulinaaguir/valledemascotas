@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import "../styles/CreateProduct.css";
 import { useUpdateProducto } from "../hooks/useProduct.js";
-import {showSuccessMessage} from "../components/Notifications.jsx";
 const UpdateProduct = ({ data }) => {
   console.log("🚀 ~ UpdateProduct ~ data:", data)
   const formRef = React.useRef();
@@ -21,43 +20,43 @@ const UpdateProduct = ({ data }) => {
   };
   const handleInputChange = (event) => {
     setInputValues(event.target.value);
-    
+
   };
   return (
     <>
-      <div class="formulario-container">
+      <div className="formulario-container">
         <form id="formulario-producto" onSubmit={handleSubmit} ref={formRef}>
           <div class="form-group">
-            <label class="label-nombre" for="nombre">
+            <label className="label-nombre" for="nombre">
               Nombre
             </label>
-            <input name="nombre" type="text" id="nombre" required value={inputValues.nombre}
-              onChange={handleInputChange}/>
+            <input name="nombre" className="input-name" type="text" id="nombre" required value={inputValues.nombre}
+              onChange={handleInputChange} />
           </div>
           <div class="form-group">
-            <label class="label-create" for="id">
+            <label class="label-createMarca" for="id">
               Marca
             </label>
             <input
-              class="product-item" name="marca" type="text" id="marca" required value={inputValues.marca} onChange={handleInputChange} />
+              className="product-itemMarca" name="marca" type="text" id="marca" required value={inputValues.marca} onChange={handleInputChange} />
           </div>
           <div class="form-group">
-            <label class="label-create" for="id">
+            <label class="label-createFecha" for="id">
               Fecha
             </label>
-            <input class="product-item" name="fecha" type="date" id="fecha" required value={inputValues.fecha} onChange={handleInputChange}
+            <input className="product-itemFecha" name="fecha" type="date" id="fecha" required value={inputValues.fecha} onChange={handleInputChange}
             />
           </div>
           <div class="form-group">
-            <label class="label-create" for="id">
+            <label className="label-createPrecio" for="id">
               Precio
             </label>
             <input
-              class="product-item"
+              className="product-itemProd"
               name="precio"
               type="text"
               id="prefio"
-              required 
+              required
               value={inputValues.precio}
               onChange={handleInputChange}
             />
@@ -75,11 +74,11 @@ const UpdateProduct = ({ data }) => {
             />
           </div>
           <div class="form-group">
-            <label class="label-create" for="id">
+            <label className="label-createMarca" for="id">
               Stock
             </label>
             <input
-              class="product-item"
+              class="product-itemMarca"
               name="stock"
               type="text"
               id="stock"
@@ -89,10 +88,10 @@ const UpdateProduct = ({ data }) => {
             />
           </div>
           <div class="form-group">
-            <label class="label-create" for="opcion">
+            <label class="label-Tipo" for="opcion">
               Tipo
             </label>
-            <select id="opcion" name="tipo" class="select" required>
+            <select id="opcion" name="tipo" className="select-item" required>
               <option disabled selected hidden>
                 {inputValues.tipo}
               </option>
@@ -101,7 +100,7 @@ const UpdateProduct = ({ data }) => {
               <option value="cepillo">cepillo</option>
             </select>
           </div>
-          <button type="submit">Actualizar producto</button>
+          <button className="buttonUpdate" type="submit">Actualizar producto</button>
         </form>
       </div>
     </>

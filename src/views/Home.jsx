@@ -10,17 +10,18 @@ import imgContainer6 from "../assets/gato.png";
 import imgContainer7 from "../assets/perro2.png";
 import imgContainer8 from "../assets/perro3.webp";
 import imgContainer9 from "../assets/pez.png";
+import imgContainer10 from "../assets/perritoPng.jpeg";
+import imgContainer11 from "../assets/gatito.png";
 import { useSeeAll } from "../hooks/useProduct";
 import ProductoCarro from "../components/ProductoCarro";
-import { Navigate } from "react-router-dom";
-import { Button } from "../components/Button";
+// import { Navigate } from "react-router-dom";
+// import { Button } from "../components/Button";
 import Decorate from "../components/Decorate";
 // import imgContainer12 from ""
 
 const Home = () => {
   const [products, setProducts] = useState([]);
   const [n, setN] = useState(0);
-  const [paginas,setPaginas] = useState(0)
   useEffect(() => {
     // Aquí puedes realizar una solicitud HTTP para obtener los datos de la base de datos
     // Supongamos que tienes una función fetchDataFromDatabase para esto
@@ -39,7 +40,7 @@ const Home = () => {
 
   function TuComponente() {
     const [startIndex, setStartIndex] = useState(0);
-  
+
     const mostrarSiguienteGrupo = () => {
       if (startIndex + 3 < products.length) {
         setStartIndex(startIndex + 3);
@@ -47,12 +48,12 @@ const Home = () => {
         setStartIndex(0);
       }
     };
-  
+
     // Utilizamos setTimeout para mostrar automáticamente el siguiente grupo de productos cada 5 segundos
     setTimeout(mostrarSiguienteGrupo, 5000); // Cambia este valor para ajustar la velocidad de cambio de los productos
-  
+
     const productsToShow = products.slice(startIndex, startIndex + 3);
-  
+
     return (
       <div className="container-products">
         <div className="div-productos">
@@ -70,8 +71,8 @@ const Home = () => {
       </div>
     );
   }
-  
-  
+
+
   return (
     <>
       <NavBar
@@ -80,9 +81,9 @@ const Home = () => {
         mostrarDelete={false}
       />
       {/* esto es decoración */}
-      
-      
-   
+
+
+
 
       <br />
       <div class="banner-container">
@@ -92,21 +93,21 @@ const Home = () => {
           class="banner"
         ></img>
 
-        
+
       </div>
-      <Decorate left={"10%"}top={"8rem"} width={"200px"} setCircle={true}/>
-      <Decorate left={"70%"}top={"20rem"} width={"200px"} setCircle={true}/>
-      <Decorate left={"20%"}top={"20rem"} width={"200px"} setCircle={true}/>
-      <Decorate left={"1%"}top={"25rem"} width={"200px"} setCircle={true}/>
-      <Decorate left={"80%"}top={"36rem"} width={"200px"} setCircle={true}/>
-      <Decorate left={"10%"}top={"36rem"} width={"200px"} setCircle={true}/>
-      <Decorate left={"90%"}top={"10rem"} width={"200px"} setCircle={true}/>
-      <Decorate left={"2%"}top={"4rem"} width={"200px"} url={imgContainer5} rotate={"rotate(400deg)"}/>
-      <Decorate left={"85%"}top={"30rem"} width={"150px"} url={imgContainer6} rotate={"rotate(400deg)"}/>
-      <Decorate left={"90%"}top={"70rem"} width={"150px"} url={imgContainer7} rotate={"rotate(400deg)"}/>
-      <Decorate left={"38%"}top={"35rem"} width={"150px"} url={imgContainer7} rotate={"rotate(400deg)"}/>
-      <Decorate left={"45%"}top={"10rem"} width={"150px"} url={imgContainer8} rotate={"rotate(400deg)"}/>
-      <Decorate left={"25%"}top={"70rem"} width={"150px"} url={imgContainer9} rotate={"rotate(400deg)"}/>
+      <Decorate left={"10%"} top={"8rem"} width={"200px"} setCircle={true} />
+      <Decorate left={"70%"} top={"20rem"} width={"200px"} setCircle={true} />
+      <Decorate left={"20%"} top={"20rem"} width={"200px"} setCircle={true} />
+      <Decorate left={"1%"} top={"25rem"} width={"200px"} setCircle={true} />
+      <Decorate left={"80%"} top={"36rem"} width={"200px"} setCircle={true} />
+      <Decorate left={"10%"} top={"36rem"} width={"200px"} setCircle={true} />
+      <Decorate left={"90%"} top={"10rem"} width={"200px"} setCircle={true} />
+      <Decorate left={"2%"} top={"4rem"} width={"200px"} url={imgContainer5} rotate={"rotate(400deg)"} />
+      <Decorate left={"85%"} top={"30rem"} width={"150px"} url={imgContainer6} rotate={"rotate(400deg)"} />
+      <Decorate left={"90%"} top={"70rem"} width={"150px"} url={imgContainer7} rotate={"rotate(400deg)"} />
+      <Decorate left={"38%"} top={"35rem"} width={"150px"} url={imgContainer7} rotate={"rotate(400deg)"} />
+      <Decorate left={"45%"} top={"10rem"} width={"150px"} url={imgContainer8} rotate={"rotate(400deg)"} />
+      <Decorate left={"25%"} top={"70rem"} width={"150px"} url={imgContainer9} rotate={"rotate(400deg)"} />
       <p>Donde tu mascota hace parte de la familia</p>
 
       <section id="blog">
@@ -114,6 +115,9 @@ const Home = () => {
           En el Valle de Mascotas, entendemos la importancia de tu mascota en tu
           vida. Es por eso que nos esforzamos por brindar el mejor cuidado y
           atención para tu fiel compañero peludo.
+        </p>
+        <p>
+          Tanto tu como el pueden disfrutar de esta nueva experiencia que los llenará de mas conexión y magia
         </p>
       </section>
       <div class="container">
@@ -130,31 +134,29 @@ const Home = () => {
             <p>Comida</p>
             <img src={imgContainer2} alt="" class="img" />
             <p>
-              Nuestro equipo está formado por amantes de los animales con años
-              de experiencia en el cuidado y atención de mascotas.{" "}
+              Contamos con los mejores snacks, juguetes, comida de la mejor marca, atención de primera y los mejores pediatras de el valle de Aburrá
             </p>
           </div>
           <div class="info">
-            <p>Comida</p>
-            <img src={imgContainer} alt="" class="img" />
+            <p>Distracción para tu peludo</p>
+            <img src={imgContainer11} alt="" class="img" />
             <p>
-              Nuestro equipo está formado por amantes de los animales con años
-              de experiencia en el cuidado y atención de mascotas.{" "}
+              Juguetes, diversión, descanso en el hogar, sedes amobladas y mucho mas para la atención de tu pequeño
             </p>
           </div>
           <div class="info1">
-            <p>Comida</p>
-            <img src={imgContainer2} alt="" class="img" />
+            <br />
+            <p>Vive la experiencia</p>
+            <img src={imgContainer10} alt="" class="img" />
             <p>
-              Nuestro equipo está formado por amantes de los animales con años
-              de experiencia en el cuidado y atención de mascotas.
+              Permite que tu mascota pueda acompañarnos en nuestra sede donde lo atenderemos de la mejor manera y con mucho amor
             </p>
           </div>
         </section>
       </div>
       <div>
         <h1>
-        {TuComponente()}
+          {TuComponente()}
         </h1>
       </div>
       <footer>

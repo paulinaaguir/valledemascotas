@@ -1,28 +1,70 @@
-.label-create{
-margin: 0;
+.label-create {
+  margin: 0;
 
 }
-.formulario-container label{
+
+.label-Tipo {
+  position: relative;
+  margin-right: 14%;
+  padding-left: 10%;
+}
+
+.select-item {
+  width: 67%;
+  height: 100% !important;
+}
+
+.label-createPrecio {
+  position: relative;
+  margin-right: 40px;
+  padding-left: 10%;
+
+}
+
+
+
+.label-referencia {
+  margin-left: -4% !important;
+}
+
+
+.product-itemProd {
+  width: 66%;
+}
+
+.product-itemPre {
+  width: 80%;
+  margin-left: 100px;
+}
+
+.formulario-container label {
   margin-left: -10%;
 }
+
 .label-create {
   margin: 0;
   padding: 10%;
 }
-.label-referencia{
-  margin: 0;
-  padding: 5.5%;
-}
+
 .label-nombre {
-  padding: 8%;
+  margin-right: 8%;
+  position: relative;
+  padding-left: 9%;
 }
+
+.buttonUpdate {
+  width: auto;
+}
+
 .select {
-  margin-left: 03% ;
+  margin-left: 03%;
   width: 60%;
 }
-.form-group #fecha{
+
+.form-group #fecha {
   width: 60%;
 }
+
 .formulario-container {
   padding-top: 0rem;
   padding-bottom: 2rem;
@@ -34,6 +76,27 @@ margin: 0;
   /* Subtle shadow */
 }
 
+.input-name {
+  width: 68%;
+}
+
+.label-createFecha,
+.label-createMarca {
+  margin-right: 10%;
+  padding-left: 10%;
+}
+
+.product-itemFecha,
+.product-itemMarca {
+  width: 67% !important;
+  margin-left: 1%;
+}
+
+.product-itemCreate {
+  margin-left: 5%;
+  width: 67% !important;
+}
+
 #formulario-producto {
   max-width: 400px;
   margin: 0 auto;
@@ -41,8 +104,10 @@ margin: 0;
 
 .form-group {
   margin-bottom: 15px;
-  display: flex; /* Establece el contenedor como un flexbox */
-  align-items: center; /* Centra verticalmente los elementos */
+  display: flex;
+  /* Establece el contenedor como un flexbox */
+  align-items: center;
+  /* Centra verticalmente los elementos */
 }
 
 label {
@@ -50,14 +115,7 @@ label {
   margin-bottom: 8px;
 }
 
-input,
-select {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-}
+
 
 button {
   background-color: #4caf50;
@@ -71,6 +129,7 @@ button {
 button:hover {
   background-color: #45a049;
 }
+
 @media (max-width: 768px) {
   .formulario-container {
     padding-top: 0rem;
