@@ -27,7 +27,8 @@ function App() {
           <Route path="/register" element={<RegisterUs />} />
           <Route path="/delete" element={<DeleteProducto />} />
           <Route path="/inventario" element={<ProductInventory />} />
-          <Route path="/crearUs" element={<CreateUser />} />
+          <Route path="/crearAdmin" element={<CreateUser />} />
+          <Route path="/crearUser" element={<RegisterUs/>} />
         </Routes>
       </Router>
     </div>

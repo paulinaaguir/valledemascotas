@@ -20,7 +20,7 @@ import Decorate from "../components/Decorate";
 const Home = () => {
   const [products, setProducts] = useState([]);
   const [n, setN] = useState(0);
-
+  const [paginas,setPaginas] = useState(0)
   useEffect(() => {
     // Aquí puedes realizar una solicitud HTTP para obtener los datos de la base de datos
     // Supongamos que tienes una función fetchDataFromDatabase para esto
@@ -37,6 +37,41 @@ const Home = () => {
     fetchData();
   }, []);
 
+  function TuComponente() {
+    const [startIndex, setStartIndex] = useState(0);
+  
+    const mostrarSiguienteGrupo = () => {
+      if (startIndex + 3 < products.length) {
+        setStartIndex(startIndex + 3);
+      } else {
+        setStartIndex(0);
+      }
+    };
+  
+    // Utilizamos setTimeout para mostrar automáticamente el siguiente grupo de productos cada 5 segundos
+    setTimeout(mostrarSiguienteGrupo, 5000); // Cambia este valor para ajustar la velocidad de cambio de los productos
+  
+    const productsToShow = products.slice(startIndex, startIndex + 3);
+  
+    return (
+      <div className="container-products">
+        <div className="div-productos">
+          {productsToShow.map((producto) => (
+            <a href="/login" key={producto.id} className="pointer">
+              <ProductoCarro
+                nombre={producto.nombre}
+                marca={producto.marca}
+                imagen={producto.url}
+                precio={producto.precio}
+              />
+            </a>
+          ))}
+        </div>
+      </div>
+    );
+  }
+  
+  
   return (
     <>
       <NavBar
@@ -119,55 +154,7 @@ const Home = () => {
       </div>
       <div>
         <h1>
-          <div className="container-products" >
-            <div className="div-productos">
-              {products &&
-                products
-                  .slice(n, n + 3) // Mostrar los siguientes 3 productos
-                  .map((producto) => {
-                    return (
-                      <a href="/login" key={producto.id} className="pointer">
-                        <ProductoCarro
-                          nombre={producto.nombre}
-                          marca={producto.marca}
-                          imagen={producto.url}
-                          precio={producto.precio}
-                        />
-                      </a>
-                    );
-                  })}
-            </div>
-
-            <div className="buttons-container">
-              <Button
-                mostrarBoton={true}
-                label="<"
-                fn={() => {
-                  setN(() => {
-                    if (n > 0) {
-                      return n - 1
-                    } else {
-                      return Math.ceil(products.length / 3)
-                    }
-                  });
-                }}
-              />
-
-              <Button
-                mostrarBoton={true}
-                label=">"
-                fn={() => {
-                  setN(() => {
-                    if (n <= Math.ceil(products.length / 3)) {
-                      return n + 1
-                    } else {
-                      return 0
-                    }
-                  });
-                }}
-              />
-            </div>
-          </div>
+        {TuComponente()}
         </h1>
       </div>
       <footer>

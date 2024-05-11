@@ -29,7 +29,7 @@ const Login = () => {
   };
 
   const registerAction = async () => {
-    navigate("/crearUs");
+    navigate("/crearUser");
   };
   const passChange = async () => {
     navigate("/recover");
@@ -74,6 +74,7 @@ const Login = () => {
                 id="username"
                 name="id"
                 placeholder="Ingresa tu usuario"
+                className="loguinInput"
               />
             </div>
             <div class="input-group">
@@ -83,9 +84,10 @@ const Login = () => {
                 id="password"
                 name="password"
                 placeholder="Ingresa tu contraseña"
+                className="loguinInput"
               />
             </div>
-            <button className="buttonSub" type="submit">
+            <button className="buttonLog" type="submit">
               Ingresar
             </button>
             <br />

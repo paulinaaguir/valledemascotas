@@ -69,7 +69,7 @@ const ProductInventory = () => {
   useEffect(() => { }, []);
   return (
     <>
-      <NavBar mostrarCreate={true} />
+      <NavBar mostrarCreate={true} mostrarCreateAdmin={true} />
       <div>
         {toggle && (
           <ModalConfirm
