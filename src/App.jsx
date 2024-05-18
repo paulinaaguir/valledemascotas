@@ -11,7 +11,7 @@ import DeleteProducto from "./viewAdmin/DeleteProducto.jsx";
 import ProductInventory from "./viewAdmin/ProductInventory.jsx";
 import CreateUser from "./viewAdmin/CreateUser.jsx";
 
-
+//esta es la parte en la que se crea las rutas 
 function App() {
   return (
     <div className="">

@@ -5,13 +5,13 @@ import { getStorage, ref, uploadBytes, getDownloadURL, deleteObject } from 'fire
 import { getAnalytics } from "firebase/analytics";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyA4W4BET568mbsZW8r2Ayw6QXNY0YXnuCs",
-  authDomain: "paulina-4cb34.firebaseapp.com",
-  projectId: "paulina-4cb34",
-  storageBucket: "paulina-4cb34.appspot.com",
-  messagingSenderId: "1093052184574",
-  appId: "1:1093052184574:web:5303839ea87f8fe71972af",
-  measurementId: "G-1Z7EMRQ38Y"
+  apiKey: "AIzaSyAGs_aHK5Ul1ineMOU8_Sz14OuWX4bYRU0",
+  authDomain: "paulina-c83cd.firebaseapp.com",
+  projectId: "paulina-c83cd",
+  storageBucket: "paulina-c83cd.appspot.com",
+  messagingSenderId: "279120237268",
+  appId: "1:279120237268:web:c3de01dc466a587725e141",
+  measurementId: "G-032G4L90NQ"
 };
 
 // Initialize Firebase
