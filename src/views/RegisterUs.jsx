@@ -11,6 +11,7 @@ import imgContainer8 from "../assets/perro3.webp";
 import imgContainer9 from "../assets/pez.png";
 import { useNavigate } from "react-router-dom";
 const RegisterUs = () => {
+  //este es el modulo para crear un usuario comprador
   const navigate = useNavigate();
   const formRef = React.useRef();
   const [dataSave, setDataSave] = useState();
@@ -43,34 +44,34 @@ const RegisterUs = () => {
       <Decorate left={"80%"} top={"30rem"} width={"70px"} url={imgContainer6} rotate={"rotate(400deg)"} />
       <Decorate left={"15%"} top={"10rem"} width={"100px"} url={imgContainer5} rotate={"rotate(400deg)"} />
       <Decorate left={"2%"} top={"34rem"} width={"90px"} url={imgContainer7} rotate={"rotate(360deg)"} />
-      <br />
       <NavBar mostrarEnlaceLogin={false} />
-      <div className="create-container">
-        <div class="create-form ">
-          <form id="formulario-producto" onSubmit={handleSubmit} ref={formRef}>
-            <div className="form-group">
-              <label className="label-id" htmlFor="id">DNI/ID </label>
-              <input name="id" className="product-item" type="text" id="id" required />
+      <div className="user-container">
+        <div class="user-form ">
+          <form id="user-producto" onSubmit={handleSubmit} ref={formRef}>
+            <h1>Crear Usuario</h1>
+            <div className="user-group">
+              <label className="user-id" htmlFor="id">DNI/ID </label>
+              <input name="id" className="user-item" type="text" id="id" required />
             </div>
-            <div className="form-group">
-              <label className="label-create" htmlFor="id">nombre</label>
-              <input className="product-item" name="name" type="text" id="name" required />
+            <div className="user-group">
+              <label className="user-create" htmlFor="id">nombre</label>
+              <input className="user-item" name="name" type="text" id="name" required />
             </div>
-            <div className="form-group">
-              <label className="label-pass" htmlFor="pass">Contraseña</label>
-              <input className="product-item" name="password" type="password" id="password" required />
+            <div className="user-group">
+              <label className="user-pass" htmlFor="pass">Contraseña</label>
+              <input className="user-item" name="password" type="password" id="password" required />
             </div>
-            <div className="form-group">
-              <label className="label-create" htmlFor="id">Email</label>
-              <input className="product-data" name="email" type="email" id="email" required />
+            <div className="user-group">
+              <label className="user-create" htmlFor="id">Email</label>
+              <input className="user-data" name="email" type="email" id="email" required />
             </div>
-            <div className="form-group">
-              <label className="label-data" htmlFor="id">Contacto</label>
-              <input className="product-phone" name="phone" type="tel" id="contacto" required />
+            <div className="user-group">
+              <label className="user-data" htmlFor="id">Contacto</label>
+              <input className="user-phone" name="phone" type="tel" id="contacto" required />
             </div>
             <button className="buttonCreate" type="submit" onClick={
               navigate("/login")
-            }>Crear Usuario</button>
+            }>Crear</button>
           </form>
         </div>
       </div>

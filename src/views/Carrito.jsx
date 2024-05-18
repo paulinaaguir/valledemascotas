@@ -18,10 +18,6 @@ const Carrito = () => {
       carrito = JSON.parse(carrito);
 
 //actualizar el stock
-const handleSubmit = async (referencia,stock) => {
-  let data = {referencia,stock}
-  await useUpdateStock(data);
-};
 
       if (carrito.length > 0) {
         return (
@@ -52,6 +48,9 @@ const handleSubmit = async (referencia,stock) => {
                 <div className="ayuda">
             <Button label="Pagar" mostrarBoton={true} fn={async () => {
                 await get_informe(carrito);
+                carrito = '';
+                localStorage.setItem("productosEnCarrito", '');
+                setActualizarCarro(true)
               }}/>
             </div>
               </div>

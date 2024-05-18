@@ -6,6 +6,7 @@
   cursor: pointer;
 }
 #navbar {
+  font: oblique bold 120% cursive;
   background-color: var(--primary-color);
   display: flex;
   text-align: center;
@@ -46,7 +47,7 @@ nav {
 nav > a ,h3{
   margin: auto;
   color: #fff;
-  font-family: "Constantia", serif;
+
   text-decoration: none;
   /* padding: 10px 20px; */
   padding-right: 2rem;
@@ -55,7 +56,7 @@ nav > a ,h3{
 div > h3{
   margin: auto 0 auto 2rem ;
   padding: 0;
-  font-family: "Constantia", serif;
+ 
   position: relative;
   display: flex;
 }
@@ -64,7 +65,7 @@ div > h3{
  
 @media (max-width : 800px) {
   #navbar {
-    font: .7em sans-serif;
+   
     background-color: var(--primary-color);
     
     text-align: center;
@@ -80,7 +81,7 @@ div > h3{
 
 @media (max-width : 1000px) {
   #navbar {
-    font: .7em sans-serif;
+  
     background-color: var(--primary-color);
 
     text-align: center;

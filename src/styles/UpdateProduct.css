@@ -1,0 +1,140 @@
+.label-create {
+    margin: 0;
+  }
+  
+  .label-Tipo {
+    position: relative;
+    margin-right: 14%;
+   
+  }
+  .input-tipo{
+    margin-left: 8%;
+    width: 66%;
+  }
+  .label-createPrecio {
+    position: relative;
+    margin-right: 40px;
+    padding-left: 10%;
+  }
+  
+  
+  
+  .label-referencia {
+    margin-left: -4% !important;
+  }
+  
+  
+  .product-itemProd {
+    width: 66%;
+  }
+  
+  .product-itemPre {
+    width: 80%;
+  }
+  
+  .formulario-container label {
+    margin-left: -10%;
+  }
+  
+  .label-create {
+    margin: 0;
+    padding: 10%;
+  }
+  
+  .label-nombre {
+    margin-right: 8%;
+    position: relative;
+    padding-left: 9%;
+  }
+  
+  .buttonUpdate {
+    width: auto;
+  }
+  
+  .select {
+    margin-left: 03%;
+    width: 60%;
+  }
+  
+  .form-group #fecha {
+    width: 60%;
+  }
+  
+  .formulario-container {
+    padding-top: 0rem;
+    padding-bottom: 2rem;
+    width: 100%;
+    border-radius: 2%;
+    background-color: whitesmoke;
+    /* White background for the form */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.137);
+    /* Subtle shadow */
+  }
+  
+  .input-name {
+    width: 68%;
+  }
+  
+  .label-createFecha,
+  .label-createMarca {
+    margin-right: 10%;
+    padding-left: 10%;
+  }
+  
+  .product-itemFecha,
+  .product-itemMarca {
+    width: 67% !important;
+    margin-left: 1%;
+  }
+  
+  .product-itemCreate {
+    margin-left: 5%;
+    width: 67% !important;
+  }
+  
+  #formulario-producto {
+    max-width: 400px;
+    padding-top: 5%;
+    margin: 0 auto;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+    display: flex;
+    /* Establece el contenedor como un flexbox */
+    align-items: center;
+    /* Centra verticalmente los elementos */
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  
+  
+  button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #45a049;
+  }
+  
+  @media (max-width: 768px) {
+    .formulario-container {
+      padding-top: 0rem;
+      padding-bottom: 2rem;
+      width: 100%;
+      border-radius: 2%;
+      background-color: whitesmoke;
+      /* White background for the form */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.137);
+      /* Subtle shadow */
+    }
+  }

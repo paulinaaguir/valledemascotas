@@ -1,25 +1,40 @@
-.create-container{
+.user-container {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 39rem;
+  height: 36rem;
+  /* font: oblique bold 120% cursive; */
+  /* font: small-caps 100%/200% serif; este jamas akjshdjkahskdj*/
 }
 
-.create-form {
-  padding-top: 2%;
-  padding-bottom: 2%;
+.user-form{
+  padding-bottom: 1%;
   position: absolute;
-  width: 40%;
-  height: fit-content;
+  width: 35% !important;
   border-radius: 10px;
-  background-color: #fff; /* White background for the form */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.137); /* Subtle shadow */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.137);
+}
+#user-producto {
+  max-width: 100%; /* Ancho máximo del formulario */
+  margin: auto; /* Centra el formulario horizontalmente */
+  padding: 20px; /* Espacio interno para el formulario */
+  border-radius: 5px; /* Esquinas redondeadas */
+}
+.user-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px; /* Espacio entre el label y el input */
+  margin-bottom: 15px; /* Espacio entre cada grupo */
 }
 
-.logo {
-  width: auto; /* Adjust logo width as needed */
-  margin-bottom: 20px;
+.user-group label {
+  flex: 1; /* Ajusta el espacio del label según sea necesario */
+}
+
+.user-group input {
+  flex: 2; /* Ajusta el espacio del input según sea necesario */
 }
 
 h1 {
@@ -28,44 +43,6 @@ h1 {
   color: black;
 }
 
-
-.label-id{
-  position: relative;
-  margin-right: 10%;
-  padding-left: 30px;
-  margin-left: -10%;
-} 
-.label-data{
-  position: relative;
-  margin-right: 10%;
-  padding-left: 32px;
-  margin-left: -10%;
-}
-.label-create{
-  position: relative;
-  margin-right: -1%;
-  padding-left: 30px;
-  margin-left: -10%;
-}
-.label-pass{
-  position: relative;
-  margin-right: 1%;
-  padding-left: 30px;
-  margin-left: -10%;
-}
-.product-data{
-  width: 65%;
-   margin-left: 9%;
-  padding-left: 90px;
-}
-.product-phone{
-  width: 65%;
-}
-.product-item{
-  width: 65% !important;
-   margin-left: 6%;
-  padding-left: 90px;
-}
 button {
   background-color: #007bff; /* Blue button color */
   color: #fff;
@@ -101,23 +78,28 @@ a {
 .form a:hover {
   background-color: #f0f2f5; /* Change background color on hover */
 }
-.login-image {
-  width: 50%;
-  background-image: url("login-background.jpg"); /* Replace with your image */
-  background-size: cover;
-  background-position: center;
-}
 
 @media (max-width: 768px) {
+  .user-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 33rem;
+  }
   
-  .login-form {
-
+  .user-form{
+    padding-bottom: 2%;
     position: absolute;
     width: 80% !important;
     border-radius: 10px;
-    background-color: #fff; /* White background for the form */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.137); /* Subtle shadow */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.137);
   }
+  #user-producto {
+    max-width: 100%; /* Ancho máximo del formulario */
+    margin: auto; /* Centra el formulario horizontalmente */
+    padding: 20px; /* Espacio interno para el formulario */
+  }  
 
 }
 

@@ -1,23 +1,36 @@
 
 import React, { useEffect, useState } from "react";
-import "../styles/CreateProduct.css";
+import "../styles/UpdateProduct.css";
 import { useUpdateProducto } from "../hooks/useProduct.js";
-const UpdateProduct = ({ data }) => {
+import { showSuccessMessage } from "../components/Notifications.jsx";
+const UpdateProduct = ({ data, handleUpdateTrigger}) => {
   console.log("🚀 ~ UpdateProduct ~ data:", data)
   const formRef = React.useRef();
-  const [dataSave, setDataSave] = useState();
   const [dataValue, setDataValue] = useState(data);
   const [inputValues, setInputValues] = useState(dataValue);
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+// Dentro de tu componente UpdateProduct
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    const formData = new FormData(formRef.current);
-    const data = Object.fromEntries(formData);
+  const formData = new FormData(formRef.current);
+  const data = Object.fromEntries(formData);
 
-    let fetchData = await useUpdateProducto(data);
+  try {
+    await useUpdateProducto(data);
+    // Mostrar mensaje de éxito
+    showSuccessMessage("Producto actualizado");
 
-    setDataSave(fetchData);
-  };
+    // Limpiar los campos del formulario
+    if (formRef.current) {
+      formRef.current.reset();
+    }
+
+    // Llamar a la función handleUpdateTrigger proporcionada desde ProductInventory
+    handleUpdateTrigger(); // Aquí estás invocando correctamente la función
+  } catch (error) {
+    console.error("Error al actualizar producto:", error);
+  }
+};
   const handleInputChange = (event) => {
     setInputValues(event.target.value);
 
@@ -88,17 +101,11 @@ const UpdateProduct = ({ data }) => {
             />
           </div>
           <div class="form-group">
-            <label class="label-Tipo" for="opcion">
-              Tipo
+            <label className="label-nombre" for="nombre">
+              tipo
             </label>
-            <select id="opcion" name="tipo" className="select-item" required>
-              <option disabled selected hidden>
-                {inputValues.tipo}
-              </option>
-              <option value="comida">comida</option>
-              <option value="juguete">juguete</option>
-              <option value="cepillo">cepillo</option>
-            </select>
+            <input name="tipo" className="input-tipo" type="text" id="tipo" required value={inputValues.tipo}
+              onChange={handleInputChange} />
           </div>
           <button className="buttonUpdate" type="submit">Actualizar producto</button>
         </form>

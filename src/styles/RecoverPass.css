@@ -1,30 +1,60 @@
 .recover-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: auto;
-    height: 30rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 30rem;
   }
   .form{
     justify-content: center;
-    margin-top: 3.5rem;
-
+    margin-top: 6%;
   }
   .recover-form {
+    padding-bottom: 3%;
     position: absolute;
-    width: 400px;
+    width: 35% !important;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.137);
+  }
+ 
+  .recover-group {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px; /* Espacio entre el label y el input */
+    margin-bottom: 15px; /* Espacio entre cada grupo */
+  }
+  
+  .recover-group label {
+    flex: 1; /* Ajusta el espacio del label según sea necesario */
+  }
+  
+  .recover-group input {
+    flex: 2; /* Ajusta el espacio del input según sea necesario */
+  }
+  .recover-group, input {
+    width: 80%;
+  }
+.buttonSub{
+  width: 30%;
+}
+@media (max-width: 768px) {
+ 
+  .recover-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 27rem;
+  }
+
+  .recover-form {
+    padding-bottom: 2%;
+    position: absolute;
+    width:80% !important;
     height: fit-content;
     border-radius: 10px;
     background-color: #fff; /* White background for the form */
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Subtle shadow */
   }
-  .recoverInput {
-    position: relative;
-    width: 250px;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-sizing: border-box; /* Ensures padding doesn't affect input width */
-  }
- 
+}

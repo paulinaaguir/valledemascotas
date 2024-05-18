@@ -108,9 +108,13 @@ const Home = () => {
       <Decorate left={"38%"} top={"35rem"} width={"150px"} url={imgContainer7} rotate={"rotate(400deg)"} />
       <Decorate left={"45%"} top={"10rem"} width={"150px"} url={imgContainer8} rotate={"rotate(400deg)"} />
       <Decorate left={"25%"} top={"70rem"} width={"150px"} url={imgContainer9} rotate={"rotate(400deg)"} />
+      <br />
+      <div className="fontChange">
       <p>Donde tu mascota hace parte de la familia</p>
-
+      </div>
+      
       <section id="blog">
+      <div className="fontChange">
         <p>
           En el Valle de Mascotas, entendemos la importancia de tu mascota en tu
           vida. Es por eso que nos esforzamos por brindar el mejor cuidado y
@@ -119,11 +123,12 @@ const Home = () => {
         <p>
           Tanto tu como el pueden disfrutar de esta nueva experiencia que los llenará de mas conexión y magia
         </p>
+        </div>
       </section>
       <div class="container">
         <section>
           <div class="info">
-            <p>Atiende a tu peludo</p>
+          <strong> <p>Atiende a tu peludo</p></strong>
             <img src={imgContainer} alt="" class="img" />
             <p>
               Nuestro equipo está formado por amantes de los animales con años
@@ -131,22 +136,24 @@ const Home = () => {
             </p>
           </div>
           <div class="info1">
-            <p>Comida</p>
+          <strong><p>Comida</p></strong>
+            
             <img src={imgContainer2} alt="" class="img" />
             <p>
               Contamos con los mejores snacks, juguetes, comida de la mejor marca, atención de primera y los mejores pediatras de el valle de Aburrá
             </p>
           </div>
           <div class="info">
-            <p>Distracción para tu peludo</p>
+            <strong><p>Distracción para tu peludo</p></strong>
             <img src={imgContainer11} alt="" class="img" />
             <p>
               Juguetes, diversión, descanso en el hogar, sedes amobladas y mucho mas para la atención de tu pequeño
             </p>
           </div>
           <div class="info1">
-            <br />
-            <p>Vive la experiencia</p>
+       <br />
+            <strong><p>Vive la experiencia</p></strong>
+           
             <img src={imgContainer10} alt="" class="img" />
             <p>
               Permite que tu mascota pueda acompañarnos en nuestra sede donde lo atenderemos de la mejor manera y con mucho amor

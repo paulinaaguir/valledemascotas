@@ -61,7 +61,7 @@ const Login = () => {
       <Decorate left={"80%"}top={"30rem"} width={"70px"} url={imgContainer6} rotate={"rotate(400deg)"}/>
       <Decorate left={"15%"}top={"10rem"} width={"100px"} url={imgContainer5} rotate={"rotate(400deg)"}/>
       <Decorate left={"2%"}top={"34rem"} width={"90px"} url={imgContainer7} rotate={"rotate(360deg)"}/>
-      <br />
+      
       <NavBar mostrarEnlaceLogin={false} />
       <div class="login-container">
         <div class="login-form">

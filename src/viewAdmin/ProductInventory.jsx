@@ -1,75 +1,93 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { ModalConfirm, ModalForm } from "../components/Modal";
 import "../styles/ProductInventory.css";
 import {
   useDeleteProduct,
-  useSeeAll,
-  useUpdateProducto,
+  useSeeAll
 } from "../hooks/useProduct";
 import { Button } from "../components/Button";
 import { ENCABEZADO_TABLA_PRODUCTOS } from "../const/headers";
 import NavBar from "../components/NavBar.jsx";
 import UpdateProduct from "./UpdateProduct.jsx";
 import { deleteImg } from "../firebase/config.js";
-const ProductInventory = () => {
 
-  // Estado para almacenar los datos de productos y las filas seleccionadas
+const ProductInventory = () => {
+  const [updateTrigger, setUpdateTrigger] = useState(false);
+  const [createTrigger, setCreateTrigge] = useState(false);
   const [products, setProducts] = useState([]);
   const [toggle, setToggle] = useState(false);
   const [dataModal, setDataModal] = useState();
   const [dataUpdate, setDataUpdate] = useState();
   const [selectedRows, setSelectedRows] = useState([]);
   const [estado, setEstado] = useState(false);
-  //  const [refreshpage,setRefreshPage] = useState(false)
-  useEffect(() => {
-    // Aquí puedes realizar una solicitud HTTP para obtener los datos de la base de datos
-    // Supongamos que tienes una función fetchDataFromDatabase para esto
-    const fetchData = async () => {
-      try {
-        const data = await useSeeAll();
-        setProducts(data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
 
-    fetchData();
+  const fetchData = useCallback(async () => {
+    try {
+      const data = await useSeeAll();
+      setProducts(data);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
   }, []);
 
-  // Manejar la selección de filas
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
+
   const handleDelete = async (referencia) => {
-    let fetchData = await useDeleteProduct({ referencia });
-    console.log(fetchData);
-  };
-
-
-  const handleDeleteImg = async (nombre) => {
-    //aqui va la basura de delete img 
     try {
-      await deleteImg(nombre)
-      console.log("sisas")
+      await useDeleteProduct({ referencia });
+      fetchData(); // Después de eliminar, vuelva a cargar los datos
     } catch (error) {
-      console.log("nosa")
+      console.error("Error deleting product:", error);
     }
   };
 
 
+  //para refrescar el createProduct 
+  const handleRefreshPage = () => {
+    window.location.reload(); // Esto recargará la página
+  };
+
+
+
+  const handleUpdateTrigger = async () => {
+    setUpdateTrigger(!updateTrigger);
+    setDataUpdate(null);
+    // Vuelve a cargar los datos después de actualizar el producto
+    await fetchData();
+  };
+
+  const handleCreateTrigger = async () => {
+    setCreateTrigge(!updateTrigger);
+    setDataUpdate(null);
+    // Vuelve a cargar los datos después de actualizar el producto
+    await fetchData();
+  };
+  useEffect(() => {
+    fetchData();
+  }, []);
+  const handleDeleteImg = async (nombre) => {
+    try {
+      await deleteImg(nombre);
+    } catch (error) {
+    }
+  };
+
   const handleRowSelect = (productId) => {
     const index = selectedRows.indexOf(productId);
     if (index === -1) {
-      // Si el producto no está seleccionado, agrégalo a la lista de selección
       setSelectedRows([...selectedRows, productId]);
     } else {
-      // Si el producto está seleccionado, elimínalo de la lista de selección
       const updatedSelectedRows = [...selectedRows];
       updatedSelectedRows.splice(index, 1);
       setSelectedRows(updatedSelectedRows);
     }
   };
-  useEffect(() => { }, []);
+
   return (
     <>
-      <NavBar mostrarCreate={true} mostrarCreateAdmin={true} />
+      <NavBar mostrarCreate={true} mostrarCreateAdmin={true} handleRefreshPage={handleRefreshPage} mostrarLogout={true}  />
       <div>
         {toggle && (
           <ModalConfirm
@@ -79,24 +97,20 @@ const ProductInventory = () => {
         )}
         {estado && (
           <ModalForm
-            html={<UpdateProduct data={dataUpdate} />}
+
+            html={<UpdateProduct data={dataUpdate} handleUpdateTrigger={handleUpdateTrigger} />}
             CerrarModal={() => setEstado(false)}
           />
         )}
 
-        <h2>Product Inventory</h2>
-        <table>
+        <br /> 
+        <table>  
           <thead>
-           
             <tr>
-            
-              {ENCABEZADO_TABLA_PRODUCTOS.map((header) => {
-                
-                return <td>{header}</td>;
-                
-              })}
+              {ENCABEZADO_TABLA_PRODUCTOS.map((header, index) => (
+                <th key={index}>{header}</th>
+              ))}
             </tr>
-            
           </thead>
           <tbody>
             {products &&
@@ -106,7 +120,6 @@ const ProductInventory = () => {
                   onClick={() => handleRowSelect(product.id)}
                 >
                   <td>{product.referencia}</td>
-                  
                   <td>{product.nombre}</td>
                   <td>{product.precio}</td>
                   <td>{product.tipo}</td>
@@ -114,17 +127,13 @@ const ProductInventory = () => {
                   <td>{product.stock}</td>
                   <td>{product.fecha}</td>
                   <td>
-                    {/* <input
-                  type="checkbox"
-                  checked={selectedRows.includes(product.id)}
-                  readOnly
-                /> */}
-
-                    <div class="butons">
+                    <div className="butons">
                       <Button
                         mostrarBoton={true}
                         icon={
-                          <span class="material-symbols-outlined">delete</span>
+                          <span className="material-symbols-outlined">
+                            delete
+                          </span>
                         }
                         fn={() => {
                           setDataModal(product.referencia);
@@ -135,7 +144,7 @@ const ProductInventory = () => {
                       <Button
                         mostrarBoton={true}
                         icon={
-                          <span class="material-symbols-outlined">edit</span>
+                          <span className="material-symbols-outlined">edit</span>
                         }
                         fn={() => {
                           setDataUpdate(product);

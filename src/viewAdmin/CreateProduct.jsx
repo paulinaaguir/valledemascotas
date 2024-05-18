@@ -4,7 +4,7 @@ import { useCreateProduct } from "../hooks/useProduct.js";
 import { showSuccessMessage } from "../components/Notifications.jsx";
 import { uploadFiles, getUrl, deleteImg } from "../firebase/config.js";
 
-const ComponentCrud = () => {
+const ComponentCrud = ({handleRefreshPage}) => {
   const formRef = React.useRef();
   const [dataSave, setDataSave] = useState();
   const [imgName, setImageName] = useState('');
@@ -13,11 +13,7 @@ const ComponentCrud = () => {
 
   // Este efecto se ejecutará cada vez que imgUrl1 se actualice
   useEffect(() => {
-    if (imgUrl1) {
-      console.log("🚀 ~ useEffect ~ imgUrl1:", imgUrl1)
-      // Agregar la URL a los datos del producto
 
-    }
   }, [imgUrl1]);
 
   const handleChange = (event) => {
@@ -44,18 +40,21 @@ const ComponentCrud = () => {
 
       // Guardar los datos del producto en la base de datos
       useCreateProduct(dataWithUrl)
-        .then(() => {
-          // Mostrar mensaje de éxito
-          showSuccessMessage("Producto guardado exitosamente");
-
-          // Limpiar los campos del formulario
-          if (formRef.current) {
-            formRef.current.reset();
-          }
-        })
-        .catch(error => {
-          console.error("Error al guardar el producto:", error);
-        });
+      .then(() => {
+        // Mostrar mensaje de éxito
+        showSuccessMessage("Producto guardado exitosamente");
+        
+        // Limpiar los campos del formulario
+        if (formRef.current) {
+          formRef.current.reset();
+        }
+    
+        // Llamar a handleRefreshPage para recargar la página
+        handleRefreshPage();
+      })
+      .catch(error => {
+        console.error("Error al guardar el producto:", error);
+      });
       setUrl(url);
       // Guardar los datos del producto sin la URL por ahora
       setDataSave(data);
@@ -66,50 +65,47 @@ const ComponentCrud = () => {
 
   return (
     <>
-      <div className="formulario-container">
-        <form id="formulario-producto" onSubmit={handleSubmit} ref={formRef}>
-          <br />
-          <br />
-          <div className="form-group">
-            <input name="img" type="file" id="img" onChange={handleChangeUrl} required />
+      <div className="create-container">
+        <div class="create-form">
+        <form id="create-producto" onSubmit={handleSubmit} ref={formRef}>
+        <div class="create-img">
+            <input name="img" type="file" id="img" className='create-img' onChange={handleChangeUrl} required />
           </div>
-          <div class="form-group">
-            <label class="label-nombre" for="nombre" >Nombre</label>
-            <input name="nombre" type="text" id="nombre" onChange={handleChange} required />
+          <div class="create-group">
+            <label className="create-nombre" for="nombre" >Nombre</label>
+            <input name="nombre" type="text" id="nombre" className="create-input" onChange={handleChange} required />
           </div>
-          <div class="form-group">
-            <label class="label-create" for="id">Marca</label>
-            <input class="product-item" name="marca" type="text" id="marca" required />
+          <div class="create-group">
+            <label className="create-marca" for="id">Marca</label>
+            <input className="create-input" name="marca" type="text" id="marca" required />
           </div>
-          <div class="form-group">
-            <label class="label-create" for="id">Fecha</label>
-            <input class="product-item" name="fecha" type="date" id="fecha" />
+          <div class="create-group">
+            <label className="create-fecha" for="id">Fecha</label>
+            <input className="create-input" name="fecha" type="date" id="fecha" />
           </div>
-          <div class="form-group">
-            <label class="label-create" for="id">Precio</label>
-            <input class="product-item" name="precio" type="text" id="precio" required />
+          <div class="create-group">
+            <label className="label-precio" for="id">Precio</label>
+            <input className="create-input" name="precio" type="text" id="precio" required />
           </div>
-          <div class="form-group">
-            <label class="label-referencia" for="id">Referencia</label>
-            <input class="product-item" name="referencia" type="text" id="referencia" required />
+          <div class="create-group">
+            <label className="label-referencia" for="id">Referencia</label>
+            <input className="create-input" name="referencia" type="text" id="referencia" required />
           </div>
-          <div class="form-group">
-            <label class="label-create" for="id">Stock</label>
-            <input class="product-item" name="stock" type="text" id="stock" required />
+          <div class="create-group">
+            <label className="label-stock" for="id">Stock</label>
+            <input className="create-input" name="stock" type="text" id="stock" required />
           </div>
-          <div class="form-group">
-            <label class="label-create" for="opcion">Tipo</label>
-            <select id="opcion" name="tipo" class="select" required>
-              <option disabled selected hidden >eliga algo</option>
-              <option value="comida">comida</option>
-              <option value="juguete">juguete</option>
-              <option value="cepillo">cepillo</option>
-            </select>
+          <div class="create-group">
+            <label className="label-tipo" for="nombre">
+              tipo
+            </label>
+            <input name="tipo" className="create-input" type="text" id="tipo" require/>
           </div>
-
-          <button type="submit">Crear Producto</button>
+          <button type="submit" className="buttonProduct">Crear</button>
+          
         </form>
-      </div>
+        </div>
+        </div>
     </>
   );
 };
