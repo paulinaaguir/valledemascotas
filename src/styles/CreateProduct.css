@@ -5,8 +5,7 @@
     width: 100%;
     height: auto;
   }
-/* aqui van algunos cambios que estamos probando */
- /* Estilo base para los grupos de administración */
+
  .create-group {
     justify-content: center ;
     display: flex;
@@ -21,7 +20,7 @@
   }
   
   .create-group input {
-    flex: 2; /* Ajusta el espacio del input según sea necesario */
+    flex: 2; 
   }
   .create-group, input {
     width: 100%;

@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { logUser, recoverPass, registerUser } from "../services/user.service.js";
 
 export const useLogUser = async (datas) => {
-  // console.log("🚀 ~ useUser ~ datas:", datas)
   let data = null;
 
   const fetchData = async () => {

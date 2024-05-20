@@ -17,8 +17,7 @@ export const logUser = async (data) => {
 
         const jsonData = await response.json()
         console.log(jsonData.response)
-        // localStorage.setItem("name", (jsonData.response.name))
-        // localStorage.setItem("tokenSession", (jsonData.tokenSession))
+
         return jsonData
     } catch (e) {
         console.error(e)

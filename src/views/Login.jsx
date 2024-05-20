@@ -22,9 +22,8 @@ const Login = () => {
     e.preventDefault();
     const formData = new FormData(formRef.current);
     const data = Object.fromEntries(formData);
-    // console.log(data)
+
     let fetchData = await useLogUser(data);
-    // console.log(fetchData)
     setDataSession(fetchData);
   };
 

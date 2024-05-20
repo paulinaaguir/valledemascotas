@@ -88,8 +88,7 @@ export const updateProducto = async (data) => {
 
         const jsonData = await response.json();
        
-        // localStorage.setItem("name", (jsonData.response.name))
-        // localStorage.setItem("tokenSession", (jsonData.tokenSession))
+       
         return jsonData
     } catch (e) {
         console.error(e)

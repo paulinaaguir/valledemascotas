@@ -14,24 +14,19 @@ import imgContainer10 from "../assets/perritoPng.jpeg";
 import imgContainer11 from "../assets/gatito.png";
 import { useSeeAll } from "../hooks/useProduct";
 import ProductoCarro from "../components/ProductoCarro";
-// import { Navigate } from "react-router-dom";
-// import { Button } from "../components/Button";
 import Decorate from "../components/Decorate";
-// import imgContainer12 from ""
+
 
 const Home = () => {
   const [products, setProducts] = useState([]);
   const [n, setN] = useState(0);
   useEffect(() => {
-    // Aquí puedes realizar una solicitud HTTP para obtener los datos de la base de datos
-    // Supongamos que tienes una función fetchDataFromDatabase para esto
+
     const fetchData = async () => {
       try {
         const data = await useSeeAll();
-        // console.log("🚀 ~ fetchData ~ data:", data.productos)
         setProducts(data.productos);
       } catch (error) {
-        // console.error("Error fetching data:", error);
       }
     };
 

@@ -11,7 +11,6 @@ const Carrito = () => {
       setActualizarCarro(false);
     }
   }, [actualizarCarro]);
-  // localStorage.removeItem() para elimiar el item del local jaja que belleza
   let carrito = localStorage.getItem("productosEnCarrito");
   if (carrito && carrito.trim() !== "") {
     if (carrito && carrito.trim() !== "") {
@@ -36,7 +35,6 @@ const Carrito = () => {
                           referencia={producto.referencia}
                           cantidad = {producto.cantidad}
                           mostrarRef={false}
-                          // stock={producto.stock}
                           fn={(actualizarCarro) => {
                             setActualizarCarro(!actualizarCarro);
                           }}
@@ -51,6 +49,7 @@ const Carrito = () => {
                 carrito = '';
                 localStorage.setItem("productosEnCarrito", '');
                 setActualizarCarro(true)
+                window.location.reload();
               }}/>
             </div>
               </div>

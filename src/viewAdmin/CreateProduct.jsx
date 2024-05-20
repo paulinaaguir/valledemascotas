@@ -11,7 +11,7 @@ const ComponentCrud = ({handleRefreshPage}) => {
   const [imgUrl, setImgUrl] = useState('');
   const [imgUrl1, setUrl] = useState('');
 
-  // Este efecto se ejecutará cada vez que imgUrl1 se actualice
+
   useEffect(() => {
 
   }, [imgUrl1]);

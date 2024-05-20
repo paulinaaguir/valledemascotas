@@ -1,4 +1,4 @@
-/* Estilos generales del botón */
+
 .btn-responsive {
    
     padding: 8px 16px;
@@ -16,14 +16,13 @@
   .botonImg{
     width: 20px;
   }
-  
-  /* Efecto al pasar el ratón sobre el botón */
+
   .btn-responsive:hover {
     background-color: #3498db;
     color: #ffffff;
   }
   
-  /* Estilos específicos para pantallas más pequeñas */
+
   @media (max-width: 768px) {
     .btn-responsive {
       font-size: 12px;
@@ -31,7 +30,7 @@
     }
   }
   
-  /* Estilos específicos para pantallas aún más pequeñas */
+
   @media (max-width: 480px) {
     .btn-responsive {
       font-size: 11px;

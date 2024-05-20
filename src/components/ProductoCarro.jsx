@@ -37,8 +37,6 @@ const ProductoCarro = ({ imagen, precio, referencia, marca, stock, fn, nombre,ca
     localStorage.setItem("productosEnCarrito", JSON.stringify(productosActualizados));
 
     // Actualizar la interfaz de usuario
-    // ... (Aquí puedes usar el estado de React para actualizar la lista de productos en el carrito)
-
     // Mostrar un mensaje de confirmación al usuario
     alert(`El producto ${productoAEliminar.nombre} ha sido eliminado del carrito`);
     fn()

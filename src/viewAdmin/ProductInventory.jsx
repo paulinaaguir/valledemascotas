@@ -37,7 +37,7 @@ const ProductInventory = () => {
   const handleDelete = async (referencia) => {
     try {
       await useDeleteProduct({ referencia });
-      fetchData(); // Después de eliminar, vuelva a cargar los datos
+      fetchData(); // Después de eliminar, vuelve a cargar los datos
     } catch (error) {
       console.error("Error deleting product:", error);
     }

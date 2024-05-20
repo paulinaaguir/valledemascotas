@@ -38,7 +38,6 @@ const Producto = ({ nombre, imagen, precio, referencia, marca, onAgregarAlCarrit
         <div className="informacion-producto">
           <p className="nombre">{nombre}</p>
           <p className="marca">{marca}</p>
-          {/* <p className="referencia">{referencia}</p> */}
           <p className="precio">${precio}</p>
         </div>
         {mostrarBoton && (

@@ -25,7 +25,7 @@ const handleSubmit = async (e) => {
       formRef.current.reset();
     }
 
-    // Llamar a la función handleUpdateTrigger proporcionada desde ProductInventory
+
     handleUpdateTrigger(); // Aquí estás invocando correctamente la función
   } catch (error) {
     console.error("Error al actualizar producto:", error);

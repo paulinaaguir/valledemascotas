@@ -82,8 +82,7 @@ const Productos = () => {
   const productoEnCarro = obtenerProductosEnCarrito(); //Se usa esta linea para setear el local como nuevo
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    // Aquí puedes realizar una solicitud HTTP para obtener los datos de la base de datos
-    // Supongamos que tienes una función fetchDataFromDatabase para esto
+
     const fetchData = async () => {
       try {
         const data = await useSeeAll();

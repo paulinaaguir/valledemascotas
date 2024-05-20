@@ -35,7 +35,6 @@ const NavBar = ({ mostrarEnlaceLogin, mostrarAlgo, mostrarCreate, mostrarProduct
             <div id="navbar">
                 <h3>Valle de Mascotas</h3>
                 <nav>
-                    {/* <a href="/productos">Productos</a> */}
                     <a onClick={() => {
                         navigate('/home')
                     }}><span class="material-symbols-outlined">
@@ -55,7 +54,7 @@ const NavBar = ({ mostrarEnlaceLogin, mostrarAlgo, mostrarCreate, mostrarProduct
                     {mostrarLogout &&<a onClick={() => {
                         setTimeout(() => {
                             navigate('/login')
-                          }, 2000); // Espera 3 segundos (3000 milisegun
+                          }, 2000); // Espera 3 segundos
                     }}><span class="material-symbols-outlined">
                     logout
                     </span></a>}

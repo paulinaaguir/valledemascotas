@@ -7,7 +7,7 @@ import NavBar from "../components/NavBar.jsx";
 
 const DeleteProduct = () => {
   const formRef = React.useRef();
-  //   const navigate = useNavigate();
+
   const [dataDelete, setDataDelete] = useState();
   const handleSubmit = async (e) => {
     e.preventDefault();
